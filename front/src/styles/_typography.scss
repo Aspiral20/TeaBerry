@@ -1,0 +1,200 @@
+//For correct work fonts and mixing. Into @font-face use:
+//font-family: 'FontType-FontStyle';
+
+//  Roboto
+//@font-face {
+//  font-family: 'Roboto-Bold';
+//  src: local('Roboto-Bold'), local('Roboto-Bold'), url('fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+//  font-weight: 700;
+//}
+//@font-face {
+//  font-family: 'Roboto-Medium';
+//  src: local('Roboto-Medium'), local('Roboto-Medium'), url('fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+//  font-weight: 500;
+//}
+//@font-face {
+//  font-family: 'Roboto-Regular';
+//  src: local('Roboto-Regular'), local('Roboto-Regular'), url('fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+//  font-weight: 400;
+//  font-style: normal;
+//}
+//@font-face {
+//  font-family: 'Roboto-Light';
+//  src: local('Roboto-Light'), local('Roboto-Light'), url('fonts/Roboto/Roboto-Light.ttf') format('truetype');
+//  font-weight: 300;
+//}
+//@font-face {
+//  font-family: 'Roboto-Thin';
+//  src: local('Roboto-Thin'), local('Roboto-Thin'), url('fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+//  font-weight: 100;
+//}
+
+// FuturaPT
+
+//@font-face {
+//  font-family: 'FuturaPT-Bold';
+//  src: local('FuturaPT-Bold'), local('FuturaPT-Bold'), url('fonts/FuturaPT/FuturaPT-Bold.ttf') format('truetype');
+//  font-weight: 700;
+//}
+//@font-face {
+//  font-family: 'FuturaPT-Medium';
+//  src: local('FuturaPT-Medium'), local('FuturaPT-Medium'), url('fonts/FuturaPT/FuturaPT-Medium.ttf') format('truetype');
+//  font-weight: 500;
+//}
+//@font-face {
+//  font-family: 'FuturaPT-Regular';
+//  src: local('FuturaPT-Regular'), local('FuturaPT-Regular'), url('fonts/FuturaPT/FuturaPT-Light.ttf') format('truetype');
+//  font-weight: 400;
+//  font-style: normal;
+//}
+//@font-face {
+//  font-family: 'FuturaPT-Light';
+//  src: local('FuturaPT-Light'), local('FuturaPT-Light'), url('fonts/FuturaPT/FuturaPT-Light.ttf') format('truetype');
+//  font-weight: 300;
+//}
+//@font-face {
+//  font-family: 'FuturaPT-Thin';
+//  src: local('FuturaPT-Thin'), local('FuturaPT-Thin'), url('fonts/FuturaPT/FuturaPT-Light.ttf') format('truetype');
+//  font-weight: 100;
+//}
+
+// Montserrat
+
+//@font-face {
+//  font-family: 'Montserrat-Bold';
+//  src: local('Montserrat-Bold'), local('Montserrat-Bold'), url('fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
+//  font-weight: 700;
+//}
+//@font-face {
+//  font-family: 'Montserrat-Medium';
+//  src: local('Montserrat-Medium'), local('Montserrat-Medium'), url('fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
+//  font-weight: 500;
+//}
+//@font-face {
+//  font-family: 'Montserrat-Regular';
+//  src: local('Montserrat-Regular'), local('Montserrat-Regular'), url('fonts/Montserrat/Montserrat-Light.ttf') format('truetype');
+//  font-weight: 400;
+//  font-style: normal;
+//}
+//@font-face {
+//  font-family: 'Montserrat-Light';
+//  src: local('Montserrat-Light'), local('Montserrat-Light'), url('fonts/Montserrat/Montserrat-Light.ttf') format('truetype');
+//  font-weight: 300;
+//}
+//@font-face {
+//  font-family: 'Montserrat-Thin';
+//  src: local('Montserrat-Thin'), local('Montserrat-Thin'), url('fonts/Montserrat/Montserrat-Light.ttf') format('truetype');
+//  font-weight: 100;
+//}
+
+//Font
+$SITE_FONT: ''; //Montserrat
+
+//w: 900
+$Font_Black: $SITE_FONT + '-Black'; //Heavy
+//w: 800
+$Font_ExtraBold: $SITE_FONT + '-ExtraBold'; //Ultra Bold
+//w: 700
+$Font_Bold: $SITE_FONT + '-Bold';
+//w: 600
+$Font_SemiBold: $SITE_FONT + '-SemiBold'; //Demi Bold
+//w: 500
+$Font_Medium: $SITE_FONT + '-Medium';
+//w: 400
+$Font_Regular: $SITE_FONT + '-Regular'; //Normal
+//w: 300
+$Font_Light: $SITE_FONT + '-Light';
+//w: 200
+$Font_ExtraLight: $SITE_FONT + '-ExtraLight'; //Ultra Light
+//w: 100
+$Font_Thin: $SITE_FONT + '-Thin';
+
+// Text font-size
+$_World_Text_FontSize: 15px;
+$_World_Text_FontSize_Tablet: 14px;
+$_World_Text_FontSize_Mobile: 14px;
+
+@mixin WorldTextFontSize(
+  $size: $_World_Text_FontSize,
+  $tabletSize: $_World_Text_FontSize_Tablet,
+  $mobileSize: $_World_Text_FontSize_Mobile
+) {
+  font-size: $size;
+
+  @media screen and (max-width: 1024px) {
+    font-size: $tabletSize;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: $mobileSize;
+  }
+}
+
+// Text font color
+$_World_Text_Color: #d8d8d8; // #dbdbdb
+@mixin WorldTextColor($color: $_World_Text_Color) {
+  color: $color;
+}
+
+//w: 900
+@mixin FontBlack($font: $Font_Black, $weight: 900) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 800
+@mixin FontExtraBold($font: $Font_ExtraBold, $weight: 800) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 700
+@mixin FontBold($font: $Font_Bold, $weight: 700) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 600
+@mixin FontSemiBold($font: $Font_SemiBold, $weight: 600) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 500
+@mixin FontMedium($font: $Font_Medium, $weight: 500) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 400
+@mixin FontRegular($font: $Font_Regular, $weight: 400) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 300
+@mixin FontLight($font: $Font_Light, $weight: 300) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 200
+@mixin FontExtraLight($font: $Font_ExtraLight, $weight: 200) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 100
+@mixin FontThin($font: $Font_Thin, $weight: 100) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+/* Classes */
+
+.text {
+  @include FontRegular();
+  @include WorldTextFontSize();
+  @include WorldTextColor();
+  //letter-spacing: -0.02em;
+  line-height: 1.85;
+}
