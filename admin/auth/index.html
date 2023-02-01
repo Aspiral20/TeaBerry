@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    *, body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .auth__container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .auth__photo {
+      background-image: url("../public/static/images/nerzul.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .auth__photo, .auth__form-container {
+      width: 50%;
+      height: 100vh;
+    }
+
+    .auth__form-pagination {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 400px;
+      padding: 50px;
+      height: 100%;
+    }
+
+    .auth__form {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .form-item {
+      width: 100%;
+      margin: 25px 0;
+    }
+
+    .auth__title {
+      text-align: center;
+      width: 100%;
+    }
+    .auth__input {
+      width: 100%;
+      margin-top: 15px;
+      border-radius: 15px;
+      padding: 10px;
+      outline: none;
+    }
+
+  </style>
+</head>
+<body>
+
+
+<div class="auth__container">
+  <div class="auth__photo">
+
+  </div>
+  <div class="auth__form-container">
+    <div class="auth__form-pagination">
+      <form action="" class="auth__form">
+        <h2 class="auth__title">Authentication</h2>
+        <label class="form-item auth__user">
+          Username:
+          <input class="auth__input username" type="text">
+        </label>
+        <label class="form-item auth__password">
+          Password:
+          <input class="auth__input password" type="text">
+        </label>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

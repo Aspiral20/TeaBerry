@@ -1,0 +1,6 @@
+.idea
+/node_modules
+.env
+.env.js
+.env.json
+.env-cmdrc
