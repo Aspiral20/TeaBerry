@@ -2,11 +2,11 @@ import React, { FC, useContext, useState } from 'react';
 import { StoreContext } from "../index";
 import { observer } from "mobx-react-lite";
 
-interface AuthForm {
+interface Auth_form {
   type: string
 }
 
-const AuthForm: FC<AuthForm> = ({ type }) => {
+const AuthForm: FC<Auth_form> = ({ type }) => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const { store } = useContext(StoreContext)

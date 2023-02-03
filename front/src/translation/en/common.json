@@ -1,7 +1,16 @@
 {
   "pages": {
-    "assorts": "Assets",
+    "assorts": "Assorts",
     "picking": "Picking",
     "contacts": "Contacts"
+  },
+  "actions": {
+    "login": "Login",
+    "registration": "Registration",
+    "logout": "Logout"
+  },
+  "errors": {
+    "not-found-message": "This page does not exist. Go to",
+    "not-found-link": "main page"
   }
 }

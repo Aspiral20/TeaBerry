@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css'
 import Store from "./store/store";
 import "./styles/index.scss";
-import App from "./App";
+import App from "./app";
 import { BrowserRouter } from "react-router-dom";
 
 import './i18n';

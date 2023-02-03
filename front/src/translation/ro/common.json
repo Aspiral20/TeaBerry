@@ -3,5 +3,14 @@
     "assorts": "Asortimente",
     "picking": "Culegere",
     "contacts": "Contacte"
+  },
+  "actions": {
+    "login": "Logare",
+    "registration": "Înregistrare",
+    "logout": "Deconectare"
+  },
+  "errors": {
+    "not-found-message": "Această pagină nu există. Accesați",
+    "not-found-link": "pagina principală"
   }
 }

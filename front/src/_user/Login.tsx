@@ -1,5 +1,5 @@
 import React, { FC, useContext, useEffect } from 'react';
-import { AuthForm } from "../components";
+import { AuthForm } from "../_components";
 import { StoreContext } from "../index";
 import { observer } from "mobx-react-lite";
 // import UserService from "../services/UserService";

@@ -1,12 +1,94 @@
 .header {
   &__menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex_justify-align(flex,space-around,center);
     padding: 17px 0;
     flex-wrap: wrap;
-    .logo {
 
+    .logo_item {
+      .logo {
+        .logo-img {
+          max-width: 120px;
+        }
+      }
+    }
+
+    .menu_items {
+      .menu_item {
+        margin-left: 38px;
+        text-decoration: none;
+        font-size: 16px;
+        @include FontRegular();
+        color: rgb(46, 50, 42);
+
+        &:first-child {
+          margin-left: 0;
+        }
+        &.active {
+          color: $colorDarkYellowGreen;
+        }
+      }
+
+    }
+
+    .action_container {
+      display: flex;
+
+      .language {
+        position: relative;
+        cursor: pointer;
+        $radius: 8px;
+
+        .current_lang {
+          @include flex_justify-align();
+          padding: 2px 8px;
+          border: 1px solid $colorLightYellowGreen;
+          transition: .3s;
+          background-color: rgba($colorLightYellowGreen, .2);
+          &:hover {
+            transition: .3s;
+            background-color: $colorLightYellowGreen;
+          }
+          &.active {
+            border-top-left-radius: $radius;
+            border-top-right-radius: $radius;
+            border-bottom: 0;
+          }
+        }
+
+        .change_lang {
+          position: absolute;
+          top: calc(100% + -1px);
+          width: 100%;
+          text-align: center;
+          border: 1px solid $colorDarkYellowGreen;
+          transition: .3s;
+          border-top: 0;
+          border-bottom-left-radius: $radius;
+          border-bottom-right-radius: $radius;
+          .lng_item {
+            transition: .3s;
+            padding: 2px 0;
+
+            &:hover {
+              background-color: $colorLightYellowGreen;
+            }
+          }
+        }
+      }
+
+      .user {
+        @include flex_justify-align();
+        margin-left: 20px;
+        .user_auth_container {
+          .auth_action {
+            margin-left: 15px;
+            &:first-child {
+              margin-left: 0;
+            }
+          }
+
+        }
+      }
     }
   }
 }

@@ -1,9 +1,9 @@
-import Header from './Header'
-import HeaderResponsive from './HeaderResponsive'
-import Footer from './Footer'
+import Header from './header'
+import Header_responsive from './header_responsive'
+import Footer from './footer'
 
 export {
   Header,
-  HeaderResponsive,
+  Header_responsive,
   Footer
 }

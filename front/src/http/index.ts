@@ -1,5 +1,5 @@
 import axios, { AxiosHeaders } from 'axios';
-import { AuthResponse } from "../models/response/AuthResponse.type";
+import { AuthResponse } from "../models/response/auth_response.type";
 
 export const API_URL = "http://localhost:5000/api"
 

@@ -1,0 +1,100 @@
+// Flex
+@mixin flex_justify($display: flex, $justifyContent: center) {
+  @if($display == flex) {
+    display: $display;
+    justify-content: $justifyContent;
+  } @else {
+    display: $display;
+  }
+}
+@mixin flex_align($display: flex, $alignItems: center) {
+  @if($display == flex) {
+    display: $display;
+    align-items: $alignItems;
+  } @else {
+    display: $display;
+  }
+}
+@mixin flex_justify-align($display: flex, $justifyContent: center, $alignItems: center) {
+  @if($display == flex) {
+    display: $display;
+    align-items: $alignItems;
+    justify-content: $justifyContent;
+  } @else {
+    display: $display;
+  }
+}
+@mixin flex-wrap($display: flex, $wrap: wrap) {
+  @if($display == flex) {
+    display: $display;
+    flex-wrap: $wrap
+  } @else {
+    display: $display;
+  }
+}
+
+//  Size
+@mixin width-height($size) {
+  width: $size;
+  height: $size;
+}
+@mixin max_width-height($size) {
+  max-width: $size;
+  max-height: $size;
+}
+@mixin min_width-height($size) {
+  min-width: $size;
+  min-height: $size;
+}
+@mixin min-max_width($size) {
+  max-width: $size;
+  min-width: $size;
+}
+@mixin min-max_height($size) {
+  max-height: $size;
+  min-height: $size;
+}
+@mixin min-max_width-height($size) {
+  max-width: $size;
+  max-height: $size;
+  min-width: $size;
+  min-height: $size;
+}
+
+//  Margin
+@mixin margin_left-right($size) {
+  margin-left: $size;
+  margin-right: $size;
+}
+@mixin margin_top-bottom($size) {
+  margin-top: $size;
+  margin-bottom: $size;
+}
+
+//  Padding
+@mixin padding_left-right($size) {
+  padding-left: $size;
+  padding-right: $size;
+}
+@mixin padding_top-bottom($size) {
+  padding-top: $size;
+  padding-bottom: $size;
+}
+
+//  Margin, Padding
+@mixin margin-padding($size) {
+  margin: $size;
+  padding: $size;
+}
+
+// Parallax
+@mixin parallax($url: '') {
+  @if($url != '') {
+    background-image: url($url);
+  }
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}

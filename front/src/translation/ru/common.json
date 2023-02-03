@@ -3,5 +3,14 @@
     "assorts": "Ассортименты",
     "picking": "Сбор",
     "contacts": "Контакты"
+  },
+  "actions": {
+    "login": "Авторизоваться",
+    "registration": "Регистрация",
+    "logout": "Выход"
+  },
+  "errors": {
+    "not-found-message": "Данная страница не существует. Перейти на",
+    "not-found-link": "главную страницу"
   }
 }

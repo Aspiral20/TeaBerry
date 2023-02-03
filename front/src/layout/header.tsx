@@ -1,9 +1,10 @@
 import React, { FC, Fragment, useContext, useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
-import routesElements from "../context/routes_elements";
+import { Link, useLocation } from "react-router-dom";
+import { v4 as uuid } from 'uuid'
 import { StoreContext } from "../index";
 import { observer } from "mobx-react-lite";
 import { useTranslation } from "react-i18next";
+import cn from "classnames";
 
 const lang = [
   { key: 'en', lang: 'EN' },
@@ -11,11 +12,30 @@ const lang = [
   { key: 'ru', lang: 'RU' },
 ]
 
+const menuLinks = [
+  {
+    id: uuid(),
+    path: 'assorts',
+    value: 'assorts',
+  },
+  {
+    id: uuid(),
+    path: 'picking',
+    value: 'picking',
+  },
+  {
+    id: uuid(),
+    path: 'contacts',
+    value: 'contacts',
+  },
+]
+
 interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({}) => {
   const { t, i18n } = useTranslation()
+  const { pathname } = useLocation()
   const { store } = useContext(StoreContext);
   const [currentLang, setCurrentLang] = useState(lang[0].lang);
   const [openLang, setOpenLang] = useState<boolean>(false);
@@ -24,44 +44,41 @@ const Header: FC<HeaderProps> = ({}) => {
     lang.forEach(lng => lng.key === i18n.language ? setCurrentLang(lng.lang) : null)
   }, [i18n.language])
 
-
   return (
     <div className="header container">
       <div className="header__menu">
         <div className="logo_item">
           <Link to="/" className="logo">
-            <img src="/logo/logo.png" alt="..." className=""/>
+            <img className="logo-img" src="/logo/logo.png" alt="..."/>
           </Link>
         </div>
         <div className="menu_items">
-          {routesElements.map(({ id, header, path, value }) => (
-            <Fragment key={id}>
-              {header && (
-                <Link to={path} className="menu_item">
-                  {value && t(`pages.${value}`)}
-                </Link>
-              )}
-            </Fragment>
+          {menuLinks.map(({ id, path, value }) => (
+            <Link key={id} to={path} className={cn("menu_item", {'active': pathname.includes(path)})}>
+              {value && t(`pages.${value}`)}
+            </Link>
           ))}
         </div>
         <div className="action_container">
           <div className='language'>
-            <div className="current-lang" onClick={() => {
+            <div className={cn("current_lang", {'active': openLang})} onClick={() => {
               setOpenLang(prevState => !prevState)
             }}>
               {currentLang}
             </div>
             {openLang && (
-              <div className='change-lang'>
+              <div className='change_lang'>
                 {lang.map(lng => {
                   return (
                     <Fragment>
-                      {lng.key !== i18n.language && <div key={lng.key} className="lng-item" onClick={() => {
-                        i18n.changeLanguage(lng.key)
-                        setOpenLang(false)
-                      }}>
-                        {lng.lang}
-                      </div>}
+                      {lng.key !== i18n.language && (
+                        <div key={lng.key} className="lng_item" onClick={() => {
+                          i18n.changeLanguage(lng.key)
+                          setOpenLang(false)
+                        }}>
+                          {lng.lang}
+                        </div>
+                      )}
                     </Fragment>
                   )
                 })}
@@ -72,14 +89,16 @@ const Header: FC<HeaderProps> = ({}) => {
           <div className="user">
             {!store.isAuth ?
               <div className="user_not_logged user_auth_container">
-                <Link to={`/auth/login`}>Login</Link>
-                <Link to={`/registration`}>Registration</Link>
+                <Link className="login auth_action" to={`/auth/login`}>{t('actions.login')}</Link>
+                <Link className="registration auth_action" to={`/registration`}>{t('actions.registration')}</Link>
               </div>
               :
               <div className="user_logged user_auth_container">
-                <Link to={`/profile`}><img src="/logo/profile.jpg" alt="..." style={{ maxWidth: 60 }}/></Link>
+                <Link className="profile" to={`/profile`}>
+                  <img className="profile_img" src="/logo/profile.jpg" alt="..." style={{ maxWidth: 60 }}/>
+                </Link>
                 <Link to={`/`}>
-                  <button onClick={() => store.logout()}>Logout</button>
+                  <button className="" onClick={() => store.logout()}>{t('actions.logout')}</button>
                 </Link>
               </div>
             }

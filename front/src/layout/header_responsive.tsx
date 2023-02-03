@@ -4,7 +4,7 @@ interface HeaderResponsiveProps {
 
 }
 
-const HeaderResponsive: FC<HeaderResponsiveProps> = ({}) => {
+const Header_responsive: FC<HeaderResponsiveProps> = ({}) => {
   return (
     <div>
       HeaderResponsive
@@ -12,4 +12,4 @@ const HeaderResponsive: FC<HeaderResponsiveProps> = ({}) => {
   );
 };
 
-export default HeaderResponsive;
+export default Header_responsive;

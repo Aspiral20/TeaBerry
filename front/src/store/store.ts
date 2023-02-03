@@ -1,8 +1,8 @@
-import { IUser } from "../models/User.type";
+import { IUser } from "../models/user.type";
 import AuthService from "../services/AuthService";
 import {makeAutoObservable} from "mobx";
 import axios from 'axios';
-import { AuthResponse } from "../models/response/AuthResponse.type";
+import { AuthResponse } from "../models/response/auth_response.type";
 import { API_URL } from "../http";
 
 export default class Store {

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Container } from "../_components";
 
 interface FooterProps {
 
@@ -6,9 +7,9 @@ interface FooterProps {
 
 const Footer: FC<FooterProps> = ({}) => {
   return (
-    <div>
+    <Container>
       Footer
-    </div>
+    </Container>
   );
 };
 
