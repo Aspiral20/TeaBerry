@@ -1,6 +1,6 @@
-import Registration from "./Registration";
-import Login from './Login'
-import Profile from './Profile'
+import Registration from "./registration";
+import Login from './login';
+import Profile from './profile';
 
 export {
   Registration,

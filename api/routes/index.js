@@ -10,7 +10,7 @@ router.post(
   '/registration',
   body('email').isEmail(),      // validare p/u email
   body('password')
-    .isLength({ max: passwdRegSize.max })          // validare de parola dupa marime
+    // .isLength({ max: passwdRegSize.max })          // validare de parola dupa marime
     .isStrongPassword({minLength: passwdRegSize.min}),
   UserController.registration
 );

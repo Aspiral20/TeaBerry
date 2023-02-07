@@ -4,6 +4,8 @@ import {makeAutoObservable} from "mobx";
 import axios from 'axios';
 import { AuthResponse } from "../models/response/auth_response.type";
 import { API_URL } from "../http";
+import toast from "react-hot-toast";
+import { ReqRegistrationDataType, ReqLoginDataType } from "../_types";
 
 export default class Store {
   user = {} as IUser;
@@ -26,21 +28,24 @@ export default class Store {
     this.isLoading = bool
   }
 
-  async login(email: string, password: string) {
+  async login(data: ReqLoginDataType) {
     try {
+      const {email, password} = data
       const res = await AuthService.login(email, password);
-      console.log(res)
 
       localStorage.setItem('token', res.data.accessToken);
       this.setAuth(true);
       this.setUser(res.data.user)
-    } catch (e) {
+      toast('Success!')
+    } catch (e:any) {
+      toast.error(e || 'Something went wrong!')
       console.log(e)
     }
   }
 
-  async registration(email: string, password: string) {
+  async registration(data: ReqRegistrationDataType) {
     try {
+      const {email, password} = data
       const res = await AuthService.registration(email, password);
       console.log(res)
 

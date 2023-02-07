@@ -1,0 +1,22 @@
+.footer {
+  padding: 17px 0;
+  .info_container {
+    @include flex_justify-align();
+    @include FontThin();
+    @include WorldTextColor(rgb(130, 155, 100));
+    .info_item {
+      .description {
+        margin-left: 10px;
+        padding-left: 10px;
+        border-left: 1px solid rgb(130, 155, 100);
+        @include WorldTextFontSize(12px);
+        letter-spacing: 0.03rem;
+      }
+      &:first-child .description {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+      }
+    }
+  }
+}

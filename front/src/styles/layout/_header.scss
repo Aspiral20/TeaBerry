@@ -1,7 +1,7 @@
 .header {
+  padding: 17px 0;
   &__menu {
     @include flex_justify-align(flex,space-around,center);
-    padding: 17px 0;
     flex-wrap: wrap;
 
     .logo_item {
@@ -16,9 +16,9 @@
       .menu_item {
         margin-left: 38px;
         text-decoration: none;
-        font-size: 16px;
+        @include WorldTextFontSize();
         @include FontRegular();
-        color: rgb(46, 50, 42);
+        @include WorldTextColor();
 
         &:first-child {
           margin-left: 0;

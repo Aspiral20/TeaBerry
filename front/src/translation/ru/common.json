@@ -7,10 +7,33 @@
   "actions": {
     "login": "Авторизоваться",
     "registration": "Регистрация",
-    "logout": "Выход"
+    "logout": "Выход",
+    "submit": "Отправить"
   },
   "errors": {
     "not-found-message": "Данная страница не существует. Перейти на",
     "not-found-link": "главную страницу"
+  },
+  "author": {
+    "rights": "Все права защищены",
+    "created": "Создано "
+  },
+  "auth_data": {
+    "full_name": "Полное имя",
+    "country": "Страна",
+    "city": "Город",
+    "address": "Адрес",
+    "phone": "Телефон",
+    "email": "Эл. почта",
+    "password": "Пароль"
+  },
+  "auth": {
+    "password": "Пароль должен содержать",
+    "symbol": "Мин. 1 символ",
+    "number": "Мин. 1 цифра",
+    "uppercase": "Мин. 1 заглавная буква",
+    "lowercase": "Мин. 1 строчная буква",
+    "min_length": "Мин. символов",
+    "max_length": "Макс. символов"
   }
 }

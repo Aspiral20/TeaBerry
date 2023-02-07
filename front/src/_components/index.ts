@@ -1,6 +1,7 @@
-import AuthForm from "./auth_form";
+import PasswordValidation from './password_validation'
 
 export {
-  AuthForm,
+  PasswordValidation
 }
+export * from './icons'
 export * from './general'

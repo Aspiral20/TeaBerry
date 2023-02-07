@@ -16,6 +16,7 @@ class UserController {
       }
       const { email, password } = req.body;
       const userData = await UserService.registration(email, password)
+
       res.cookie('refreshToken', userData.refreshToken, {
         maxAge: TimeService.getTime('30d'),
         httpOnly: true,

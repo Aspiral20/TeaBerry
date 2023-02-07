@@ -1,7 +1,5 @@
 class Closure {
-  constructor() {
-
-  }
+  constructor() {}
 }
 
 module.exports = new Closure()

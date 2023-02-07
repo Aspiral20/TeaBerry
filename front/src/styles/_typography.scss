@@ -1,95 +1,61 @@
 //For correct work fonts and mixing. Into @font-face use:
 //font-family: 'FontType-FontStyle';
 
-//  Roboto
-//@font-face {
-//  font-family: 'Roboto-Bold';
-//  src: local('Roboto-Bold'), local('Roboto-Bold'), url('fonts/Roboto/Roboto-Bold.ttf') format('truetype');
-//  font-weight: 700;
-//}
-//@font-face {
-//  font-family: 'Roboto-Medium';
-//  src: local('Roboto-Medium'), local('Roboto-Medium'), url('fonts/Roboto/Roboto-Medium.ttf') format('truetype');
-//  font-weight: 500;
-//}
-//@font-face {
-//  font-family: 'Roboto-Regular';
-//  src: local('Roboto-Regular'), local('Roboto-Regular'), url('fonts/Roboto/Roboto-Regular.ttf') format('truetype');
-//  font-weight: 400;
-//  font-style: normal;
-//}
-//@font-face {
-//  font-family: 'Roboto-Light';
-//  src: local('Roboto-Light'), local('Roboto-Light'), url('fonts/Roboto/Roboto-Light.ttf') format('truetype');
-//  font-weight: 300;
-//}
-//@font-face {
-//  font-family: 'Roboto-Thin';
-//  src: local('Roboto-Thin'), local('Roboto-Thin'), url('fonts/Roboto/Roboto-Thin.ttf') format('truetype');
-//  font-weight: 100;
-//}
+//  Gilroy
+@font-face {
+  $path: 'fonts/Gilroy/Gilroy-Bold/';
+  font-family: 'Gilroy-Bold';
+  src: local('Gilroy-Bold'), local('Gilroy-Bold'),
+  url($path + 'GilroyBold.woff2') format('woff2'),
+  url($path + 'GilroyBold.woff') format('woff'),
+  url($path + 'GilroyBold.ttf') format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  $path: 'fonts/Gilroy/Gilroy-Medium/';
+  font-family: 'Gilroy-Medium';
+  src: local('Gilroy-Medium'), local('Gilroy-Medium'),
+  url($path + 'GilroyMedium.woff2') format('woff2'),
+  url($path + 'GilroyMedium.woff') format('woff'),
+  url($path + 'GilroyMedium.ttf') format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  $path: 'fonts/Gilroy/Gilroy-Regular/';
+  font-family: 'Gilroy-Regular';
+  src: local('Gilroy-Regular'), local('Gilroy-Regular'),
+  url($path + 'GilroyRegular.woff2') format('woff2'),
+  url($path + 'GilroyRegular.woff') format('woff'),
+  url($path + 'GilroyRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  $path: 'fonts/Gilroy/Gilroy-Light/';
+  font-family: 'Gilroy-Light';
+  src: local('Gilroy-Light'), local('Gilroy-Light'),
+  url($path + 'GilroyLight.woff2') format('woff2'),
+  url($path + 'GilroyLight.woff') format('woff'),
+  url($path + 'GilroyLight.ttf') format('truetype');
+  font-weight: 300;
+}
 
-// FuturaPT
+// MarkerFelt
+@font-face {
+  $path: 'fonts/MarkerFelt/MarkerFelt-Thin/';
+  font-family: 'MarkerFelt-Thin';
+  src: local('MarkerFelt-Thin'), local('MarkerFelt-Thin'),
+  url($path + 'MarkerFeltThin.woff2') format('woff2'),
+  url($path + 'MarkerFeltThin.woff') format('woff'),
+  url($path + 'MarkerFeltThin.ttf') format('truetype');
+  font-weight: 100;
+}
 
-//@font-face {
-//  font-family: 'FuturaPT-Bold';
-//  src: local('FuturaPT-Bold'), local('FuturaPT-Bold'), url('fonts/FuturaPT/FuturaPT-Bold.ttf') format('truetype');
-//  font-weight: 700;
-//}
-//@font-face {
-//  font-family: 'FuturaPT-Medium';
-//  src: local('FuturaPT-Medium'), local('FuturaPT-Medium'), url('fonts/FuturaPT/FuturaPT-Medium.ttf') format('truetype');
-//  font-weight: 500;
-//}
-//@font-face {
-//  font-family: 'FuturaPT-Regular';
-//  src: local('FuturaPT-Regular'), local('FuturaPT-Regular'), url('fonts/FuturaPT/FuturaPT-Light.ttf') format('truetype');
-//  font-weight: 400;
-//  font-style: normal;
-//}
-//@font-face {
-//  font-family: 'FuturaPT-Light';
-//  src: local('FuturaPT-Light'), local('FuturaPT-Light'), url('fonts/FuturaPT/FuturaPT-Light.ttf') format('truetype');
-//  font-weight: 300;
-//}
-//@font-face {
-//  font-family: 'FuturaPT-Thin';
-//  src: local('FuturaPT-Thin'), local('FuturaPT-Thin'), url('fonts/FuturaPT/FuturaPT-Light.ttf') format('truetype');
-//  font-weight: 100;
-//}
+//Font text
+$SITE_FONT: 'Gilroy';
+$TITLES_FONT: 'MarkerFelt';
 
-// Montserrat
-
-//@font-face {
-//  font-family: 'Montserrat-Bold';
-//  src: local('Montserrat-Bold'), local('Montserrat-Bold'), url('fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
-//  font-weight: 700;
-//}
-//@font-face {
-//  font-family: 'Montserrat-Medium';
-//  src: local('Montserrat-Medium'), local('Montserrat-Medium'), url('fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
-//  font-weight: 500;
-//}
-//@font-face {
-//  font-family: 'Montserrat-Regular';
-//  src: local('Montserrat-Regular'), local('Montserrat-Regular'), url('fonts/Montserrat/Montserrat-Light.ttf') format('truetype');
-//  font-weight: 400;
-//  font-style: normal;
-//}
-//@font-face {
-//  font-family: 'Montserrat-Light';
-//  src: local('Montserrat-Light'), local('Montserrat-Light'), url('fonts/Montserrat/Montserrat-Light.ttf') format('truetype');
-//  font-weight: 300;
-//}
-//@font-face {
-//  font-family: 'Montserrat-Thin';
-//  src: local('Montserrat-Thin'), local('Montserrat-Thin'), url('fonts/Montserrat/Montserrat-Light.ttf') format('truetype');
-//  font-weight: 100;
-//}
-
-//Font
-$SITE_FONT: 'Gilroy'; //Montserrat
-
+// Font
 //w: 900
 $Font_Black: $SITE_FONT + '-Black'; //Heavy
 //w: 800
@@ -109,10 +75,14 @@ $Font_ExtraLight: $SITE_FONT + '-ExtraLight'; //Ultra Light
 //w: 100
 $Font_Thin: $SITE_FONT + '-Thin';
 
+// Font Titles
+//w: 100
+$Font_Title_Thin: $TITLES_FONT + '-Thin';
+
 // Text font-size
-$_World_Text_FontSize: 15px;
-$_World_Text_FontSize_Tablet: 14px;
-$_World_Text_FontSize_Mobile: 14px;
+$_World_Text_FontSize: 16px;
+$_World_Text_FontSize_Tablet: 16px;
+$_World_Text_FontSize_Mobile: 16px;
 
 @mixin WorldTextFontSize(
   $size: $_World_Text_FontSize,
@@ -129,9 +99,35 @@ $_World_Text_FontSize_Mobile: 14px;
   }
 }
 
+// Titles font-size
+$_World_Title_FontSize: 40px;
+$_World_Title_FontSize_Tablet: 40px;
+$_World_Title_FontSize_Mobile: 24px;
+
+@mixin WorldTitleFontSize(
+  $size: $_World_Title_FontSize,
+  $tabletSize: $_World_Title_FontSize_Tablet,
+  $mobileSize: $_World_Title_FontSize_Mobile
+) {
+  font-size: $size;
+
+  @media screen and (max-width: 1024px) {
+    font-size: $tabletSize;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: $mobileSize;
+  }
+}
+
 // Text font color
-$_World_Text_Color: #d8d8d8; // #dbdbdb
+$_World_Text_Color: rgb(46, 50, 42);
 @mixin WorldTextColor($color: $_World_Text_Color) {
+  color: $color;
+}
+
+// Title font color
+$_World_Title_Color: rgb(128, 165, 6);
+@mixin WorldTitleColor($color: $_World_Title_Color) {
   color: $color;
 }
 
@@ -195,6 +191,12 @@ $_World_Text_Color: #d8d8d8; // #dbdbdb
   @include FontRegular();
   @include WorldTextFontSize();
   @include WorldTextColor();
-  //letter-spacing: -0.02em;
-  line-height: 1.85;
+  //line-height: 1.85;
+  letter-spacing: 0.03rem;
+}
+.title {
+  @include FontThin($Font_Title_Thin);
+  @include WorldTitleFontSize();
+  @include WorldTitleColor();
+  letter-spacing: 0.05em;
 }

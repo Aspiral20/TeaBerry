@@ -5,6 +5,7 @@ import { StoreContext } from "../index";
 import { observer } from "mobx-react-lite";
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
+import { Container } from "../_components";
 
 const lang = [
   { key: 'en', lang: 'EN' },
@@ -45,7 +46,7 @@ const Header: FC<HeaderProps> = ({}) => {
   }, [i18n.language])
 
   return (
-    <div className="header container">
+    <Container className="header">
       <div className="header__menu">
         <div className="logo_item">
           <Link to="/" className="logo">
@@ -105,7 +106,7 @@ const Header: FC<HeaderProps> = ({}) => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

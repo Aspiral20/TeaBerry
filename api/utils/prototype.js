@@ -29,9 +29,7 @@ class Prototype {
       return minLength
     }
   }
-  ObjectPrototype() {
-
-  }
+  ObjectPrototype() {}
 }
 
 

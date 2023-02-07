@@ -7,10 +7,33 @@
   "actions": {
     "login": "Logare",
     "registration": "Înregistrare",
-    "logout": "Deconectare"
+    "logout": "Deconectare",
+    "submit": "Trimite"
   },
   "errors": {
     "not-found-message": "Această pagină nu există. Accesați",
     "not-found-link": "pagina principală"
+  },
+  "author": {
+    "rights": "Toate drepturile rezervate",
+    "created": "Creat de "
+  },
+  "auth_data": {
+    "full_name": "Nume complet",
+    "country": "Țara",
+    "city": "Oraș",
+    "address": "Adresă",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "password": "Parola"
+  },
+  "auth": {
+    "password": "Parola trebuie să conțină",
+    "symbol": "Min. 1 simbol",
+    "number": "Min. 1 number",
+    "uppercase": "Min. 1 uppercase",
+    "lowercase": "Min. 1 lowercase",
+    "min_length": "Min. chars",
+    "max_length": "Max. chars"
   }
 }
