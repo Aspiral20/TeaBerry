@@ -5,10 +5,14 @@
     "contacts": "Contacts"
   },
   "actions": {
-    "login": "Login",
-    "registration": "Registration",
+    "login": "Sign in",
+    "registration": "Sign up",
     "logout": "Logout",
-    "submit": "Submit"
+    "submit": "Submit",
+    "continue": "Continue",
+    "success-logged": "You are successfully logged!",
+    "was-not-found": "User was not found!",
+    "user-exists": "User already exists!"
   },
   "errors": {
     "not-found-message": "This page does not exist. Go to",
@@ -29,11 +33,17 @@
   },
   "auth": {
     "password": "Password should contain",
+    "forgot_password": "Forgot password",
     "symbol": "Min. 1 symbol",
     "number": "Min. 1 number",
     "uppercase": "Min. 1 uppercase",
     "lowercase": "Min. 1 lowercase",
     "min_length": "Min. chars",
-    "max_length": "Max. chars"
+    "max_length": "Max. chars",
+    "not_a_member": "Don't have an account",
+    "successful_registration": {
+      "check_email": "Registration complete! Check your email for activation.",
+      "message": "Congratulations, your account has been successfully created."
+    }
   }
 }

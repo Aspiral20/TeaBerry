@@ -1,0 +1,153 @@
+@mixin profile_card() {
+  border-radius: 4px;
+  @include shadow_card();
+  border: 1px solid transparent;
+}
+
+.profile {
+  &__container {
+    display: flex;
+    margin: 45px auto;
+  }
+
+  &__menu_container {
+    //padding: 30px;
+    margin-right: 30px;
+    min-width: 260px;
+    max-width: 262px;
+    //border: 1px solid rgba($colorLightGreen, 0.7);
+    @include profile_card();
+
+    .photo_container {
+      @include flex_justify-align();
+      background: $colorLightGreen;
+      padding: 30px;
+      flex-direction: column;
+      margin: 0 auto;
+
+      .image_link {
+        border: 10px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+
+        .image {
+          border-radius: 50%;
+          max-width: 110px;
+        }
+      }
+
+      .name {
+        margin-top: 20px;
+        @include WorldTextFontSize(22px);
+        @include WorldTextColor(white);
+      }
+    }
+
+    .profile_menu {
+      .profile_item {
+        @include flex_align();
+        padding: 10px 15px;
+        border-bottom: 1px solid transparent;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+
+        .icon {
+          @include flex_justify-align();
+          @include width-height(30px);
+          text-align: center;
+
+          .user_icon {
+            max-width: 28px;
+          }
+
+          .edit_user_icon {
+            max-width: 28px;
+          }
+
+          .shop_basket_icon {
+            max-width: 25px;
+          }
+        }
+
+        .text {
+          margin-left: 10px;
+        }
+
+        &.active {
+          border-left: 5px solid $colorLightGreen;
+          background: rgba($colorLightGreen, 0.2);
+
+          &:hover {
+            background: rgba($colorLightGreen, 0.2);
+          }
+        }
+
+        &:hover {
+          //border-left: 5px solid $colorLightGreen;
+          background: rgba($colorLightGreen, 0.1);
+        }
+
+        &:first-child {
+          border-top: 1px solid transparent;
+        }
+
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__info_container {
+    width: 100%;
+    padding: 20px;
+    @include profile_card();
+
+    .user_info_container {
+      .title {
+        margin-bottom: 15px;
+      }
+
+      .user_info {
+        .info_item {
+          margin-bottom: 10px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+//1199-1024
+@media screen and (max-width: 1199px) {
+}
+
+//1023-768
+@media screen and (max-width: 1023px) {
+}
+
+//767-425
+@media screen and (max-width: 767px) {
+}
+
+//424-375
+@media screen and (max-width: 424px) {
+  .profile {
+    &__info {
+      .photo_container {
+        .image {
+        }
+      }
+    }
+  }
+}
+
+//374-320
+@media screen and (max-width: 374px) {
+}
+
+//319-0
+@media screen and (max-width: 319px) {
+}

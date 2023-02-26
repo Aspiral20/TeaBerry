@@ -38,6 +38,7 @@ const Header: FC<HeaderProps> = ({}) => {
   const { t, i18n } = useTranslation()
   const { pathname } = useLocation()
   const { store } = useContext(StoreContext);
+  const { authStore } = store
   const [currentLang, setCurrentLang] = useState(lang[0].lang);
   const [openLang, setOpenLang] = useState<boolean>(false);
 
@@ -88,18 +89,20 @@ const Header: FC<HeaderProps> = ({}) => {
           </div>
 
           <div className="user">
-            {!store.isAuth ?
+            {!authStore.isAuth ?
               <div className="user_not_logged user_auth_container">
                 <Link className="login auth_action" to={`/auth/login`}>{t('actions.login')}</Link>
-                <Link className="registration auth_action" to={`/registration`}>{t('actions.registration')}</Link>
               </div>
               :
               <div className="user_logged user_auth_container">
                 <Link className="profile" to={`/profile`}>
-                  <img className="profile_img" src="/logo/profile.jpg" alt="..." style={{ maxWidth: 60 }}/>
+                  {/*<div className="profile_img" style={{backgroundImage: `url("/logo/profile.jpg")`}}/>*/}
+                  <img className="profile_img" src="/logo/profile.jpg" alt="..."/>
                 </Link>
                 <Link to={`/`}>
-                  <button className="" onClick={() => store.logout()}>{t('actions.logout')}</button>
+                  <button className="user_logout" onClick={() => authStore.logout()}>
+                    {t('actions.logout')}
+                  </button>
                 </Link>
               </div>
             }

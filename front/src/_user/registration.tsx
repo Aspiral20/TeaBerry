@@ -2,8 +2,8 @@ import React, { ChangeEvent, FC, useContext, useEffect, useState } from 'react';
 import { EmailIcon } from "../_components";
 import { StoreContext } from "../index";
 import cn from "classnames";
-import PasswordIconFilled from "../_components/icons/password_icon_filled";
-import PasswordIcon from "../_components/icons/password_icon";
+import PasswordIconFilled from "../_components/icons/password_filled.icon";
+import PasswordIcon from "../_components/icons/password.icon";
 import { useTranslation } from "react-i18next";
 import { v4 as uuid } from "uuid";
 import { observer } from "mobx-react-lite";
@@ -13,7 +13,7 @@ import {
 import { AuthInputType } from "../_types";
 import UseValidPassword, { initPasswdConditions } from "../hooks/use_valid_password";
 import PasswordValidation from "../_components/password_validation";
-import toast from "react-hot-toast";
+import { toast, ToastContainer } from 'react-toastify';
 
 const initData: Array<AuthInputType> = [
   {
@@ -78,9 +78,12 @@ const initReqData: ReqRegistrationDataType = {
 
 const Registration: FC = () => {
   const { store } = useContext(StoreContext)
+  const { t } = useTranslation()
   const [isHiddenPasswd, setIsHoverPasswd] = useState(true)
   const [passIsValid, setPassIsValid] = useState(initPasswdConditions);
-  const { t } = useTranslation()
+  const [isDisabled, setIsDisabled] = useState(true)
+  const validReqPasswd = Object.values(passIsValid).every(item => item)
+  const [validEmail, setValidEmail] = useState(false);
 
   const [data, setData] = useState(initData)
 
@@ -96,44 +99,48 @@ const Registration: FC = () => {
   }, [isHiddenPasswd])
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      store.checkAuth().catch(err => console.log(err || "Something went wrong!"))
-    }
-  }, [])
+    setIsDisabled(!data.every(item => item.value))
+  }, [data])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === 'password') {
       setPassIsValid(UseValidPassword(e.target.value))
     }
+    if (e.target.name === 'email') {
+      setValidEmail(!e.target.value.includes('@'))
+    }
     setData(prev => prev.map(item => item.name === e.target.name ? { ...item, value: e.target.value } : item))
   }
 
-  const formSubmit = () => {
-    const validReqPasswd = Object.values(passIsValid).every(item => item)
-    if (validReqPasswd) {
-      let reqData: ReqRegistrationDataType & { [p: string]: string } = initReqData;
-      const reqDataKeys = Object.keys(reqData)
 
-      data.forEach((item, i) => {
-        if (item.name === reqDataKeys[i]) {
-          reqData[item.name] = item.value
-        }
-      })
+  const formSubmit = (e: any) => {
+    e.preventDefault()
+    let reqData: ReqRegistrationDataType & { [p: string]: string } = initReqData;
+    const reqDataKeys = Object.keys(reqData)
 
-      store.registration(reqData)
+    data.forEach((item, i) => {
+      if (item.name === reqDataKeys[i]) {
+        reqData[item.name] = item.value
+      }
+    })
 
-      setData(initData)
-    } else {
-      toast.error('Invalid password!')
-    }
+    store.authStore.registration(
+      reqData,
+      {
+        success: t('auth.successful_registration.check_email'),
+        error: "Something went wrong!" || t('actions.user-exists')
+      }
+    )
+
+    setData(initData)
   }
 
   return (
     <>
-      {!store.isLoading ? (
+      {!store.authStore.isLoading ? (
         <div className="user_registration auth_user">
           <h2 className="auth_login title">{t('actions.registration')}</h2>
-          <div className="auth_form">
+          <form className="auth_form" onSubmit={formSubmit}>
             <div className="inputs_container">
               {data.map(({ id, name, value, placeholder, ...rest }) => (
                 <div key={id} className="auth_input_container">
@@ -142,6 +149,7 @@ const Registration: FC = () => {
                       key={id}
                       className="auth_input"
                       name={name}
+                      value={value}
                       onChange={handleChange}
                       placeholder={t(placeholder) || placeholder}
                       {...rest}
@@ -152,34 +160,27 @@ const Registration: FC = () => {
                       </div>
                     )}
                     {name === 'password' && (
-                      <button className="auth_svg_toggle" onClick={togglePasswd}>
+                      <div className="auth_svg_toggle" onClick={togglePasswd}>
                         {!isHiddenPasswd ? (
                           <PasswordIconFilled className={cn("auth_svg_icon", { is_value: value })}/>
                         ) : (
                           <PasswordIcon className={cn("auth_svg_icon", { is_value: value })}/>
                         )}
-                      </button>
+                      </div>
                     )}
                   </div>
                   <PasswordValidation password={passIsValid} show={!!value && name === 'password'} timeout={200}/>
                 </div>
               ))}
             </div>
-
             <button
-              className={cn("auth_submit button", { is_disabled: !data.every(item => item.value) })}
-              type="submit"
-              onClick={formSubmit}
-              disabled={!data.every(item => item.value)}
+              className={cn("auth_submit button", { is_disabled: !validReqPasswd || isDisabled || validEmail })}
+              disabled={!validReqPasswd || isDisabled || validEmail}
             >
               {t('actions.submit')}
             </button>
-          </div>
-
-          {/*<AuthForm type="registration"/>*/}
-          {store.isAuth && (
-            <h1>User is authorized ${store.user.email}</h1>
-          )}
+          </form>
+          <ToastContainer/>
         </div>
       ) : 'Loading...'}
     </>

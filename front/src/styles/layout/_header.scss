@@ -1,7 +1,7 @@
 .header {
-  padding: 17px 0;
+  @include padding_top-bottom(17px);
   &__menu {
-    @include flex_justify-align(flex,space-around,center);
+    @include flex_justify-align(flex,space-between,center);
     flex-wrap: wrap;
 
     .logo_item {
@@ -31,7 +31,7 @@
     }
 
     .action_container {
-      display: flex;
+      @include flex_align();
 
       .language {
         position: relative;
@@ -80,13 +80,24 @@
         @include flex_justify-align();
         margin-left: 20px;
         .user_auth_container {
+          @include flex_align();
+          .profile {
+            .profile_img {
+              @include width-height(60px);
+              max-width: 60px;
+              border-radius: 50%;
+              @include shadow_card();
+            }
+          }
           .auth_action {
             margin-left: 15px;
             &:first-child {
               margin-left: 0;
             }
           }
-
+          .user_logout {
+            margin-left: 15px;
+          }
         }
       }
     }

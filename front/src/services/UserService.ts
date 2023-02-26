@@ -1,9 +1,14 @@
 import $api from "../http";
 import { AxiosResponse } from "axios";
-import { IUser } from "../models/user.type";
+import { IUser, IUserDto } from "../models/user.type";
 
 export default class UserService {
-  static fetchUsers(): Promise<AxiosResponse<Array<IUser>>> {
-    return $api.get<Array<IUser>>('/users')
+  // todo "to admin fetch users"
+  static fetchUsers(): Promise<AxiosResponse<Array<IUserDto>>> {
+    return $api.get<Array<IUserDto>>('/users')
+  }
+
+  static fetchUser(id: string): Promise<AxiosResponse<IUser>> {
+    return $api.get<IUser>(`/user/${id}`)
   }
 }

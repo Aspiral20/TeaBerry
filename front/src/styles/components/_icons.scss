@@ -7,3 +7,15 @@
 .email_icon {
 
 }
+
+.user_icon  {
+  @include fill_icon($colorDarkYellowGreen);
+}
+
+.shop_basket_icon  {
+  @include fill_icon($colorDarkYellowGreen);
+}
+
+.edit_user_icon {
+  @include fill_icon($colorDarkYellowGreen);
+}

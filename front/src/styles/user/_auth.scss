@@ -37,7 +37,8 @@
             top: calc(50% - 12px);
             left: 10px;
             @include width-height(20px);
-            background-color: white;
+            background-color: initial;
+            cursor: pointer;
 
             .auth_svg_icon {
               fill: rgb(143, 188, 98);
@@ -71,6 +72,27 @@
       box-shadow: 0 0 22.5px 2.5px rgb(143 188 98 / 21%);
       color: white;
       transition: .6s;
+    }
+
+    .sign_up {
+      @include flex_justify-align();
+      padding-top: 15px;
+      &_text {
+        @include WorldFontSizeColor();
+      }
+      &_link {
+        @include WorldFontSizeColor('green_link');
+        text-decoration: underline;
+      }
+    }
+
+    .forgot_password {
+      @include flex_align();
+      padding-bottom: 14px;
+      &_text {
+        text-decoration: underline;
+        @include WorldFontSizeColor('description');
+      }
     }
   }
 }

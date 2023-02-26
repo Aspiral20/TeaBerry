@@ -36,7 +36,9 @@ class UserService {
     }
   }
 
-  async registration(email, password) {
+  async registration(registrationData) {
+    const {full_name, country, city, address, phone, email, password} = registrationData
+
     const candidate = await UserSchema.findOne({ email })                       // cautam daca exista deja utilizatorul cu email-ul dat
     if (candidate) {
       throw ApiError.BadRequest(`User with email: ${email} already exist!`)
@@ -44,7 +46,7 @@ class UserService {
     const hashPassword = await bcrypt.hash(password, 3)                   // hash-am parola
     const activationLink = uuid.v4()                                          // returneaza un string random: v34faf-asfasf-31g1g3-sa-asg
 
-    const user = await UserSchema.create({ email, password: hashPassword, activationLink })    // introducem in baza de date email-ul si parola hash
+    const user = await UserSchema.create({ full_name, country, city, address, phone, email, password: hashPassword, activationLink })    // introducem in baza de date email-ul si parola hash
     await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`)
 
     return this._userGenerateSaveToken(user)
@@ -88,6 +90,11 @@ class UserService {
     const user = await UserSchema.findById(userData.id)
 
     return this._userGenerateSaveToken(user)
+  }
+
+  async getUser(id) {
+    const user = await UserSchema.findById(id);
+    return user
   }
 
   async getAllUsers() {

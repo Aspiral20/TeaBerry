@@ -81,8 +81,8 @@ $Font_Title_Thin: $TITLES_FONT + '-Thin';
 
 // Text font-size
 $_World_Text_FontSize: 16px;
-$_World_Text_FontSize_Tablet: 16px;
-$_World_Text_FontSize_Mobile: 16px;
+$_World_Text_FontSize_Tablet: 15px;
+$_World_Text_FontSize_Mobile: 14px;
 
 @mixin WorldTextFontSize(
   $size: $_World_Text_FontSize,
@@ -129,6 +129,11 @@ $_World_Text_Color: rgb(46, 50, 42);
 $_World_Title_Color: rgb(128, 165, 6);
 @mixin WorldTitleColor($color: $_World_Title_Color) {
   color: $color;
+}
+
+// Description font color
+@mixin WorldDescriptionColor($color: $_World_Text_Color) {
+  color: rgba($color, .5);
 }
 
 //w: 900
@@ -199,4 +204,28 @@ $_World_Title_Color: rgb(128, 165, 6);
   @include WorldTitleFontSize();
   @include WorldTitleColor();
   letter-spacing: 0.05em;
+}
+
+
+@mixin WorldFontSizeColor($type: 'text') {
+  @if($type == 'title') {
+    @include WorldTitleColor();
+    @include WorldTitleFontSize();
+    @include FontRegular();
+  }
+  @if($type == 'text') {
+    @include WorldTextFontSize();
+    @include WorldTextColor();
+    @include FontRegular();
+  }
+  @if($type == 'description'){
+    @include WorldTextFontSize();
+    @include WorldDescriptionColor();
+    @include FontLight();
+  }
+  @if($type == 'green_link') {
+    @include WorldTextFontSize();
+    color: rgb(130, 155, 100);;
+    @include FontRegular();
+  }
 }

@@ -1,9 +1,12 @@
 import Registration from "./registration";
 import Login from './login';
-import Profile from './profile';
+import ForgotPassword from './forgot_password';
+import SuccessfulRegistration from './successful_registration';
 
 export {
   Registration,
   Login,
-  Profile,
+  ForgotPassword,
+  SuccessfulRegistration,
 }
+export * from './profile'

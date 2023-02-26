@@ -1,18 +1,23 @@
-import { IUser } from "../models/user.type";
+import { IUser, IUserDto } from "../models/user.type";
 import AuthService from "../services/AuthService";
-import {makeAutoObservable} from "mobx";
+import { makeAutoObservable } from "mobx";
 import axios from 'axios';
 import { AuthResponse } from "../models/response/auth_response.type";
 import { API_URL } from "../http";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 import { ReqRegistrationDataType, ReqLoginDataType } from "../_types";
+import RootStore from "./index";
 
-export default class Store {
-  user = {} as IUser;
+export default class AuthStore {
+  rootStore: RootStore
+
+  user = {} as IUserDto;
   isAuth = false;
   isLoading = false;
 
-  constructor() {
+
+  constructor(rootStore: RootStore) {
+    this.rootStore = rootStore
     makeAutoObservable(this)
   }
 
@@ -20,7 +25,7 @@ export default class Store {
     this.isAuth = bool;
   }
 
-  setUser(user: IUser) {
+  setUser(user: IUserDto) {
     this.user = user
   }
 
@@ -28,31 +33,44 @@ export default class Store {
     this.isLoading = bool
   }
 
-  async login(data: ReqLoginDataType) {
+  async login(
+    data: ReqLoginDataType,
+    navigate: (to: string) => void,
+    statusMessage: {success: string, error: string}
+  ) {
+    const {success, error} = statusMessage
     try {
-      const {email, password} = data
+      const { email, password } = data
       const res = await AuthService.login(email, password);
-
-      localStorage.setItem('token', res.data.accessToken);
-      this.setAuth(true);
-      this.setUser(res.data.user)
-      toast('Success!')
-    } catch (e:any) {
-      toast.error(e || 'Something went wrong!')
-      console.log(e)
-    }
-  }
-
-  async registration(data: ReqRegistrationDataType) {
-    try {
-      const {email, password} = data
-      const res = await AuthService.registration(email, password);
       console.log(res)
 
       localStorage.setItem('token', res.data.accessToken);
       this.setAuth(true);
       this.setUser(res.data.user)
+
+      toast(success)
+      navigate('/profile')
+    } catch (e: any) {
+      toast.error(error)
+      console.log(e)
+    }
+  }
+
+  async registration(
+    data: ReqRegistrationDataType,
+    statusMessage: {success: string, error: string}
+  ) {
+    const {success, error} = statusMessage
+    try {
+      const res = await AuthService.registration(data)
+      console.log(res)
+
+      // localStorage.setItem('token', res.data.accessToken)
+      // this.setAuth(true)
+      // this.setUser(res.data.user)
+      toast(success)
     } catch (e) {
+      toast(error)
       console.log(e)
     }
   }
@@ -64,7 +82,7 @@ export default class Store {
 
       localStorage.removeItem('token');
       this.setAuth(false);
-      this.setUser({} as IUser)
+      this.setUser({} as IUserDto)
     } catch (e) {
       console.log(e)
     }
@@ -73,7 +91,7 @@ export default class Store {
   async checkAuth() {
     try {
       this.setLoading(true)
-      const res = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
+      const res = await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true })
       console.log(res)
 
       localStorage.setItem('token', res.data.accessToken);

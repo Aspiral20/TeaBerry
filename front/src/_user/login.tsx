@@ -3,14 +3,12 @@ import { StoreContext } from "../index";
 import { observer } from "mobx-react-lite";
 import { v4 as uuid } from "uuid";
 import { useTranslation } from "react-i18next";
-import PasswordIcon from "../_components/icons/password_icon";
 import cn from "classnames";
-import { EmailIcon } from "../_components";
-import PasswordIconFilled from "../_components/icons/password_icon_filled";
+import { EmailIcon, PasswordIconFilled, PasswordValidation, PasswordIcon } from "../_components";
 import { ReqLoginDataType, AuthInputType } from "../_types";
-import PasswordValidation from "../_components/password_validation";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 import UseValidPassword, { initPasswdConditions } from "../hooks/use_valid_password";
+import { Link, useNavigate } from "react-router-dom";
 // import UserService from "../services/UserService";
 // import { IUser } from "../models/User.type";
 
@@ -37,21 +35,23 @@ const initReqData: ReqLoginDataType = {
 
 const Login: FC = () => {
   const { store } = useContext(StoreContext);
+  const navigate = useNavigate();
   const [isHiddenPasswd, setIsHoverPasswd] = useState(true)
   const [passIsValid, setPassIsValid] = useState(initPasswdConditions);
   const { t } = useTranslation()
   // const [users, setUsers] = useState<Array<IUser>>([]);
   const [data, setData] = useState(initData)
+  const [isDisabled, setIsDisabled] = useState(true)
+  const validReqPasswd = Object.values(passIsValid).every(item => item)
+  const [validEmail, setValidEmail] = useState(false);
 
   const togglePasswd = () => {
     setIsHoverPasswd(prev => !prev)
   }
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      store.checkAuth().catch(err => console.log(err || "Something went wrong!"))
-    }
-  }, [])
+    setIsDisabled(!data.every(item => item.value))
+  }, [data])
 
   // async function getUsers() {
   //   try {
@@ -66,6 +66,9 @@ const Login: FC = () => {
     if (e.target.name === 'password') {
       setPassIsValid(UseValidPassword(e.target.value))
     }
+    if (e.target.name === 'email') {
+      setValidEmail(!e.target.value.includes('@'))
+    }
     setData(prev => prev.map(item => item.name === e.target.name ? { ...item, value: e.target.value } : item))
   }
 
@@ -76,34 +79,42 @@ const Login: FC = () => {
     } : item))
   }, [isHiddenPasswd])
 
-  const formSubmit = () => {
-    const validReqPasswd = Object.values(passIsValid).every(item => item)
-    if (validReqPasswd) {
-      const reqData: ReqLoginDataType & { [p: string]: string } = initReqData
-      const reqDataKeys = Object.keys(reqData)
+  const formSubmit = (e: any) => {
+    e.preventDefault()
 
-      data.forEach((item, i) => {
-        if (item.name === reqDataKeys[i]) {
-          reqData[item.name] = item.value
-        }
-      })
+    const reqData: { [p: string]: string } & ReqLoginDataType = initReqData
 
-      store.login(reqData)
+    const reqDataKeys = Object.keys(reqData)
 
-      setData(initData)
-    } else {
-      toast.error('Invalid password!')
+    data.forEach((item, i) => {
+      if (item.name === reqDataKeys[i]) {
+        reqData[item.name] = item.value
+      }
+    })
+
+    const navigation = (to: string) => {
+      navigate(to)
     }
-  }
 
-  console.log(store.isAuth)
+    store.authStore.login(
+      reqData,
+      navigation,
+      {
+        success: t('actions.success-logged'),
+        error: t('actions.was-not-found')
+      }
+    )
+
+    setData(initData)
+  }
+  // console.log(store.isAuth)
   return (
     <>
-      {!store.isLoading ? (
+      {!store.authStore.isLoading ? (
         <div className="user_login auth_user">
           <div className="auth_login title">{t('actions.login')}</div>
 
-          <div className="auth_form">
+          <form className="auth_form" onSubmit={formSubmit}>
             <div className="inputs_container">
               {data.map(({ id, name, description, value, ...rest }) => (
                 <div key={id} className="auth_input_container">
@@ -113,6 +124,7 @@ const Login: FC = () => {
                       className="auth_input"
                       name={name}
                       onChange={handleChange}
+                      value={value}
                       required
                       {...rest}
                     />
@@ -125,32 +137,45 @@ const Login: FC = () => {
                       </div>
                     )}
                     {name === 'password' && (
-                      <button className="auth_svg_toggle" onClick={togglePasswd}>
+                      <div className="auth_svg_toggle" onClick={togglePasswd}>
                         {!isHiddenPasswd ? (
                           <PasswordIconFilled className={cn("auth_svg_icon", { is_value: value })}/>
                         ) : (
                           <PasswordIcon className={cn("auth_svg_icon", { is_value: value })}/>
                         )}
-                      </button>
+                      </div>
                     )}
                   </div>
-                  <PasswordValidation password={passIsValid} show={!!value && name === 'password'} timeout={200}/>
+                  {/* todo check timeout animation*/}
+                  <PasswordValidation password={passIsValid} show={!!value && name === 'password' && !validReqPasswd} timeout={200}/>
                 </div>
               ))}
             </div>
+            <div className="forgot_password">
+              <Link className="forgot_password_text text" to="/user/forgot_password">
+                {t('auth.forgot_password')}?
+              </Link>
+            </div>
             <button
-              className={cn("auth_submit button", { is_disabled: !data.every(item => item.value) })}
-              type="submit"
-              onClick={formSubmit}
-              disabled={!data.every(item => item.value)}
+              className={cn("auth_submit button", { is_disabled: !validReqPasswd || isDisabled || validEmail })}
+              disabled={!validReqPasswd || isDisabled || validEmail}
             >
               {t('actions.submit')}
             </button>
-          </div>
+            <div className="sign_up">
+              <div className="sign_up_text text">
+                {t('auth.not_a_member')}
+              </div>
+              ?&nbsp;
+              <Link className="sign_up_link text" to="/auth/registration">
+                {t('actions.registration')}
+              </Link>
+            </div>
+          </form>
 
-          {store.isAuth && (
-            <h1>User is authorized ${store.user.email}</h1>
-          )}
+          {/*{store.isAuth && (*/}
+          {/*  <h1>User is authorized,user: ${store.user.email}</h1>*/}
+          {/*)}*/}
 
           {/*{store.isLoading ? <>Loading...</> : <></>}*/}
 

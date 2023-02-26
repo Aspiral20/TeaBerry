@@ -1,10 +1,11 @@
 import $api from "../http";
 import {AxiosResponse} from 'axios';
 import { AuthResponse } from "../models/response/auth_response.type";
+import { ReqRegistrationDataType } from "../_types";
 
 export default class AuthService {
-  static async registration(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
-    return $api.post<AuthResponse>('/registration', {email, password})
+  static async registration(data: ReqRegistrationDataType): Promise<AxiosResponse<AuthResponse>> {
+    return $api.post<AuthResponse>('/registration', {...data})
   }
 
   static async login(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {

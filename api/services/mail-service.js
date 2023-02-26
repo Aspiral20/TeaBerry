@@ -25,16 +25,18 @@ class MailService {
       from: process.env.SMTP_USER,
       to: to,
       subject: 'Account activation from ' + process.env.API_URL,
-      text: '',
+      text: 'TeaBerry Registration',
       html: `
-        <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; text-align: center ">
-          <div>
+        <div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;text-align: center">
+          <div style="justify-self: center">
             <h1 style="display: inline-block; color: green">
               For activation, click link from below.
             </h1>
-            <a href="${link}" style="color: lightgreen">
-              ${link}
-            </a>
+            <div>
+              <a href="${link}" style="color: lightgreen">
+                Activate your account
+              </a>
+            </div>
           </div>
         </div>
       `

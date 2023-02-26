@@ -1,0 +1,89 @@
+.full-screen-loader {
+  position: fixed;
+  @include flex_justify-align();
+  top: 0;
+  left: 0;
+  //background-color: rgba($color_full-screen-loader, 0.5);
+  width: 100vw;
+  height: 100vh;
+}
+
+.loader_x {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  color: $color_loader_x_1;    //1st
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 1s lx_spin linear infinite;
+  }
+  &:after {
+    color: $color_loader_x_2;    //2nd
+    transform: rotateY(70deg);
+    animation-delay: .4s;
+  }
+}
+
+.loader_puls-in-out {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 6rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    animation: lpio_pulsOut 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 1rem rgba($color_loader_puls-in-out_shadow, 0.75));
+  }
+  &:before {
+    width: 100%;
+    padding-bottom: 100%;
+    box-shadow: inset 0 0 0 1rem $color_loader_puls-in-out_shadow;
+    animation-name: lpio_pulsIn;
+  }
+  &:after {
+    width: calc(100% - 2rem);
+    padding-bottom: calc(100% - 2rem);
+    box-shadow: 0 0 0 0 $color_loader_puls-in-out_shadow;
+  }
+}
+
+.loader_double-rays {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #FFF;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  &::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border-left: 4px solid #FF3D00;
+    border-bottom: 4px solid transparent;
+    animation: ldr_rotation 0.5s linear infinite reverse;
+  }
+}

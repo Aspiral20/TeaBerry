@@ -8,8 +8,12 @@ const PasswordIconFilled: FC<React.SVGAttributes<SVGElement>> = ({
     <svg
       className={"password_icon_filled " + className}
       {...rest}
-      id="e86EHGkeWIN1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox="0 0 485.017 485.017" shapeRendering="geometricPrecision" textRendering="geometricPrecision">
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 485.017 485.017"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
+    >
       <g paintOrder="fill markers stroke">
         <path
           d="M361.205,68.899c-14.663,0-28.447,5.71-38.816,16.078-21.402,21.403-21.402,56.228,0,77.631c10.368,10.368,24.153,16.078,38.815,16.078s28.447-5.71,38.816-16.078c21.402-21.403,21.402-56.228,0-77.631-10.368-10.368-24.153-16.078-38.815-16.078Zm17.602,72.495c-4.702,4.702-10.953,7.292-17.603,7.292s-12.901-2.59-17.603-7.291c-9.706-9.706-9.706-25.499,0-35.205c4.702-4.702,10.953-7.291,17.603-7.291s12.9,2.589,17.603,7.291c9.706,9.706,9.706,25.498,0,35.204Z"

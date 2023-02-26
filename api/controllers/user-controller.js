@@ -14,8 +14,8 @@ class UserController {
       if (!errors.isEmpty()) {
         return next(ApiError.BadRequest('Validation error!', errors.array()))
       }
-      const { email, password } = req.body;
-      const userData = await UserService.registration(email, password)
+      const registrationData = req.body;
+      const userData = await UserService.registration(registrationData)
 
       res.cookie('refreshToken', userData.refreshToken, {
         maxAge: TimeService.getTime('30d'),
@@ -59,7 +59,7 @@ class UserController {
     try {
       const activationLink = req.params.link;
       await UserService.activate(activationLink)
-      return res.redirect(process.env.CLIENT_URL)
+      return res.redirect(process.env.CLIENT_URL + '/auth/successful_registered')
     } catch (e) {
       next(e)
     }
@@ -80,6 +80,16 @@ class UserController {
     try {
       const users = await UserService.getAllUsers()
       return res.json(users)
+    } catch (e) {
+      next(e)
+    }
+  }
+
+  async getUser(req, res, next) {
+    try {
+      const userId = req.params.id
+      const user = await UserService.getUser(userId)
+      return res.json(user)
     } catch (e) {
       next(e)
     }

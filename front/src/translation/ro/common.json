@@ -6,9 +6,13 @@
   },
   "actions": {
     "login": "Logare",
-    "registration": "Înregistrare",
+    "registration": "Înregistreazăte",
     "logout": "Deconectare",
-    "submit": "Trimite"
+    "submit": "Trimite",
+    "continue": "Continuă",
+    "success-logged": "Te-ai logat cu succes!",
+    "was-not-found": "Utilizatorul nu a fost găsit!",
+    "user-exists": "Utilizatorul deja există!"
   },
   "errors": {
     "not-found-message": "Această pagină nu există. Accesați",
@@ -29,11 +33,17 @@
   },
   "auth": {
     "password": "Parola trebuie să conțină",
+    "forgot_password": "Ai uitat parola",
     "symbol": "Min. 1 simbol",
     "number": "Min. 1 number",
     "uppercase": "Min. 1 uppercase",
     "lowercase": "Min. 1 lowercase",
     "min_length": "Min. chars",
-    "max_length": "Max. chars"
+    "max_length": "Max. chars",
+    "not_a_member": "Nu ai un cont",
+    "successful_registration": {
+      "check_email": "Înregistrare completă! Verificați e-mailul pentru activare.",
+      "message": "Felicitări, contul dvs. a fost creat cu succes."
+    }
   }
 }

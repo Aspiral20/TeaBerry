@@ -98,3 +98,45 @@
   width: 100vw;
   height: 100vh;
 }
+
+// Device
+
+@mixin fill_icon($color) {
+  fill: $color;
+  & * {
+    fill: $color
+  }
+}
+
+@mixin shadow_card($color: rgb(31, 168, 37)) {
+  box-shadow: 0 0 23px 2px rgba($color, 13%);
+}
+
+@mixin classic_button($colorButton: #00AD74FF, $colorText: white, $bcgOpacity: 'false', $opacity: 0.1) {
+  &.classic_button {
+    cursor: pointer;
+    margin: 0 auto;
+    line-height: 1.6rem;
+    border: 1px solid $colorButton;
+    color: $colorText;
+    padding: 3px 8px;
+    transition: .5s;
+
+    @if($bcgOpacity == 'true') {
+      background-color: rgba($colorButton, $opacity);
+    } @else {
+      background-color: transparent;
+    }
+
+    &.disabled {
+      opacity: .5;
+      &:hover {
+        background-color: initial;
+      }
+    }
+    &:hover {
+      background-color: $colorButton;
+      transition: .5s;
+    }
+  }
+}

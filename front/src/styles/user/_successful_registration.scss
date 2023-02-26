@@ -1,0 +1,40 @@
+.successful_registration {
+  @include flex_justify-align();
+  .success_card {
+    $border-radius: 12px;
+    $background-color: rgb(149 190 99);
+
+    margin: 40px 0;
+    border-radius: $border-radius;
+    max-width: 340px;
+    box-shadow: 0 0 23px 2px rgb(31 168 37 / 13%);
+    .icon_container {
+      background-color: $background-color;
+      padding: 30px 0;
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+      .success_icon {
+        margin: 0 auto;
+        border-radius: 50%;
+        border: 5px solid white;
+        & * {
+          fill: $background-color;
+        }
+      }
+    }
+    .content_container {
+      padding: 26px 35px;
+      text-align: center;
+      .message {
+        @include WorldFontSizeColor('text');
+        margin-bottom: 30px;
+      }
+      .continue_button {
+        background-color: $background-color;
+        max-width: 150px;
+        color: white;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
