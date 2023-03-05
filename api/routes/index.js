@@ -3,7 +3,7 @@ const Router = express.Router;
 const router = new Router();
 const { body } = require('express-validator')
 const UserController = require('../controllers/user-controller.js');
-const AdminController = require('../controllers/admin-controller');
+// const AdminController = require('../controllers/admin-controller');
 const authMiddleware = require('../middlewares/auth-middleware')
 
 const passwdRegSize = {min: 6, max: 32}
@@ -22,5 +22,6 @@ router.get('/activate/:link', UserController.activate);      // activare a accou
 router.get('/refresh', UserController.refresh);              // rescrie access token in cazul in care va deceda
 router.get('/users', authMiddleware, UserController.getUsers);               // returneaza lista de utilizatori
 router.get('/user/:id', UserController.getUser);               // returneaza utilizatorul anumit
+router.post('/update_user/:id', UserController.updateUser);               // returneaza utilizatorul anumit
 
 module.exports = router

@@ -8,6 +8,12 @@ import UserIcon from "./user.icon";
 import EditUserIcon from "./edit_user.icon";
 import BinIcon from "./bin.icon";
 import ShopBasketIcon from "./shop_basket.icon";
+import EditIcon from "./edit.icon";
+import LocationIcon from "./location.icon";
+import CountryIcon from "./country.icon";
+import AddressIcon from "./address.icon";
+import PhoneIcon from "./phone.icon";
+import CityIcon from "./city.icon";
 
 export {
   PasswordIcon,
@@ -19,5 +25,11 @@ export {
   UserIcon,
   EditUserIcon,
   BinIcon,
-  ShopBasketIcon
+  ShopBasketIcon,
+  EditIcon,
+  LocationIcon,
+  CountryIcon,
+  AddressIcon,
+  PhoneIcon,
+  CityIcon
 }

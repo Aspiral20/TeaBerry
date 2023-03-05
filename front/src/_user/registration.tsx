@@ -1,9 +1,7 @@
 import React, { ChangeEvent, FC, useContext, useEffect, useState } from 'react';
-import { EmailIcon } from "../_components";
+import { SiteInput } from "../_components";
 import { StoreContext } from "../index";
 import cn from "classnames";
-import PasswordIconFilled from "../_components/icons/password_filled.icon";
-import PasswordIcon from "../_components/icons/password.icon";
 import { useTranslation } from "react-i18next";
 import { v4 as uuid } from "uuid";
 import { observer } from "mobx-react-lite";
@@ -13,7 +11,7 @@ import {
 import { AuthInputType } from "../_types";
 import UseValidPassword, { initPasswdConditions } from "../hooks/use_valid_password";
 import PasswordValidation from "../_components/password_validation";
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 const initData: Array<AuthInputType> = [
   {
@@ -142,39 +140,25 @@ const Registration: FC = () => {
           <h2 className="auth_login title">{t('actions.registration')}</h2>
           <form className="auth_form" onSubmit={formSubmit}>
             <div className="inputs_container">
-              {data.map(({ id, name, value, placeholder, ...rest }) => (
-                <div key={id} className="auth_input_container">
-                  <div className="icon_input_container">
-                    <input
-                      key={id}
-                      className="auth_input"
-                      name={name}
-                      value={value}
-                      onChange={handleChange}
-                      placeholder={t(placeholder) || placeholder}
-                      {...rest}
-                    />
-                    {name === 'email' && (
-                      <div className="auth_svg_toggle">
-                        <EmailIcon className={cn("auth_svg_icon", { is_value: value })}/>
-                      </div>
-                    )}
-                    {name === 'password' && (
-                      <div className="auth_svg_toggle" onClick={togglePasswd}>
-                        {!isHiddenPasswd ? (
-                          <PasswordIconFilled className={cn("auth_svg_icon", { is_value: value })}/>
-                        ) : (
-                          <PasswordIcon className={cn("auth_svg_icon", { is_value: value })}/>
-                        )}
-                      </div>
-                    )}
-                  </div>
+              {data.map(({ id, name, value, ...rest }) => (
+                <SiteInput
+                  key={id}
+                  onChange={handleChange}
+                  data={{ id, name, value, ...rest }}
+                  togglePasswd={togglePasswd}
+                  isHiddenPasswd={isHiddenPasswd}
+                >
+                  <PasswordValidation
+                    password={passIsValid}
+                    show={!!value && name === 'password' && !validReqPasswd}
+                    timeout={200}
+                  />
                   <PasswordValidation password={passIsValid} show={!!value && name === 'password'} timeout={200}/>
-                </div>
+                </SiteInput>
               ))}
             </div>
             <button
-              className={cn("auth_submit button", { is_disabled: !validReqPasswd || isDisabled || validEmail })}
+              className={cn("auth_submit auth_button button", { is_disabled: !validReqPasswd || isDisabled || validEmail })}
               disabled={!validReqPasswd || isDisabled || validEmail}
             >
               {t('actions.submit')}

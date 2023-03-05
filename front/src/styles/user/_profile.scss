@@ -10,13 +10,18 @@
     margin: 45px auto;
   }
 
+  $min-height: 280px;
+
   &__menu_container {
-    //padding: 30px;
     margin-right: 30px;
     min-width: 260px;
-    max-width: 262px;
-    //border: 1px solid rgba($colorLightGreen, 0.7);
+    max-width: 260px;
+    min-height: $min-height;
     @include profile_card();
+
+    &.loaded {
+      height: 100%;
+    }
 
     .photo_container {
       @include flex_justify-align();
@@ -37,6 +42,7 @@
 
       .name {
         margin-top: 20px;
+        text-align: center;
         @include WorldTextFontSize(22px);
         @include WorldTextColor(white);
       }
@@ -102,6 +108,10 @@
     padding: 20px;
     @include profile_card();
 
+    .user_profile {
+      margin-bottom: 20px;
+    }
+
     .user_info_container {
       .title {
         margin-bottom: 15px;
@@ -110,6 +120,7 @@
       .user_info {
         .info_item {
           margin-bottom: 10px;
+
           &:last-child {
             margin-bottom: 0;
           }
@@ -117,6 +128,43 @@
       }
     }
 
+    .user_edit_profile_container {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .edit_data_buttons {
+        position: absolute;
+        top: 0;
+        right: 0;
+        .edit_button {
+          @include classic_button($colorDarkYellowGreen, $colorDarkYellowGreen, $colorDarkYellowGreen, white);
+        }
+        .reset_button {
+          @include classic_button($colorDarkYellowGreen, $colorDarkYellowGreen, $colorDarkYellowGreen, white);
+          margin-left: 10px;
+        }
+      }
+
+      .user_edit {
+        .edit_item {
+          margin-bottom: 10px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .save_button {
+        display: flex;
+        margin: 20px auto 0 auto;
+        width: 600px;
+
+        .auth_submit {
+        }
+      }
+    }
   }
 }
 
@@ -130,6 +178,9 @@
 
 //767-425
 @media screen and (max-width: 767px) {
+  .profile__info_container .user_edit_profile_container .save_button {
+    width: 100%;
+  }
 }
 
 //424-375

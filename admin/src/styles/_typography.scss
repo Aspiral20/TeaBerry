@@ -1,0 +1,231 @@
+//For correct work fonts and mixing. Into @font-face use:
+//font-family: 'FontType-FontStyle';
+
+//  Gilroy
+@font-face {
+  $path: 'fonts/Gilroy/Gilroy-Bold/';
+  font-family: 'Gilroy-Bold';
+  src: local('Gilroy-Bold'), local('Gilroy-Bold'),
+  url($path + 'GilroyBold.woff2') format('woff2'),
+  url($path + 'GilroyBold.woff') format('woff'),
+  url($path + 'GilroyBold.ttf') format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  $path: 'fonts/Gilroy/Gilroy-Medium/';
+  font-family: 'Gilroy-Medium';
+  src: local('Gilroy-Medium'), local('Gilroy-Medium'),
+  url($path + 'GilroyMedium.woff2') format('woff2'),
+  url($path + 'GilroyMedium.woff') format('woff'),
+  url($path + 'GilroyMedium.ttf') format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  $path: 'fonts/Gilroy/Gilroy-Regular/';
+  font-family: 'Gilroy-Regular';
+  src: local('Gilroy-Regular'), local('Gilroy-Regular'),
+  url($path + 'GilroyRegular.woff2') format('woff2'),
+  url($path + 'GilroyRegular.woff') format('woff'),
+  url($path + 'GilroyRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  $path: 'fonts/Gilroy/Gilroy-Light/';
+  font-family: 'Gilroy-Light';
+  src: local('Gilroy-Light'), local('Gilroy-Light'),
+  url($path + 'GilroyLight.woff2') format('woff2'),
+  url($path + 'GilroyLight.woff') format('woff'),
+  url($path + 'GilroyLight.ttf') format('truetype');
+  font-weight: 300;
+}
+
+// MarkerFelt
+@font-face {
+  $path: 'fonts/MarkerFelt/MarkerFelt-Thin/';
+  font-family: 'MarkerFelt-Thin';
+  src: local('MarkerFelt-Thin'), local('MarkerFelt-Thin'),
+  url($path + 'MarkerFeltThin.woff2') format('woff2'),
+  url($path + 'MarkerFeltThin.woff') format('woff'),
+  url($path + 'MarkerFeltThin.ttf') format('truetype');
+  font-weight: 100;
+}
+
+//Font text
+$SITE_FONT: 'Gilroy';
+$TITLES_FONT: 'MarkerFelt';
+
+// Font
+//w: 900
+$Font_Black: $SITE_FONT + '-Black'; //Heavy
+//w: 800
+$Font_ExtraBold: $SITE_FONT + '-ExtraBold'; //Ultra Bold
+//w: 700
+$Font_Bold: $SITE_FONT + '-Bold';
+//w: 600
+$Font_SemiBold: $SITE_FONT + '-SemiBold'; //Demi Bold
+//w: 500
+$Font_Medium: $SITE_FONT + '-Medium';
+//w: 400
+$Font_Regular: $SITE_FONT + '-Regular'; //Normal
+//w: 300
+$Font_Light: $SITE_FONT + '-Light';
+//w: 200
+$Font_ExtraLight: $SITE_FONT + '-ExtraLight'; //Ultra Light
+//w: 100
+$Font_Thin: $SITE_FONT + '-Thin';
+
+// Font Titles
+//w: 100
+$Font_Title_Thin: $TITLES_FONT + '-Thin';
+
+// Text font-size
+$_World_Text_FontSize: 16px;
+$_World_Text_FontSize_Tablet: 15px;
+$_World_Text_FontSize_Mobile: 14px;
+
+@mixin WorldTextFontSize(
+  $size: $_World_Text_FontSize,
+  $tabletSize: $_World_Text_FontSize_Tablet,
+  $mobileSize: $_World_Text_FontSize_Mobile
+) {
+  font-size: $size;
+
+  @media screen and (max-width: 1024px) {
+    font-size: $tabletSize;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: $mobileSize;
+  }
+}
+
+// Titles font-size
+$_World_Title_FontSize: 40px;
+$_World_Title_FontSize_Tablet: 40px;
+$_World_Title_FontSize_Mobile: 24px;
+
+@mixin WorldTitleFontSize(
+  $size: $_World_Title_FontSize,
+  $tabletSize: $_World_Title_FontSize_Tablet,
+  $mobileSize: $_World_Title_FontSize_Mobile
+) {
+  font-size: $size;
+
+  @media screen and (max-width: 1024px) {
+    font-size: $tabletSize;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: $mobileSize;
+  }
+}
+
+// Text font color
+$_World_Text_Color: rgb(46, 50, 42);
+@mixin WorldTextColor($color: $_World_Text_Color) {
+  color: $color;
+}
+
+// Title font color
+$_World_Title_Color: rgb(128, 165, 6);
+@mixin WorldTitleColor($color: $_World_Title_Color) {
+  color: $color;
+}
+
+// Description font color
+@mixin WorldDescriptionColor($color: $_World_Text_Color) {
+  color: rgba($color, .5);
+}
+
+//w: 900
+@mixin FontBlack($font: $Font_Black, $weight: 900) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 800
+@mixin FontExtraBold($font: $Font_ExtraBold, $weight: 800) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 700
+@mixin FontBold($font: $Font_Bold, $weight: 700) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 600
+@mixin FontSemiBold($font: $Font_SemiBold, $weight: 600) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 500
+@mixin FontMedium($font: $Font_Medium, $weight: 500) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 400
+@mixin FontRegular($font: $Font_Regular, $weight: 400) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 300
+@mixin FontLight($font: $Font_Light, $weight: 300) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 200
+@mixin FontExtraLight($font: $Font_ExtraLight, $weight: 200) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+//w: 100
+@mixin FontThin($font: $Font_Thin, $weight: 100) {
+  font-family: $font, sans-serif;
+  font-weight: $weight;
+}
+
+/* Classes */
+
+.text {
+  @include FontRegular();
+  @include WorldTextFontSize();
+  @include WorldTextColor();
+  //line-height: 1.85;
+  letter-spacing: 0.03rem;
+}
+.title {
+  @include FontThin($Font_Title_Thin);
+  @include WorldTitleFontSize();
+  @include WorldTitleColor();
+  letter-spacing: 0.05em;
+}
+
+
+@mixin WorldFontSizeColor($type: 'text') {
+  @if($type == 'title') {
+    @include WorldTitleColor();
+    @include WorldTitleFontSize();
+    @include FontRegular();
+  }
+  @if($type == 'text') {
+    @include WorldTextFontSize();
+    @include WorldTextColor();
+    @include FontRegular();
+  }
+  @if($type == 'description'){
+    @include WorldTextFontSize();
+    @include WorldDescriptionColor();
+    @include FontLight();
+  }
+  @if($type == 'green_link') {
+    @include WorldTextFontSize();
+    color: rgb(130, 155, 100);;
+    @include FontRegular();
+  }
+}

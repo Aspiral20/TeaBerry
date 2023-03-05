@@ -42,11 +42,13 @@
           @include flex_justify-align();
           padding: 2px 8px;
           border: 1px solid $colorLightYellowGreen;
+          color: $colorDarkYellowGreen;
           transition: .3s;
-          background-color: rgba($colorLightYellowGreen, .2);
+          background-color: rgba($colorLightYellowGreen, .1);
           &:hover {
             transition: .3s;
             background-color: $colorLightYellowGreen;
+            color: white;
           }
           &.active {
             border-top-left-radius: $radius;
@@ -60,7 +62,7 @@
           top: calc(100% + -1px);
           width: 100%;
           text-align: center;
-          border: 1px solid $colorDarkYellowGreen;
+          border: 1px solid rgba($colorDarkYellowGreen, .5);
           transition: .3s;
           border-top: 0;
           border-bottom-left-radius: $radius;
@@ -68,9 +70,12 @@
           .lng_item {
             transition: .3s;
             padding: 2px 0;
+            color: $colorDarkYellowGreen;
 
             &:hover {
+              transition: .3s;
               background-color: $colorLightYellowGreen;
+              color: white;
             }
           }
         }
@@ -91,12 +96,15 @@
           }
           .auth_action {
             margin-left: 15px;
+            @include classic_button($colorLightYellowGreen, $colorDarkYellowGreen, $colorLightYellowGreen, white);
+
             &:first-child {
               margin-left: 0;
             }
           }
           .user_logout {
             margin-left: 15px;
+            @include classic_button($colorLightYellowGreen, $colorDarkYellowGreen, $colorLightYellowGreen, white);
           }
         }
       }

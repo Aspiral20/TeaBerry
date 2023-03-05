@@ -2,10 +2,14 @@ import { IUser } from "../models/user.type";
 import { makeAutoObservable } from "mobx";
 import RootStore from "./index";
 import UserService from "../services/UserService";
+import { v4 as uuid } from "uuid";
+import { ArrayCommonDataType, ObjectDataType } from "../_types";
+import { toast } from "react-toastify";
 
 export default class UserStore {
   rootStore: RootStore;
   user = {} as IUser;
+  userList = [] as ArrayCommonDataType
   isLoading = false;
 
   constructor(rootStore: RootStore) {
@@ -21,6 +25,17 @@ export default class UserStore {
     this.isLoading = bool
   }
 
+  userStoreSetData = () => {
+    const valuesUser = Object.values(this.user)
+    const keysUser = Object.keys(this.user)
+
+    this.userList = keysUser.map((item, i) => ({
+      id: uuid(),
+      field: item,
+      value: valuesUser[i].toString()
+    }))
+  }
+
   async fetchUser() {
     try {
       this.setLoading(true)
@@ -29,6 +44,24 @@ export default class UserStore {
 
       this.setUser(res.data)
     } catch (e) {
+      console.log(e)
+    } finally {
+      this.setLoading(false)
+    }
+  }
+
+  async updateUser(
+    id: string,
+    data: ObjectDataType,
+    statusMessage: { success: string, error: string }
+  ) {
+    const { success, error } = statusMessage
+    try {
+      this.setLoading(true)
+      await UserService.updateUser(id, data);
+      toast(success)
+    } catch (e) {
+      toast(error)
       console.log(e)
     } finally {
       this.setLoading(false)

@@ -12,11 +12,16 @@
     "continue": "Continue",
     "success-logged": "You are successfully logged!",
     "was-not-found": "User was not found!",
-    "user-exists": "User already exists!"
+    "user-exists": "User already exists!",
+    "save_changes": "Save Changes"
   },
   "errors": {
     "not-found-message": "This page does not exist. Go to",
-    "not-found-link": "main page"
+    "not-found-link": "main page",
+    "something-went-wrong": "Something went wrong"
+  },
+  "success": {
+    "success-changes": "Changes have been made successfully!"
   },
   "author": {
     "rights": "All rights reserved",

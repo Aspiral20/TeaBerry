@@ -1,0 +1,82 @@
+$editing_opacity: .5;
+
+
+.auth_input_container {
+  padding: 10px 0;
+
+  .icon_input_container {
+    position: relative;
+    min-width: 220px;
+
+    .auth_input {
+      padding: 8px 5px;
+      padding-left: 40px;
+      width: 100%;
+
+      background-color: white;
+      box-shadow: 0 0 23px 2px rgb(31 168 37 / 13%);
+      border: 1px solid rgba(143, 188, 98, .7);
+      transition: .6s;
+
+      &.adaptive_padding {
+        padding-right: 40px;
+      }
+
+      &.editing {
+        opacity: $editing_opacity;
+        transition: .6s;
+      }
+    }
+
+    .auth_svg_toggle {
+      position: absolute;
+      top: calc(50% - 12px);
+      left: 10px;
+      @include width-height(20px);
+      background-color: initial;
+      cursor: pointer;
+
+      .auth_svg_icon {
+        @include fill_icon($colorLightGreen);
+        @include max_width-height(100%);
+        opacity: .4;
+        transition: .6s;
+
+        &.is_value {
+          opacity: 1;
+        }
+      }
+    }
+
+    .svg_edit_container {
+      position: absolute;
+      top: calc(50% - 12px);
+      right: 10px;
+      @include width-height(20px);
+      background-color: initial;
+      cursor: pointer;
+      z-index: 1;
+
+      .svg_edit_icon {
+        @include fill_icon($colorLightGreen);
+        @include max_width-height(100%);
+        opacity: .8;
+        transition: .6s;
+      }
+
+      &.editing {
+        .svg_edit_icon {
+          opacity: $editing_opacity;
+          transition: .6s;
+        }
+      }
+    }
+  }
+
+  .auth_input_description {
+    @include WorldTextFontSize(13px, 13px, 13px);
+    padding-left: 3px;
+    padding-top: 3px;
+    color: rgba(46, 50, 42, .9);
+  }
+}

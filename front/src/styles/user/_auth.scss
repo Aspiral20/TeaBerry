@@ -18,60 +18,9 @@
 
     .inputs_container {
       margin: 20px 0;
-
-      .auth_input_container {
-        padding: 10px 0;
-        .icon_input_container {
-          position: relative;
-          .auth_input {
-            padding: 8px 5px;
-            padding-left: 40px;
-            width: 100%;
-
-            background-color: white;
-            box-shadow: 0 0 23px 2px rgb(31 168 37 / 13%);
-            border: 1px solid rgba(143, 188, 98, .7);
-          }
-          .auth_svg_toggle {
-            position: absolute;
-            top: calc(50% - 12px);
-            left: 10px;
-            @include width-height(20px);
-            background-color: initial;
-            cursor: pointer;
-
-            .auth_svg_icon {
-              fill: rgb(143, 188, 98);
-              @include max_width-height(100%);
-              opacity: .4;
-              transition: .6s;
-
-              &.is_value {
-                opacity: .8;
-              }
-            }
-          }
-        }
-
-
-      }
     }
 
     .auth_submit {
-      width: 50%;
-      min-width: 250px;
-      margin: 10px auto;
-      padding: 8px;
-      border-radius: 33.5px;
-      cursor: pointer;
-
-      font-size: 22px;
-      @include FontRegular();
-
-      background-image: -webkit-linear-gradient(90deg, rgb(206, 247, 72) 0%, rgb(175, 218, 85) 52%, rgb(143, 188, 98) 100%);
-      box-shadow: 0 0 22.5px 2.5px rgb(143 188 98 / 21%);
-      color: white;
-      transition: .6s;
     }
 
     .sign_up {

@@ -92,14 +92,19 @@ class UserService {
     return this._userGenerateSaveToken(user)
   }
 
+  async getAllUsers() {
+    const users = await UserSchema.find();
+    return users;
+  }
+
   async getUser(id) {
     const user = await UserSchema.findById(id);
     return user
   }
 
-  async getAllUsers() {
-    const users = await UserSchema.find();
-    return users;
+  async updateUser(id, data) {
+    const user = await UserSchema.updateOne({id: id}, {$set: data})
+    return user
   }
 }
 

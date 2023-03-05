@@ -1,4 +1,4 @@
-import { IUser, IUserDto } from "../models/user.type";
+import { IUserDto } from "../models/user.type";
 import AuthService from "../services/AuthService";
 import { makeAutoObservable } from "mobx";
 import axios from 'axios';
@@ -14,7 +14,6 @@ export default class AuthStore {
   user = {} as IUserDto;
   isAuth = false;
   isLoading = false;
-
 
   constructor(rootStore: RootStore) {
     this.rootStore = rootStore

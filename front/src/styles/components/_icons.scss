@@ -1,21 +1,53 @@
 .password_icon_filled {
-
-}
-.password_icon {
-
-}
-.email_icon {
-
-}
-
-.user_icon  {
   @include fill_icon($colorDarkYellowGreen);
 }
 
-.shop_basket_icon  {
+.password_icon {
+  @include fill_icon($colorDarkYellowGreen);
+}
+
+.email_icon {
+  @include fill_icon($colorDarkYellowGreen);
+}
+
+.edit_icon {
+  @include fill_icon($colorDarkYellowGreen);
+}
+
+.user_icon {
+  @include fill_icon($colorDarkYellowGreen);
+}
+
+.shop_basket_icon {
   @include fill_icon($colorDarkYellowGreen);
 }
 
 .edit_user_icon {
   @include fill_icon($colorDarkYellowGreen);
+}
+
+.location_icon {
+  @include fill_icon($colorDarkYellowGreen);
+}
+
+.country_icon {
+  fill: $colorDarkYellowGreen;
+}
+
+.address_icon {
+  fill: $colorDarkYellowGreen;
+  &_path-1, &_path-2 {
+    fill-rule:evenodd;
+  }
+}
+
+.city_icon {
+
+  &_path {
+    fill-rule:evenodd;
+  }
+}
+
+.phone_icon {
+  fill: $colorDarkYellowGreen;
 }

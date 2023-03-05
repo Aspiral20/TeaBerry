@@ -1,17 +1,23 @@
-import React from "react";
+import React, { lazy } from "react";
 import { useRoutes } from "react-router-dom";
 import { v4 as uuid } from "uuid";
-import { Assorts, Contacts, Error_page, Home, Picking } from "./_pages";
-import {
-  ForgotPassword,
-  Login,
-  Profile,
-  Registration,
-  SuccessfulRegistration,
-  ProfileInfo,
-  ProfileBasket,
-  EditProfile
-} from "./_user";
+import { Loadable } from "./utils/loadable";
+
+const Home = Loadable(lazy(() => import('./_pages/home')))
+const Picking = Loadable(lazy(() => import('./_pages/picking')))
+const ErrorPage = Loadable(lazy(() => import('./_pages/not_found')))
+const Assorts = Loadable(lazy(() => import('./_pages/assorts')))
+const Contacts = Loadable(lazy(() => import('./_pages/contacts')))
+
+const ForgotPassword = Loadable(lazy(() => import('./_user/forgot_password')))
+const Login = Loadable(lazy(() => import('./_user/login')))
+const Profile = Loadable(lazy(() => import('./_user/profile/profile')))
+const Registration = Loadable(lazy(() => import('./_user/registration')))
+const SuccessfulRegistration = Loadable(lazy(() => import('./_user/successful_registration')))
+const ProfileInfo = Loadable(lazy(() => import('./_user/profile/profile_info')))
+const ProfileBasket = Loadable(lazy(() => import('./_user/profile/profile_basket')))
+const EditProfile = Loadable(lazy(() => import('./_user/profile/edit_profile')))
+
 
 const Router = () => {
   return useRoutes([
@@ -63,7 +69,7 @@ const Router = () => {
     },
     {
       path: "*",
-      element: <Error_page/>,
+      element: <ErrorPage/>,
     }
   ])
 }

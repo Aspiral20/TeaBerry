@@ -12,11 +12,16 @@
     "continue": "Continuă",
     "success-logged": "Te-ai logat cu succes!",
     "was-not-found": "Utilizatorul nu a fost găsit!",
-    "user-exists": "Utilizatorul deja există!"
+    "user-exists": "Utilizatorul deja există!",
+    "save_changes": "Salvează Modificările"
   },
   "errors": {
     "not-found-message": "Această pagină nu există. Accesați",
-    "not-found-link": "pagina principală"
+    "not-found-link": "pagina principală",
+    "something-went-wrong": "Ceva nu a mers bine"
+  },
+  "success": {
+    "success-changes": "Modificările au fost făcute cu succes!"
   },
   "author": {
     "rights": "Toate drepturile rezervate",

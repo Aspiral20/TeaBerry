@@ -12,11 +12,16 @@
     "continue": "Продолжить",
     "success-logged": "Вы успешно вошли!",
     "was-not-found": "Пользователь не был найден!",
-    "user-exists": "Пользователь уже существует!"
+    "user-exists": "Пользователь уже существует!",
+    "save_changes": "Сохранить Изменения"
   },
   "errors": {
     "not-found-message": "Данная страница не существует. Перейти на",
-    "not-found-link": "главную страницу"
+    "not-found-link": "главную страницу",
+    "something-went-wrong": "Что-то пошло не так"
+  },
+  "success": {
+    "success-changes": "Изменения успешно внесены!"
   },
   "author": {
     "rights": "Все права защищены",

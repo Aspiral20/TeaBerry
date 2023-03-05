@@ -4,9 +4,8 @@ import { observer } from "mobx-react-lite";
 import { v4 as uuid } from "uuid";
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
-import { EmailIcon, PasswordIconFilled, PasswordValidation, PasswordIcon } from "../_components";
+import { PasswordValidation, SiteInput } from "../_components";
 import { ReqLoginDataType, AuthInputType } from "../_types";
-import { toast } from "react-toastify";
 import UseValidPassword, { initPasswdConditions } from "../hooks/use_valid_password";
 import { Link, useNavigate } from "react-router-dom";
 // import UserService from "../services/UserService";
@@ -79,6 +78,8 @@ const Login: FC = () => {
     } : item))
   }, [isHiddenPasswd])
 
+  useEffect(() => {}, [navigate])   //After user is logged, fetch data in profile
+
   const formSubmit = (e: any) => {
     e.preventDefault()
 
@@ -117,38 +118,19 @@ const Login: FC = () => {
           <form className="auth_form" onSubmit={formSubmit}>
             <div className="inputs_container">
               {data.map(({ id, name, description, value, ...rest }) => (
-                <div key={id} className="auth_input_container">
-                  <div className="icon_input_container">
-                    <input
-                      key={id}
-                      className="auth_input"
-                      name={name}
-                      onChange={handleChange}
-                      value={value}
-                      required
-                      {...rest}
-                    />
-                    {description && (
-                      <div className="auth_input_description">{t(description)}</div>
-                    )}
-                    {name === 'email' && (
-                      <div className="auth_svg_toggle">
-                        <EmailIcon className={cn("auth_svg_icon", { is_value: value })}/>
-                      </div>
-                    )}
-                    {name === 'password' && (
-                      <div className="auth_svg_toggle" onClick={togglePasswd}>
-                        {!isHiddenPasswd ? (
-                          <PasswordIconFilled className={cn("auth_svg_icon", { is_value: value })}/>
-                        ) : (
-                          <PasswordIcon className={cn("auth_svg_icon", { is_value: value })}/>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                  {/* todo check timeout animation*/}
-                  <PasswordValidation password={passIsValid} show={!!value && name === 'password' && !validReqPasswd} timeout={200}/>
-                </div>
+                <SiteInput
+                  key={id}
+                  onChange={handleChange}
+                  data={{ id, name, description, value, ...rest }}
+                  togglePasswd={togglePasswd}
+                  isHiddenPasswd={isHiddenPasswd}
+                >
+                  <PasswordValidation
+                    password={passIsValid}
+                    show={!!value && name === 'password' && !validReqPasswd}
+                    timeout={200}
+                  />
+                </SiteInput>
               ))}
             </div>
             <div className="forgot_password">
@@ -157,7 +139,7 @@ const Login: FC = () => {
               </Link>
             </div>
             <button
-              className={cn("auth_submit button", { is_disabled: !validReqPasswd || isDisabled || validEmail })}
+              className={cn("auth_submit auth_button button", { is_disabled: !validReqPasswd || isDisabled || validEmail })}
               disabled={!validReqPasswd || isDisabled || validEmail}
             >
               {t('actions.submit')}

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "concurrently \"cd api && npm run dev\" \"cd front && npm run dev\""
+    "dev": "concurrently \"cd api && npm run dev\" \"cd front && npm run dev\" \"cd admin && npm run dev\""
   },
   "dependencies": {
     "bcrypt": "^5.1.0",

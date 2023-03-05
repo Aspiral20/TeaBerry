@@ -4,7 +4,6 @@ const dotenvExpand = require('dotenv-expand')
 const { validationResult } = require("express-validator");
 dotenvExpand.expand(dotenv.config())
 const ApiError = require('../exceptions/api-error')
-const { TokenSchema } = require("../models");
 const TimeService = require('../services/time-service')
 
 class UserController {
@@ -90,6 +89,18 @@ class UserController {
       const userId = req.params.id
       const user = await UserService.getUser(userId)
       return res.json(user)
+    } catch (e) {
+      next(e)
+    }
+  }
+
+  async updateUser(req, res, next) {
+    try {
+      const userId = req.params.id
+      const data = req.body
+      const user = await UserService.updateUser(userId, data)
+
+      return res.json({statusCode: 200, user})
     } catch (e) {
       next(e)
     }
