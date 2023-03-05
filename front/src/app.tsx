@@ -5,7 +5,7 @@ import { Container } from "./_components";
 import { useLocation } from "react-router-dom"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import getStringPath from "./utils/get_string_path";
+import { getStringPath } from "./_utils";
 import { StoreContext } from "./index";
 import { observer } from "mobx-react-lite";
 
@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div
-      id="site"
+      id="client"
       onClick={(e: any) => e.target.className !== 'current_lang' ? langStore.setToggleLang(false) : null}
     >
 

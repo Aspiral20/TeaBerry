@@ -1,11 +1,11 @@
 import React, { lazy } from "react";
 import { useRoutes } from "react-router-dom";
 import { v4 as uuid } from "uuid";
-import { Loadable } from "./utils/loadable";
+import { Loadable } from "./_utils";
 
 const Home = Loadable(lazy(() => import('./_pages/home')))
 const Picking = Loadable(lazy(() => import('./_pages/picking')))
-const ErrorPage = Loadable(lazy(() => import('./_pages/not_found')))
+const ErrorPage = Loadable(lazy(() => import('./_pages/error_page')))
 const Assorts = Loadable(lazy(() => import('./_pages/assorts')))
 const Contacts = Loadable(lazy(() => import('./_pages/contacts')))
 

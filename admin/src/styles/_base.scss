@@ -23,6 +23,6 @@ img {
 }
 
 body {
-  @include FontRegular();
-  background-color: white;
+  background-color: #F5F8FA;
+  @include WorldFontSizeColor();
 }

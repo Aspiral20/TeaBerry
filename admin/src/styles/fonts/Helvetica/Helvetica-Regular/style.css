@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Helvetica-Regular';
+    src: local('Helvetica-Regular'), local('Helvetica-Regular'),
+        url('HelveticaRegular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }

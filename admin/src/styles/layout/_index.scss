@@ -1,2 +1,7 @@
+.main_layout {
+  @include padding_top-bottom(15px);
+}
+
 @import "header";
 @import "footer";
+@import "content_block";

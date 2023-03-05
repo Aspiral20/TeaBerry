@@ -1,13 +1,12 @@
 import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css'
-import Store from "./store/auth_store";
 import "./styles/index.scss";
 import App from "./app";
 import { BrowserRouter } from "react-router-dom";
 
 import './i18n';
-import { StoreType } from "./_types/store";
+import { StoreType } from "./_types";
 import RootStore from "./store";
 
 const store = new RootStore()

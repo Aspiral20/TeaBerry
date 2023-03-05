@@ -21,7 +21,7 @@ app.use(express.json())                     //
 app.use(cookieParser())                     //
 app.use(cors({
   credentials: true,
-  origin: process.env.CLIENT_URL
+  origin: [process.env.CLIENT_URL, process.env.ADMIN_URL]
 }));                            // Permite sa lucrez cu serverul din browser
 app.use('/api', router)                     // Conectam routerurile
 app.use(errorMiddleware)                    // Middleware pentru monitorizarea erorilor
@@ -47,7 +47,7 @@ const start = async () => {                 // Crearea unui Web server pe portul
 }
 mongoose.set('strictQuery', true);          //prevent mongoose error
 
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
   res.json({API: "STARTED", HOST: process.env.API_URL})
 })
 

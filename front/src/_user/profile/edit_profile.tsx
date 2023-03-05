@@ -6,9 +6,9 @@ import { observer } from "mobx-react-lite";
 import { ArrayCommonDataType, CommonDataType } from "../../_types";
 import { enumUserData } from "../../_constants";
 import cn from "classnames";
-import ArrayContainStrictDataFields from "../../utils/array_contain_strict_data_fields";
-import regexStringNumber from "../../utils/regex_string_number";
-import getObjectFromTwoArrays from "../../utils/get_object_from_two_arrays";
+import ArrayContainStrictDataFields from "../../_utils/array_contain_strict_data_fields";
+import regexStringNumber from "../../_utils/regex_string_number";
+import getObjectFromTwoArrays from "../../_utils/get_object_from_two_arrays";
 
 
 interface EditProfileProps {

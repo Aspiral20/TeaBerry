@@ -1,3 +1,102 @@
 .header {
+  @include flex_justify-align(flex, space-between, center);
+  padding: 0;
 
+  &__menu {
+    @include flex_justify-align();
+    &_content_item {
+      position: relative;
+      display: flex;
+      @include padding_top-bottom(14px);
+    }
+
+    &_item {
+      @include WorldFontSizeColor('text');
+      padding: 10px 13px;
+      transition: .25s;
+      cursor: pointer;
+      margin: 0 2px;
+
+      &:hover, &.active {
+        transition: .25s;
+      }
+    }
+  }
+
+  .menu_admin_container {
+    .menu_admin_item {
+      &:hover, &.active {
+        color: $header_menu_item_text_hover;
+        background-color: $header_menu_item_bcg_hover;
+      }
+    }
+  }
+
+  .menu_utils_container {
+    .utils_content {
+      @include flex_justify-align();
+
+      .menu_utils_item {
+        .menu_utils_svg {
+          fill: $header_utils_item_svg;
+
+          & g {
+            stroke: $header_utils_item_svg;
+          }
+        }
+
+        &:hover, &.active {
+          color: $header_menu_item_text_hover;
+          background-color: $header_menu_item_bcg_hover;
+
+          .menu_utils_svg {
+            fill: $header_menu_item_text_hover;
+
+            & g {
+              stroke: $header_menu_item_text_hover;
+            }
+          }
+        }
+      }
+    }
+
+    .user_photo_container {
+      position: relative;
+      $border-radius: 5px;
+
+      margin-left: 10px;
+      border-radius: $border-radius;
+
+      .user_photo {
+        cursor: pointer;
+        box-shadow: 0 0 10px 3px rgba(82, 63, 105, 0.20);
+        border-radius: $border-radius;
+        @include width-height(40px);
+      }
+    }
+  }
+}
+
+//1199-1024
+@media screen and (max-width: 1199px) {
+}
+
+//1023-768
+@media screen and (max-width: 1023px) {
+}
+
+//767-425
+@media screen and (max-width: 767px) {
+}
+
+//424-375
+@media screen and (max-width: 424px) {
+}
+
+//374-320
+@media screen and (max-width: 374px) {
+}
+
+//319-0
+@media screen and (max-width: 319px) {
 }

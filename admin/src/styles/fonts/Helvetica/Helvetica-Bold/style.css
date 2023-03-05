@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'Helvetica-Bold';
+    src: local('Helvetica-Bold'), local('Helvetica-Bold'),
+        url('HelveticaBold.otf') format('opentype');
+    font-weight: 700;
+  }

@@ -1,0 +1,35 @@
+.menu_modal {
+  position: absolute;
+  top: calc(100%);
+  box-shadow: 0 0 50px 0 rgba(82, 63, 105, 0.15);
+  padding: 12px 0;
+  background: white;
+  border-radius: 5px;
+  min-width: 160px;
+  &.left {
+    left: 0;
+  }
+  &.right {
+    right: 0;
+  }
+  .content_modal {
+    .list_modal {
+      display: flex;
+      flex-direction: column;
+      .list_item {
+        cursor: pointer;
+        @include margin_left-right(10px);
+        padding: 8px 12px;
+        @include WorldFontSizeColor('text');
+        &:hover {
+          background-color: $header_menu_item_bcg_hover;
+        }
+      }
+    }
+    .divider {
+      padding-top: 6px;
+      border-bottom: 1px solid $header_menu_item_bcg_hover;
+      margin-bottom: 6px;
+    }
+  }
+}
