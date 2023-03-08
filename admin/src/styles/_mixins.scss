@@ -122,18 +122,26 @@
   box-shadow: 0 0 23px 2px rgba($color, 13%);
 }
 
-@mixin classic_button($colorButton: #00AD74FF, $colorText: white, $hoverColorButton: #00AD74FF, $hoverColorText: white, $bcgOpacity: 'false', $opacity: 0.1) {
+@mixin classic_button(
+  $colorButton: #00AD74FF,
+  $colorText: white,
+  $hoverColorButton: #00AD74FF,
+  $hoverColorText: white,
+  $bcgOpacity: 'false',
+  $bkgWhenOpacity: $colorButton,
+  $opacity: 0.1
+) {
   cursor: pointer;
   margin-top: auto;
   margin-bottom: auto;
   line-height: 1.6rem;
   border: 1px solid $colorButton;
   color: $colorText;
-  padding: 3px 8px;
+  padding: 10px 13px;
   transition: .5s;
 
   @if ($bcgOpacity == 'true') {
-    background-color: rgba($colorButton, $opacity);
+    background-color: rgba($bkgWhenOpacity, $opacity);
   } @else {
     background-color: transparent;
   }

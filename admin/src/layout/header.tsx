@@ -1,58 +1,90 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Container, Fon } from "../_components/general";
 import { v4 as uuid } from 'uuid';
-import { SearchIcon } from "../_components";
-import { Link } from "react-router-dom";
-import MenuModal from "../_components/menu_modal";
+import {
+  ContentModal,
+  DividerModal,
+  ListItem,
+  ListModal,
+  MenuModal,
+  MoonIcon,
+  SearchIcon,
+  SunIcon
+} from "../_components";
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch } from "redux";
+import { ReducersTypes } from "../_types/store";
+import { useLocation } from "react-router-dom";
 
 const initMenuAdmin = [
   {
     id: uuid(), value: 'Dashboard', isShown: false,
-    modal: (
-      <div className="dashboard_modal content_modal">
-        <div className="list_modal">
-          <Link to='/' className="list_item">Main</Link>
-          <Link to='/products' className="list_item">Products</Link>
-        </div>
-      </div>
+    modal: (pathname: string) => (
+      <ContentModal className="dashboard_modal">
+        <ListModal>
+          <ListItem cnParams={{ active: pathname === '/' }} linkTo='/'>Main</ListItem>
+          <ListItem cnParams={{ active: pathname.includes('products') }}
+                    linkTo='/commerce/catalog/products'>Products</ListItem>
+        </ListModal>
+      </ContentModal>
     )
   },
   {
     id: uuid(), value: 'Help', isShown: false,
-    modal: (
-      <div className="help_modal content_modal">
-        <div className="list_modal">
-          <Link to='/profile' className="list_item">Help</Link>
-        </div>
-      </div>
+    modal: (pathname: string) => (
+      <ContentModal className="help_modal">
+        <ListModal>
+          <ListItem cnParams={{ active: pathname === '/help' }} linkTo='/help'>Help</ListItem>
+        </ListModal>
+      </ContentModal>
     )
   },
 ]
 
 const initMenuUtils = [
   {
-    id: uuid(), icon: <SearchIcon className="menu_utils_svg"/>, isShown: false, modal: (
+    id: uuid(), icon: () => <SearchIcon className="menu_utils_svg"/>, isShown: false, modal: () => (
       <>
         Search Modal
       </>
     )
   },
+  {
+    id: uuid(),
+    icon: (siteMode: string) => siteMode === 'light' ? <SunIcon className="menu_utils_svg"/> :
+      <MoonIcon className="menu_utils_svg"/>,
+    isShown: false,
+    modal: (siteMode: string, dispatch: Dispatch) => (
+      <ContentModal className={"site_mode"}>
+        <ListModal>
+          <ListItem cnParams={{ svg_active_mode: siteMode === 'light' }} onClick={() => {
+            dispatch({ type: 'site_mode', mode: 'light' })
+          }}><SunIcon className="menu_utils_svg"/> Light</ListItem>
+          <ListItem cnParams={{ svg_active_mode: siteMode === 'dark' }} onClick={() => {
+            dispatch({ type: 'site_mode', mode: 'dark' })
+          }}><MoonIcon className="menu_utils_svg"/> Dark</ListItem>
+        </ListModal>
+      </ContentModal>
+    )
+  },
 ]
 
 const initMenuUser = {
-  isShown: false, menu: (
-    <div className="user_modal content_modal">
-      <div className="list_modal">
-        <Link to='/profile' className="list_item">My profile</Link>
-      </div>
+  isShown: false, menu: (pathname: string) => (
+    <ContentModal className="user_modal">
+      <ListModal>
+        <ListItem cnParams={{ active: pathname === '/profile' }} linkTo='/profile'>
+          My profile
+        </ListItem>
+      </ListModal>
 
-      <div className="divider"/>
+      <DividerModal/>
 
-      <div className="list_modal">
-        <Link to='/profile/settings' className="list_item">Settings</Link>
-        <Link to='/profile/settings' className="list_item">Sign Out</Link>
-      </div>
-    </div>
+      <ListModal>
+        <ListItem linkTo='/profile/settings'>Settings</ListItem>
+        <ListItem linkTo='/'>Sign Out</ListItem>
+      </ListModal>
+    </ContentModal>
   )
 }
 
@@ -63,6 +95,13 @@ const Header: FC<HeaderProps> = ({}) => {
   const [menuAdmin, setMenuAdmin] = useState(initMenuAdmin);
   const [menuUtils, setMenuUtils] = useState(initMenuUtils);
   const [menuUser, setMenuUser] = useState(initMenuUser);
+  const siteMode = useSelector<ReducersTypes, string>(prev => prev.SiteColorMode.mode)
+  const dispatch = useDispatch()
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    localStorage.setItem('site_mode', siteMode)
+  }, [siteMode])
 
   const isShownMap = (
     arr: Array<any>,
@@ -81,12 +120,12 @@ const Header: FC<HeaderProps> = ({}) => {
               onMouseEnter={() => setMenuAdmin(prev => isShownMap(prev, id, true))}
               onMouseLeave={() => setMenuAdmin(prev => isShownMap(prev, id, false))}
             >
-              <div className="menu_admin_item header__menu_item">
+              <div className="menu_admin_item header__menu_item menu_button">
                 {value}
               </div>
               {isShown && modal && (
                 <MenuModal>
-                  {modal}
+                  {modal(pathname)}
                 </MenuModal>
               )}
             </div>
@@ -101,12 +140,12 @@ const Header: FC<HeaderProps> = ({}) => {
                 onMouseEnter={() => setMenuUtils(prev => isShownMap(prev, id, true))}
                 onMouseLeave={() => setMenuUtils(prev => isShownMap(prev, id, false))}
               >
-                <div className="menu_utils_item header__menu_item">
-                  {icon}
+                <div className="menu_utils_item header__menu_item menu_button">
+                  {icon(siteMode)}
                 </div>
                 {isShown && modal && (
                   <MenuModal direction={'right'}>
-                    {modal}
+                    {modal(siteMode, dispatch)}
                   </MenuModal>
                 )}
               </div>
@@ -120,7 +159,7 @@ const Header: FC<HeaderProps> = ({}) => {
             <img className="user_photo" src="/logo/account_image.jpg" alt="..."/>
             {menuUser.isShown && (
               <MenuModal direction={'right'}>
-                {menuUser.menu}
+                {menuUser.menu(pathname)}
               </MenuModal>
             )}
           </div>

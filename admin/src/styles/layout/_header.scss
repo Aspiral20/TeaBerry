@@ -4,31 +4,26 @@
 
   &__menu {
     @include flex_justify-align();
+
     &_content_item {
       position: relative;
       display: flex;
       @include padding_top-bottom(14px);
+
+      .menu_modal {
+        .site_mode {
+
+        }
+      }
     }
 
     &_item {
-      @include WorldFontSizeColor('text');
-      padding: 10px 13px;
-      transition: .25s;
-      cursor: pointer;
       margin: 0 2px;
-
-      &:hover, &.active {
-        transition: .25s;
-      }
     }
   }
 
   .menu_admin_container {
     .menu_admin_item {
-      &:hover, &.active {
-        color: $header_menu_item_text_hover;
-        background-color: $header_menu_item_bcg_hover;
-      }
     }
   }
 
@@ -36,21 +31,30 @@
     .utils_content {
       @include flex_justify-align();
 
-      .menu_utils_item {
-        .menu_utils_svg {
-          fill: $header_utils_item_svg;
+      .menu_utils_svg {
+        fill: $header_utils_item_svg;
 
-          & g {
-            stroke: $header_utils_item_svg;
-          }
+        .sun_icon_g {
+          fill: $header_utils_item_svg;
         }
 
+        & g {
+          stroke: $header_utils_item_svg;
+        }
+      }
+
+      .menu_utils_item {
+
         &:hover, &.active {
-          color: $header_menu_item_text_hover;
-          background-color: $header_menu_item_bcg_hover;
+          //color: $header_menu_item_text_hover;
+          //background-color: $header_menu_item_bcg_hover;
 
           .menu_utils_svg {
             fill: $header_menu_item_text_hover;
+
+            .sun_icon_g {
+              fill: $header_menu_item_text_hover;
+            }
 
             & g {
               stroke: $header_menu_item_text_hover;

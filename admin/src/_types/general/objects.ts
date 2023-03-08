@@ -1,0 +1,1 @@
+export type DefaultObjectItemType = { [p: string]: any }

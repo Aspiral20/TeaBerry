@@ -8,12 +8,14 @@ interface FooterProps {
 
 const Footer: FC<FooterProps> = ({}) => {
   const { t } = useTranslation()
+  const year = new Date().getFullYear()
+
   return (
     <Container className="footer">
       <div className="info_container">
         <div className="rights info_item">
           <span className="description">
-            © 2023 {t('author.rights')}
+            © {year} {t('author.rights')}
           </span>
         </div>
         <div className="author info_item">

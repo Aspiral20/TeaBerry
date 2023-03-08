@@ -42,3 +42,32 @@
     color: white;
   }
 }
+
+.menu_button {
+  @include WorldFontSizeColor('text');
+  padding: 10px 13px;
+  cursor: pointer;
+  transition: .25s;
+
+  &:hover, &.active {
+    transition: .25s;
+    color: $header_menu_item_text_hover;
+    background-color: var(--theme-mode-buttons-hover-bg);
+  }
+}
+
+.action_button {
+  $bkg: var(--theme-mode-buttons-hover-bg);
+  $bkg-opacity: var(--theme-mode-text-color-opacity);
+  $text: var(--theme-mode-text-color);
+
+  @include classic_button(
+      $bkg,
+      $text,
+      $bkg,
+      $text,
+      'true',
+      $bkg-opacity,
+      .5
+  );
+}

@@ -74,8 +74,8 @@ $_World_Text_FontSize_Mobile: 14px;
 }
 
 // Titles font-size
-$_World_Title_FontSize: 40px;
-$_World_Title_FontSize_Tablet: 40px;
+$_World_Title_FontSize: 28px;
+$_World_Title_FontSize_Tablet: 26px;
 $_World_Title_FontSize_Mobile: 24px;
 
 @mixin WorldTitleFontSize(
@@ -93,8 +93,28 @@ $_World_Title_FontSize_Mobile: 24px;
   }
 }
 
+// Description font-size
+$_World_Description_FontSize: 12px;
+$_World_Description_FontSize_Tablet: 12px;
+$_World_Description_FontSize_Mobile: 12px;
+
+@mixin WorldDescriptionFontSize(
+  $size: $_World_Description_FontSize,
+  $tabletSize: $_World_Description_FontSize_Tablet,
+  $mobileSize: $_World_Description_FontSize_Mobile
+) {
+  font-size: $size;
+
+  @media screen and (max-width: 1024px) {
+    font-size: $tabletSize;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: $mobileSize;
+  }
+}
+
 // Text font color
-$_World_Text_Color: #5E6278;
+$_World_Text_Color: var(--theme-mode-text-color);
 @mixin WorldTextColor($color: $_World_Text_Color) {
   color: $color;
 }
@@ -106,9 +126,9 @@ $_World_Title_Color: #181C32;
 }
 
 // Description font color
-$_World_Description_Color: #B5B5C3;
+$_World_Description_Color: var(--theme-mode-description-chapter-color);
 @mixin WorldDescriptionColor($color: $_World_Description_Color) {
-  color: rgba($color, .5);
+  color: $color;
 }
 
 //w: 900
@@ -174,13 +194,13 @@ $_World_Description_Color: #B5B5C3;
   //line-height: 1.85;
   //letter-spacing: 0.03rem;
 }
+
 .title {
-  @include FontThin($Font_Title_Thin);
+  @include FontRegular($Font_Title_Thin);
   @include WorldTitleFontSize();
   @include WorldTitleColor();
   //letter-spacing: 0.05em;
 }
-
 
 @mixin WorldFontSizeColor($type: 'text') {
   @if($type == 'title') {

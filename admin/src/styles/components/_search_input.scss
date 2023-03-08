@@ -1,0 +1,31 @@
+.search_input_container {
+  position: relative;
+  display: flex;
+  min-width: 220px;
+
+  border-radius: 6px;
+
+  .search_input {
+    width: 100%;
+    padding: 10px 12px 10px 45px;
+    background-color: var(--search-input-bkg-color);
+    border-color: var(--search-input-border-color);
+    @include WorldTextColor();
+
+    border-radius: 6px;
+    transition: .2s;
+
+    &:active {
+      transition: .2s;
+      background-color: var(--search-input-bkg-hover-color);
+      border-color: var(--search-input-border-hover-color);
+    }
+  }
+
+  .search_svg {
+    position: absolute;
+    @include width-height(16px);
+    top: calc(50% - 8px);
+    left: 14px;
+  }
+}

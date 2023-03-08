@@ -1,5 +1,5 @@
 import React, { lazy } from "react";
-import { useRoutes } from "react-router-dom";
+import { Outlet, useRoutes } from "react-router-dom";
 import { Loadable } from "./_utils";
 
 const ErrorPage = Loadable(lazy(() => import("./pages/error_page")))
@@ -14,8 +14,15 @@ const Router = () => {
       element: <Main/>,
     },
     {
-      path: "/products",
-      element: <Products/>,
+      path: "/commerce",
+      element: <Outlet/>,
+      children: [
+        {
+          path: "catalog", element: <Outlet/>, children: [
+            { path: "products", element: <Products/> }
+          ]
+        }
+      ]
     },
     {
       path: "/help",

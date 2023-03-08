@@ -6,12 +6,14 @@
   &__container {
     text-align: center;
     .error_status {
+      color: var(--theme-mode-title-chapter-color);
       font-size: 48px;
       font-weight: bold;
     }
     .error_message {
       font-size: 18px;
       .error_link {
+        color: var(--theme-mode-text-color);
       }
     }
   }

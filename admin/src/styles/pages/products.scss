@@ -1,0 +1,24 @@
+.products {
+  .title_container {
+    margin-bottom: 20px;
+  }
+
+  .products_content {
+    .card_content__header {
+      @include flex_justify-align(flex, space-between);
+      margin-bottom: 16px;
+
+      .right-content {
+        display: flex;
+
+        .action_button {
+          margin-left: 16px;
+        }
+      }
+    }
+
+    .products_table {
+
+    }
+  }
+}
