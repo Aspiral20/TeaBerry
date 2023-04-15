@@ -5,12 +5,13 @@ interface ContainerProps {
   children?: React.ReactNode
 }
 
-const Container: FC<ContainerProps> = ({
+const Container: FC<ContainerProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = ({
   children,
-  className= ''
+  className = '',
+  ...props
 }) => {
   return (
-    <div className={'container ' + className}>
+    <div className={'container ' + className} {...props}>
       {children}
     </div>
   );

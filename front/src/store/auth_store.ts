@@ -5,7 +5,7 @@ import axios from 'axios';
 import { AuthResponse } from "../models/response/auth_response.type";
 import { API_URL } from "../http";
 import { toast } from "react-toastify";
-import { ReqRegistrationDataType, ReqLoginDataType } from "../_types";
+import { ReqLoginDataType, ReqRegistrationDataType } from "../_types";
 import RootStore from "./index";
 
 export default class AuthStore {
@@ -48,7 +48,7 @@ export default class AuthStore {
       this.setUser(res.data.user)
 
       toast(success)
-      navigate('/profile')
+      navigate('/profile/info')
     } catch (e: any) {
       toast.error(error)
       console.log(e)

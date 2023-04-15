@@ -75,8 +75,8 @@ $_World_Text_FontSize_Mobile: 14px;
 
 // Titles font-size
 $_World_Title_FontSize: 28px;
-$_World_Title_FontSize_Tablet: 26px;
-$_World_Title_FontSize_Mobile: 24px;
+$_World_Title_FontSize_Tablet: 28px;
+$_World_Title_FontSize_Mobile: 28px;
 
 @mixin WorldTitleFontSize(
   $size: $_World_Title_FontSize,

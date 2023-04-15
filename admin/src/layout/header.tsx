@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { Container, Fon } from "../_components/general";
 import { v4 as uuid } from 'uuid';
 import {
@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
 import { ReducersTypes } from "../_types/store";
 import { useLocation } from "react-router-dom";
+import { setHeight } from "../_utils";
 
 const initMenuAdmin = [
   {
@@ -92,6 +93,7 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({}) => {
+  const headerRef = useRef(null);
   const [menuAdmin, setMenuAdmin] = useState(initMenuAdmin);
   const [menuUtils, setMenuUtils] = useState(initMenuUtils);
   const [menuUser, setMenuUser] = useState(initMenuUser);
@@ -103,6 +105,10 @@ const Header: FC<HeaderProps> = ({}) => {
     localStorage.setItem('site_mode', siteMode)
   }, [siteMode])
 
+  useEffect(() => {
+    setHeight(headerRef)
+  }, [])
+
   const isShownMap = (
     arr: Array<any>,
     id: string,
@@ -111,7 +117,7 @@ const Header: FC<HeaderProps> = ({}) => {
 
   return (
     <Fon>
-      <Container className="header main_layout">
+      <Container className="header main_layout" ref={headerRef}>
         <div className="menu_admin_container header__menu">
           {menuAdmin.map(({ id, value, isShown, modal }) => (
             <div

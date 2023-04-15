@@ -4,6 +4,7 @@ import equalTwoArrays from "./equal_two_arrays";
 import ArrayContainStrictDataFields from "./array_contain_strict_data_fields";
 import Loadable from "./loadable";
 import regexStringNumber from "./regex_string_number";
+import setHeight from "./set_height";
 
 export {
   getStringPath,
@@ -12,4 +13,5 @@ export {
   ArrayContainStrictDataFields,
   Loadable,
   regexStringNumber,
+  setHeight,
 }

@@ -1,8 +1,17 @@
 {
   "pages": {
+    "home": "Главная",
     "assorts": "Ассортименты",
     "picking": "Сбор",
     "contacts": "Контакты"
+  },
+  "contacts": {
+    "fax": "Факс",
+    "email": "Почта",
+    "address-text": "Г. Кишинёв",
+    "phone-text": "",
+    "fax-text": "",
+    "email-text": ""
   },
   "actions": {
     "login": "Авторизоваться",

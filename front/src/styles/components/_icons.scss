@@ -44,10 +44,46 @@
 .city_icon {
 
   &_path {
-    fill-rule:evenodd;
+    fill-rule: evenodd;
   }
 }
 
 .phone_icon {
   fill: $colorDarkYellowGreen;
+}
+
+.x-icon-container {
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  top: 0;
+
+  .x-icon {
+    @include flex_justify-align();
+    position: relative;
+    width: 25px;
+    height: 25px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      border-radius: 50px;
+      background-color: white;
+      transform: rotate(45deg);
+      z-index: 2;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      border-radius: 50px;
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      transform: rotate(135deg);
+      z-index: 2;
+    }
+  }
 }

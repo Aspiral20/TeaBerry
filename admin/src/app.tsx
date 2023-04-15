@@ -11,12 +11,15 @@ import { ReducersTypes } from "./_types/store";
 
 function App() {
   const { pathname } = useLocation()
+  // const { headerHeight } = useGetHeight()
   const routeClass = getStringPath(pathname)
   const dispatch = useDispatch()
   const themeMode = useSelector<ReducersTypes>(reducer => reducer.SiteColorMode.mode)
   const toggles = [
     { isOpen: useSelector<ReducersTypes, boolean>(prev => prev.Toggles.select_feature), field: "select_feature" }
   ]
+
+  // console.log(headerHeight)
 
   return (
     <div

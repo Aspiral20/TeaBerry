@@ -1,8 +1,17 @@
 {
   "pages": {
+    "home": "Acasă",
     "assorts": "Asortimente",
     "picking": "Culegere",
     "contacts": "Contacte"
+  },
+  "contacts": {
+    "fax": "Факс",
+    "email": "Почта",
+    "address-text": "Oraș Chișinău",
+    "phone-text": "",
+    "fax-text": "",
+    "email-text": ""
   },
   "actions": {
     "login": "Logare",

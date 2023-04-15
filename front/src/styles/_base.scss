@@ -39,3 +39,10 @@ body {
 //  background-color: $blue;
 //  border-radius: 30px;
 //}
+
+
+@media screen and (max-width: 600px) {
+  #client {
+    padding-left: 38px;
+  }
+}

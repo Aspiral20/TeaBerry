@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import Router from "./router";
-import { Header, Footer } from "./layout";
+import { Footer, Header } from "./layout";
 import { Container } from "./_components";
 import { useLocation } from "react-router-dom"
 import { ToastContainer } from 'react-toastify';
@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getStringPath } from "./_utils";
 import { StoreContext } from "./index";
 import { observer } from "mobx-react-lite";
+import AdaptiveMenu from "./layout/adaptive_menu";
 
 function App() {
   const { store } = useContext(StoreContext)
@@ -34,6 +35,8 @@ function App() {
         <Router/>
       </Container>
       <Footer/>
+
+      <AdaptiveMenu/>
 
       <ToastContainer/>
     </div>

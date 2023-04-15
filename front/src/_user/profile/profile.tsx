@@ -12,7 +12,7 @@ import ContentLoader from "../../_components/content_loader";
 // Example:https://www.bootdey.com/snippets/view/user-profile-bio-graph-and-total-sales
 
 const menuProfile = [
-  { id: uuid(), icon: <UserIcon/>, name: 'profile', field: "Profile", link_to: '/profile' },
+  { id: uuid(), icon: <UserIcon/>, name: 'profile', field: "Profile", link_to: '/profile/info' },
   { id: uuid(), icon: <ShopBasketIcon/>, name: 'basket', field: "Basket", link_to: '/profile/basket' },
   { id: uuid(), icon: <EditUserIcon/>, name: 'edit_profile', field: "Edit Profile", link_to: '/profile/edit_profile' },
 ]
@@ -48,7 +48,7 @@ const Profile: FC<ProfileProps> = ({}) => {
             {!userStore.isLoading ? (
               <>
                 <div className="photo_container">
-                  <Link to='/profile' className="image_link">
+                  <Link to='/profile/info' className="image_link">
                     <img className="image" src="/logo/profile.jpg" alt="..."/>
                   </Link>
                   <div className="name text">

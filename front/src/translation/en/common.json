@@ -1,8 +1,17 @@
 {
   "pages": {
+    "home": "Home",
     "assorts": "Assorts",
     "picking": "Picking",
     "contacts": "Contacts"
+  },
+  "contacts": {
+    "fax": "Fax",
+    "email": "Email",
+    "address-text": "City Chisinau",
+    "phone-text": "",
+    "fax-text": "",
+    "email-text": ""
   },
   "actions": {
     "login": "Sign in",

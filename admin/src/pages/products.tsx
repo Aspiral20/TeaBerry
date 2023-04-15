@@ -5,6 +5,8 @@ import { v4 as uuid } from 'uuid'
 import { STATUSES } from "../constants";
 import SearchInput from "../_components/general/search_input";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { useSelector } from "react-redux";
+import { ReducersTypes } from "../_types/store";
 
 const Space = () => (<>&nbsp;</>);
 
@@ -158,10 +160,12 @@ const products = [
 interface ProductsProps {
 }
 
+// const StyledDataGrid = styled(DataGrid)(({ theme }))
+
 const Products: FC<ProductsProps> = ({}) => {
+  const themeMode = useSelector<ReducersTypes>(reducer => reducer.SiteColorMode.mode)
 
   // const [options, setOptions] = useState<SelectFeaturesContextType>(initOptions)
-
 
   return (
     <div className="products">
@@ -197,6 +201,10 @@ const Products: FC<ProductsProps> = ({}) => {
               pageSizeOptions={[5]}
               // rowsPerPageOptions={[5]}
               checkboxSelection
+              sx={themeMode === 'light' ? {} : themeMode === 'dark' ? {
+                borderColor: "rgba(82, 63, 105, 0.2)",
+                color: "#92929F",
+              } : {}}
             />
           </div>
           {/*<div className="products_fields">*/}

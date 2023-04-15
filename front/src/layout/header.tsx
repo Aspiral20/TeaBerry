@@ -5,24 +5,33 @@ import { StoreContext } from "../index";
 import { observer } from "mobx-react-lite";
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
-import { Container } from "../_components";
+import { CoffeeIcon, ContactsEmailIcon, Container, HomeIcon, PickTeaIcon } from "../_components";
 import { langs } from "../store/lang_store";
 
-const menuLinks = [
+export const menuLinks = [
+  {
+    id: uuid(),
+    path: '/',
+    value: 'home',
+    icon: <HomeIcon className="adaptive_menu_icon"/>
+  },
   {
     id: uuid(),
     path: 'assorts',
     value: 'assorts',
+    icon: <CoffeeIcon className="adaptive_menu_icon"/>
   },
   {
     id: uuid(),
     path: 'picking',
     value: 'picking',
+    icon: <PickTeaIcon className="adaptive_menu_icon"/>
   },
   {
     id: uuid(),
     path: 'contacts',
     value: 'contacts',
+    icon: <ContactsEmailIcon className="adaptive_menu_icon"/>
   },
 ]
 
@@ -48,15 +57,15 @@ const Header: FC<HeaderProps> = ({}) => {
           </Link>
         </div>
         <div className="menu_items">
-          {menuLinks.map(({ id, path, value }) => (
-            <Link key={id} to={path} className={cn("menu_item", {'active': pathname.includes(path)})}>
+          {menuLinks.map(({ id, path, value }) => value !== 'home' && (
+            <Link key={id} to={path} className={cn("menu_item", { 'active': pathname.includes(path) })}>
               {value && t(`pages.${value}`)}
             </Link>
           ))}
         </div>
         <div className="action_container">
           <div className='language'>
-            <div className={cn("current_lang", {'active': langStore.toggleLang})} onClick={() => {
+            <div className={cn("current_lang", { 'active': langStore.toggleLang })} onClick={() => {
               langStore.setToggleLang(!langStore.toggleLang)
             }}>
               {langStore.lang}
@@ -87,7 +96,7 @@ const Header: FC<HeaderProps> = ({}) => {
               </div>
               :
               <div className="user_logged user_auth_container">
-                <Link className="profile" to={`/profile`}>
+                <Link className="profile" to={`/profile/info`}>
                   {/*<div className="profile_img" style={{backgroundImage: `url("/logo/profile.jpg")`}}/>*/}
                   <img className="profile_img" src="/logo/profile.jpg" alt="..."/>
                 </Link>

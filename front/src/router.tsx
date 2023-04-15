@@ -62,7 +62,7 @@ const Router = () => {
       path: "profile",
       element: <Profile/>,
       children: [
-        { id: uuid(), path: '', element: <ProfileInfo/> },
+        { id: uuid(), path: 'info', element: <ProfileInfo/> },
         { id: uuid(), path: 'basket', element: <ProfileBasket/> },
         { id: uuid(), path: 'edit_profile', element: <EditProfile/> },
       ]

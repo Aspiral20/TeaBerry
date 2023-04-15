@@ -14,6 +14,14 @@ import CountryIcon from "./country.icon";
 import AddressIcon from "./address.icon";
 import PhoneIcon from "./phone.icon";
 import CityIcon from "./city.icon";
+import ContactsCallIcon from "./contacts_call.icon";
+import ContactsEmailIcon from "./contacts_email.icon";
+import ContactsFaxIcon from "./contacts_fax.icon";
+import ContactsLocationIcon from "./contacts_location.icon";
+import XCssIcon from "./x.css.icon";
+import HomeIcon from "./home.icon";
+import CoffeeIcon from "./coffee.icon";
+import PickTeaIcon from "./pick_tea.icon";
 
 export {
   PasswordIcon,
@@ -31,5 +39,13 @@ export {
   CountryIcon,
   AddressIcon,
   PhoneIcon,
-  CityIcon
+  CityIcon,
+  ContactsCallIcon,
+  ContactsEmailIcon,
+  ContactsFaxIcon,
+  ContactsLocationIcon,
+  XCssIcon,
+  HomeIcon,
+  CoffeeIcon,
+  PickTeaIcon,
 }

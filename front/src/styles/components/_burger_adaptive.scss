@@ -1,0 +1,105 @@
+$header_burger-size: 1.563rem;
+$color: rgb(90, 124, 55);
+$color_active: rgb(90, 124, 55);
+$width: 20px;
+$height: 3px;
+
+.burger {
+  cursor: pointer;
+  display: none;
+}
+
+//767-425
+@media screen and (max-width: 767px) {
+  .burger {
+    @include flex_justify-align();
+    width: $header_burger-size;
+
+    .burger_animate_bar {
+      width: 100%;
+
+      .burger_center {
+        width: $header_burger-size;
+        height: $header_burger-size;
+        position: relative;
+
+        &::after {
+          content: '';
+          transition: .8s;
+          opacity: 1;
+          position: absolute;
+          width: $width;
+          height: $height;
+          background-color: $color;
+          top: 11.5px;
+          left: 2.7px;
+          transform: rotate(0deg);
+          border-radius: 50px;
+        }
+      }
+
+      &.active {
+        .burger_center {
+          &::after {
+            transition: .8s;
+            opacity: 0;
+            left: -13px;
+            transform: rotate(90deg);
+            background-color: $color_active;
+          }
+        }
+      }
+    }
+
+    .x-icon-container {
+      right: auto;
+      top: auto;
+
+      .x-icon {
+        &::after {
+          transition: .75s;
+          opacity: 1;
+          top: 4px;
+          left: 2.7px;
+          height: $height;
+          width: $width;
+          transform: rotate(0deg);
+          background-color: $color;
+        }
+
+        &::before {
+          transition: .75s;
+          opacity: 1;
+          bottom: 4px;
+          height: $height;
+          transform: rotate(0deg);
+          width: $width;
+          left: 2.7px;
+          background-color: $color;
+        }
+      }
+
+      &.current-card-icon-effect {
+        .x-icon {
+          &::after {
+            opacity: 1;
+            top: 11.5px;
+            left: 0;
+            transform: rotate(135deg);
+            width: 100%;
+            background-color: $color_active;
+          }
+
+          &::before {
+            opacity: 1;
+            bottom: 10.5px; //9 + 2.5
+            left: 0;
+            transform: rotate(45deg);
+            width: 100%;
+            background-color: $color_active;
+          }
+        }
+      }
+    }
+  }
+}

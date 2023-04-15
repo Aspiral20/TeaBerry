@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
+import { DefaultTitle } from "../../_components";
 
 interface ProfileBasketProps {}
 const ProfileBasket: FC<ProfileBasketProps> = ({}) => {
   return (
     <div className="user_basket_container">
-      <h2 className="user_profile title">Basket</h2>
+      <DefaultTitle>Basket</DefaultTitle>
     </div>
   );
 };
