@@ -159,3 +159,32 @@
     transition: .5s;
   }
 }
+
+// Tracks
+
+@mixin scrollbar (
+  $width: 7px,
+  $bkgColorTrack: 255,
+  $display: block,
+  $bkgColorThumb: 0,
+  $borderRadius: 30px,
+  $opacityThumb: .6
+) {
+  &::-webkit-scrollbar, &::-webkit-scrollbar-button {
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-track, &::-webkit-scrollbar-track-piece {
+    background-color: $bkgColorTrack;
+    display: $display;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($bkgColorThumb, $opacityThumb);
+    border-radius: 30px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgb($bkgColorThumb);
+  }
+}

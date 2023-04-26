@@ -2,8 +2,9 @@ import { DefaultObjectItemType } from "../general";
 import React from "react";
 
 type JSXElementsProp = {
-  jsx: React.ReactNode
+  ref?: React.RefObject<React.ReactNode> | null
   height: number
+  width: number
 }
 
 export type JSXElementsStateType = {
@@ -14,7 +15,7 @@ export type JSXElementsStateType = {
 export type JSXElementsActionType = {
   type: string
   field: string
-  element: number
+  ref: React.RefObject<React.ReactNode | HTMLElement>
   params: DefaultObjectItemType
 }
 

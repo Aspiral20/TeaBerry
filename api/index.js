@@ -1,6 +1,5 @@
 const express = require('express')          // Imports
 const dotenv = require('dotenv')
-const path = require('path')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')

@@ -1,0 +1,63 @@
+.theme {
+  &__light {
+    --theme-mode-bg: #F5F8FA;
+    --theme-mode-content-bg: white;
+    --theme-mode-buttons-hover-bg: #F4F6FA;
+    --theme-mode-buttons-hover-bg-opacity: 244, 246, 250;
+    --theme-mode-text-color: #5E6278;
+    --theme-mode-title-chapter-color: black;
+    --theme-mode-modal-list-divider: #F4F6FA;
+
+    --theme-mode-description-chapter-color: #A1A5B7;
+
+    --svg-color: #A1A5B7;
+
+    --search-input-bkg-color: #F9F9F9;
+    --search-input-border-color: #F9F9F9;
+
+    --search-input-bkg-hover-color: #F4F4F4;
+    --search-input-border-hover-color: #F4F4F4;
+
+    --select-features-bkg-color: #F9F9F9;
+    --select-features-border-color: #F9F9F9;
+    --select-features-hover-bkg-color: white;
+    --select-features-hover-border-color: #F4F4F4;
+
+    --MUI-products-data-grid-border-color-opacity: 82, 63, 105;
+
+    //Tracks
+    --MUI-data-grid-track-color: inherit;
+    --MUI-data-grid-thumb-color: 146, 146, 159;
+  }
+
+  &__dark {
+    --theme-mode-bg: #151521;
+    --theme-mode-content-bg: #1E1E2D;
+    --theme-mode-buttons-hover-bg: #2A2A3C;
+    --theme-mode-buttons-hover-bg-opacity: 42, 42, 60;
+    --theme-mode-text-color: #92929F;
+    --theme-mode-title-chapter-color: white;
+    --theme-mode-modal-list-divider: #2B2B40;
+
+    --theme-mode-description-chapter-color: #565674;
+
+    --svg-color: #565674;
+
+    --search-input-bkg-color: #1b1b29;
+    --search-input-border-color: #1b1b29;
+
+    --search-input-bkg-hover-color: #2B2B40;
+    --search-input-border-hover-color: #2B2B40;
+
+    --select-features-bkg-color: #1b1b29;
+    --select-features-border-color: #1b1b29;
+    --select-features-hover-bkg-color: rgb(109, 109, 128);
+    --select-features-hover-border-color: #1b1b29;
+
+    --MUI-products-data-grid-border-color-opacity: 82, 63, 105;
+
+    //Tracks
+    --MUI-data-grid-track-color: inherit;
+    --MUI-data-grid-thumb-color: 146, 146, 159;
+  }
+}

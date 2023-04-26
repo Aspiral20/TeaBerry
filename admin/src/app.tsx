@@ -11,7 +11,6 @@ import { ReducersTypes } from "./_types/store";
 
 function App() {
   const { pathname } = useLocation()
-  // const { headerHeight } = useGetHeight()
   const routeClass = getStringPath(pathname)
   const dispatch = useDispatch()
   const themeMode = useSelector<ReducersTypes>(reducer => reducer.SiteColorMode.mode)
@@ -19,7 +18,8 @@ function App() {
     { isOpen: useSelector<ReducersTypes, boolean>(prev => prev.Toggles.select_feature), field: "select_feature" }
   ]
 
-  // console.log(headerHeight)
+  const getHeaderHeight = useSelector<ReducersTypes, number>(reducer => reducer.JSXElements.header.height)
+  const getFooterHeight = useSelector<ReducersTypes, number>(reducer => reducer.JSXElements.footer.height)
 
   return (
     <div
@@ -32,7 +32,12 @@ function App() {
     >
       {/*<LeftBar/>*/}
       <Header/>
-      <Container className={routeClass + ' content_block'}>
+      <Container
+        className={routeClass + ' content_block'}
+        styleContainer={{
+          minHeight: `calc(100vh - ${getHeaderHeight + getFooterHeight}px)`
+        }}
+      >
         <Router/>
       </Container>
       <Footer/>

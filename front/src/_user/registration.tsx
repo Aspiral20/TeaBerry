@@ -153,7 +153,6 @@ const Registration: FC = () => {
                     show={!!value && name === 'password' && !validReqPasswd}
                     timeout={200}
                   />
-                  <PasswordValidation password={passIsValid} show={!!value && name === 'password'} timeout={200}/>
                 </SiteInput>
               ))}
             </div>

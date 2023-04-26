@@ -4,7 +4,7 @@ import { Loadable } from "./_utils";
 
 const ErrorPage = Loadable(lazy(() => import("./pages/error_page")))
 const Main = Loadable(lazy(() => import("./pages/main")))
-const Products = Loadable(lazy(() => import("./pages/products")))
+const Products = Loadable(lazy(() => import("./pages/products/products")))
 const Help = Loadable(lazy(() => import("./pages/help")))
 
 const Router = () => {

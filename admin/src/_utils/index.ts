@@ -5,6 +5,7 @@ import ArrayContainStrictDataFields from "./array_contain_strict_data_fields";
 import Loadable from "./loadable";
 import regexStringNumber from "./regex_string_number";
 import setHeight from "./set_height";
+import MUIScrollbarStyles from "./mui_scrollbar.styles";
 
 export {
   getStringPath,
@@ -14,4 +15,5 @@ export {
   Loadable,
   regexStringNumber,
   setHeight,
+  MUIScrollbarStyles,
 }

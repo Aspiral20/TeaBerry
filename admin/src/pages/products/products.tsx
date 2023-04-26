@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
 import { Link } from "react-router-dom";
-import { DescriptionChapter, TitleChapter } from "../_components";
+import { DescriptionChapter, HelpRightModal, JsxSpace, TitleChapter } from "../../_components";
 import { v4 as uuid } from 'uuid'
-import { STATUSES } from "../constants";
-import SearchInput from "../_components/general/search_input";
+import { STATUSES } from "../../constants";
+import SearchInput from "../../_components/general/search_input";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { useSelector } from "react-redux";
-import { ReducersTypes } from "../_types/store";
-
-const Space = () => (<>&nbsp;</>);
+import { ReducersTypes } from "../../_types/store";
+import MUIScrollbarStyles from "../../_utils/mui_scrollbar.styles";
 
 // const initOptions = {
 //   current: { id: uuid(), status: STATUSES.ALL, value: 'All' }, data: [
@@ -157,13 +156,58 @@ const products = [
   },
 ]
 
-interface ProductsProps {
+//Todo modal add product
+const AddProducts: FC = ({}) => {
+  return (
+    <HelpRightModal>
+      1
+    </HelpRightModal>
+  )
 }
 
-// const StyledDataGrid = styled(DataGrid)(({ theme }))
-
+interface ProductsProps {}
 const Products: FC<ProductsProps> = ({}) => {
   const themeMode = useSelector<ReducersTypes>(reducer => reducer.SiteColorMode.mode)
+
+  const dataGridStyles = {
+    ['& .MuiDataGrid-cell:hover, & .MuiDataGrid-cell:focus, & .MuiDataGrid-cell:focus-within,' +
+    ' & .MuiDataGrid-columnHeader:hover, & .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-columnHeader:focus-within']: {
+      outline: 'none'
+    },
+    '& .css-i4bv87-MuiSvgIcon-root': {
+      fill: 'var(--theme-mode-text-color)'
+    },
+    '& .MuiDataGrid-columnHeader .MuiDataGrid-columnSeparator .MuiSvgIcon-root': {
+      display: 'none'
+    },
+    '& .MuiDataGrid-columnHeader .MuiDataGrid-menuIcon .MuiButtonBase-root': {
+      color: 'var(--theme-mode-text-color)'
+    },
+    '& .MuiDataGrid-columnHeader .MuiDataGrid-iconButtonContainer .MuiButtonBase-root': {
+      color: 'var(--theme-mode-text-color)'
+    },
+    '& .MuiDataGrid-withBorderColor': {
+      borderColor: 'rgba(var(--MUI-products-data-grid-border-color-opacity), .2)'
+    },
+    '& .MuiTablePagination-root .MuiTablePagination-displayedRows': {
+      color: 'var(--theme-mode-text-color)'
+    },
+    //Scrollbar
+    ...MUIScrollbarStyles(
+      '& .MuiDataGrid-main .MuiDataGrid-virtualScroller',
+      7,
+      'var(--MUI-data-grid-track-color)',
+      'block',
+      'var(--MUI-data-grid-thumb-color)',
+      30
+    ),
+    '& .MuiDataGrid-columnHeaderTitle, & .MuiDataGrid-cellContent': {
+      fontSize: '14px',
+    },
+    borderColor: "rgba(var(--MUI-products-data-grid-border-color-opacity), .2)",
+    color: "var(--theme-mode-text-color)",
+    fontSize: '14px',
+  }
 
   // const [options, setOptions] = useState<SelectFeaturesContextType>(initOptions)
 
@@ -173,76 +217,33 @@ const Products: FC<ProductsProps> = ({}) => {
         <TitleChapter className="products_title">Products</TitleChapter>
         <DescriptionChapter className="products_path">
           <Link className="item_chapter" to='/'>Home</Link>
-          <Space/>-<Space/>
+          <JsxSpace/>-<JsxSpace/>
           <Link className="item_chapter" to='/commerce'>Commerce</Link>
-          <Space/>-<Space/>
+          <JsxSpace/>-<JsxSpace/>
           <Link className="item_chapter" to='/catalog'>Catalog</Link>
         </DescriptionChapter>
       </div>
-
       <div className="card_content products_content fon">
         <div className="card_content__header">
           <SearchInput placeholder="Search products"/>
-
           <div className="right-content">
-            {/*<SelectFeatures className="" context={options} setContext={setOptions}/>*/}
-
             <button className="action_button">
               Add Product
             </button>
           </div>
         </div>
-        {/*todo generate for all data table*/}
+        {/*todo connect data from api to table*/}
         <div className="products_table">
           <div style={{ height: 400, width: '100%' }}>
             <DataGrid
               rows={products}
               columns={fields}
               pageSizeOptions={[5]}
-              // rowsPerPageOptions={[5]}
+              initialState={{pagination: {paginationModel: {pageSize: 5, page: 0}}}}
               checkboxSelection
-              sx={themeMode === 'light' ? {} : themeMode === 'dark' ? {
-                borderColor: "rgba(82, 63, 105, 0.2)",
-                color: "#92929F",
-              } : {}}
+              sx={dataGridStyles}
             />
           </div>
-          {/*<div className="products_fields">*/}
-          {/*  {productsTableFields.map(field => (*/}
-          {/*    <div key={uuid()} className="field_item">*/}
-          {/*      {field}*/}
-          {/*    </div>*/}
-          {/*  ))}*/}
-          {/*</div>*/}
-          {/*<div className="products_container">*/}
-          {/*  {products.map(({id, product, qty, price,status }, i) => (*/}
-          {/*    <div key={id} className="product">*/}
-          {/*      <div className="nr">*/}
-          {/*        {i+1}*/}
-          {/*      </div>*/}
-          {/*      <div className="product">*/}
-          {/*        <div className="product_image">*/}
-          {/*          {product.image}*/}
-          {/*        </div>*/}
-          {/*        <div className="product_name">*/}
-          {/*          {product.value}*/}
-          {/*        </div>*/}
-          {/*      </div>*/}
-          {/*      <div className="id">*/}
-          {/*        {id.slice(0, 8)}*/}
-          {/*      </div>*/}
-          {/*      <div className="qty">*/}
-          {/*        {qty}*/}
-          {/*      </div>*/}
-          {/*      <div className="price">*/}
-          {/*        {price}*/}
-          {/*      </div>*/}
-          {/*      <div className="price">*/}
-          {/*        {status}*/}
-          {/*      </div>*/}
-          {/*    </div>*/}
-          {/*  ))}*/}
-          {/*</div>*/}
         </div>
       </div>
     </div>

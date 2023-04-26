@@ -13,9 +13,8 @@ import {
 } from "../_components";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
-import { ReducersTypes } from "../_types/store";
+import { JSXElementsActionType, ReducersTypes } from "../_types/store";
 import { useLocation } from "react-router-dom";
-import { setHeight } from "../_utils";
 
 const initMenuAdmin = [
   {
@@ -93,7 +92,7 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({}) => {
-  const headerRef = useRef(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const [menuAdmin, setMenuAdmin] = useState(initMenuAdmin);
   const [menuUtils, setMenuUtils] = useState(initMenuUtils);
   const [menuUser, setMenuUser] = useState(initMenuUser);
@@ -106,7 +105,19 @@ const Header: FC<HeaderProps> = ({}) => {
   }, [siteMode])
 
   useEffect(() => {
-    setHeight(headerRef)
+    const headerRefCurrent = headerRef.current
+
+    if (headerRef && headerRefCurrent) {
+      dispatch<JSXElementsActionType>({
+        type: 'jsx_elements/',
+        field: 'header',
+        ref: headerRef,
+        params: {
+          width: headerRefCurrent.clientWidth,
+          height: headerRefCurrent.clientHeight
+        }
+      })
+    }
   }, [])
 
   const isShownMap = (
@@ -117,7 +128,7 @@ const Header: FC<HeaderProps> = ({}) => {
 
   return (
     <Fon>
-      <Container className="header main_layout" ref={headerRef}>
+      <Container className="header main_layout" refContainer={headerRef}>
         <div className="menu_admin_container header__menu">
           {menuAdmin.map(({ id, value, isShown, modal }) => (
             <div

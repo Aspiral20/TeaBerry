@@ -1,3 +1,4 @@
 .content_block {
+  display: flex;
   @include padding_top-bottom(30px)
 }

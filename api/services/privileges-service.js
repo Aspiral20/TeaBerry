@@ -2,12 +2,12 @@ const UserDto = require("../dtos/user-dto");
 const tokenService = require("./token-service");
 const ApiError = require("../exceptions/api-error");
 const UserSchema = require("../models/user-model.schema");
-const AdminSchema = require("../models/admin-model.schema");
+const AdminSchema = require("../models/privileges-model.schema");
 const bcrypt = require("bcrypt");
 const uuid = require("uuid");
 const mailService = require("./mail-service");
 
-class AdminService {
+class PrivilegesService {
   async isAdmin(email) {
     const admin = AdminSchema.findOne({email})
     return admin
@@ -41,4 +41,4 @@ class AdminService {
   }
 }
 
-module.exports = new AdminService()
+module.exports = new PrivilegesService()
