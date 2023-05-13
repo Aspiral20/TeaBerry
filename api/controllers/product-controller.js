@@ -1,4 +1,5 @@
 const { ProductService } = require("../services");
+const ApiError = require("../exceptions/api-error");
 
 class ProductController {
 
@@ -7,7 +8,7 @@ class ProductController {
       const data = req.body
       const product = await ProductService.addProduct(data)
 
-      return res.json(product);
+      return res.json({ status: 'success', product });
     } catch (e) {
       next(e)
     }
@@ -30,7 +31,7 @@ class ProductController {
       const data = req.body
       const product = await ProductService.updateProduct(id, data)
 
-      return res.json({statusCode: 200, product});
+      return res.json({ statusCode: 200, product });
     } catch (e) {
       next(e)
     }
@@ -47,7 +48,6 @@ class ProductController {
     }
   }
 
-
   async getProducts(req, res, next) {
     try {
       const products = await ProductService.getProducts();
@@ -57,6 +57,51 @@ class ProductController {
       next(e)
     }
   }
+
+  async getAllStatusCountProducts(req, res, next) {
+    try {
+      const products = await ProductService.getAllStatusCountProducts();
+
+      return res.json(products)
+    } catch (e) {
+      next(e)
+    }
+  }
+
+  async getStatusCountProducts(req, res, next) {
+    try {
+      const data = req.body;
+      const products = await ProductService.getStatusCountProducts(data);
+
+      return res.json(products)
+    } catch (e) {
+      next(e)
+    }
+  }
+
+  async searchProducts(req, res, next) {
+    try {
+      const data = req.body
+      const products = await ProductService.searchProducts(data);
+
+      return res.json(products)
+    } catch (e) {
+      next(e)
+    }
+  }
+
+  async removeProducts(req, res, next) {
+    try {
+      const data = req.body;
+      if (data !== []) {
+        const products = await ProductService.removeProducts(data);
+        return res.json(products);
+      }
+    } catch (e) {
+      next(e)
+    }
+  }
+
 }
 
 module.exports = new ProductController()

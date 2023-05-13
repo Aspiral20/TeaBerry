@@ -1,0 +1,52 @@
+.card_content {
+  padding: 16px 30px;
+  border-radius: 0.625rem;
+
+  .card_content__header {
+    @include flex_justify-align(flex, space-between);
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+
+    .left-content {
+      display: flex;
+
+      .action_button {
+        margin-left: 16px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .right-content {
+      display: flex;
+      flex-wrap: wrap;
+
+      .action_button {
+        margin-left: 16px;
+      }
+    }
+
+    .left-content, .right-content {
+      .action_button:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .products_table {
+    height: 500px;
+
+    .link_image_product {
+      @include width-height(100%)
+    }
+
+    .image_product {
+      @include width-height(100%);
+      object-fit: contain;
+      @include padding_left-right(10px);
+      @include padding_top-bottom(2px);
+    }
+  }
+}

@@ -1,16 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { Container, Fon } from "../_components/general";
 import { v4 as uuid } from 'uuid';
-import {
-  ContentModal,
-  DividerModal,
-  ListItem,
-  ListModal,
-  MenuModal,
-  MoonIcon,
-  SearchIcon,
-  SunIcon
-} from "../_components";
+import { ContentModal, DividerModal, ListItem, ListModal, MenuModal, MoonIcon, SunIcon } from "../_components";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
 import { JSXElementsActionType, ReducersTypes } from "../_types/store";
@@ -23,8 +14,12 @@ const initMenuAdmin = [
       <ContentModal className="dashboard_modal">
         <ListModal>
           <ListItem cnParams={{ active: pathname === '/' }} linkTo='/'>Main</ListItem>
-          <ListItem cnParams={{ active: pathname.includes('products') }}
-                    linkTo='/commerce/catalog/products'>Products</ListItem>
+          <ListItem
+            cnParams={{ active: pathname.includes('commerce') }}
+            linkTo='/commerce'
+          >
+            Commerce
+          </ListItem>
         </ListModal>
       </ContentModal>
     )
@@ -42,13 +37,13 @@ const initMenuAdmin = [
 ]
 
 const initMenuUtils = [
-  {
-    id: uuid(), icon: () => <SearchIcon className="menu_utils_svg"/>, isShown: false, modal: () => (
-      <>
-        Search Modal
-      </>
-    )
-  },
+  // {
+  //   id: uuid(), icon: () => <SearchIcon className="menu_utils_svg"/>, isShown: false, modal: () => (
+  //     <>
+  //       Search Modal
+  //     </>
+  //   )
+  // },
   {
     id: uuid(),
     icon: (siteMode: string) => siteMode === 'light' ? <SunIcon className="menu_utils_svg"/> :

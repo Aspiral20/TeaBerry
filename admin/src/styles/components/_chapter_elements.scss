@@ -2,16 +2,16 @@
   @include FontBold();
   @include WorldTitleColor(var(--theme-mode-title-chapter-color));
   @include WorldTitleFontSize(18px, 18px, 18px);
+
+  &.margin_bottom {
+    margin-bottom: 22px;
+  }
 }
 
 .description_chapter {
   @include WorldTitleColor(var(--theme-mode-text-color));
 
   .item_chapter {
-    @include FontLight();
-    @include WorldDescriptionColor();
-    @include WorldDescriptionFontSize(12px, 12px, 12px);
-
     &:hover {
       color: $header_menu_item_text_hover;
     }

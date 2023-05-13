@@ -120,7 +120,7 @@ $_World_Text_Color: var(--theme-mode-text-color);
 }
 
 // Title font color
-$_World_Title_Color: #181C32;
+$_World_Title_Color: var(--world-title-font-color);
 @mixin WorldTitleColor($color: $_World_Title_Color) {
   color: $color;
 }
@@ -193,13 +193,32 @@ $_World_Description_Color: var(--theme-mode-description-chapter-color);
   @include WorldTextColor();
   //line-height: 1.85;
   //letter-spacing: 0.03rem;
+
+  &.base_color {
+    color: var(--theme-mode-title-chapter-color);
+  }
+  &.white_color {
+    color: white;
+  }
 }
+
 
 .title {
   @include FontRegular($Font_Title_Thin);
   @include WorldTitleFontSize();
   @include WorldTitleColor();
   //letter-spacing: 0.05em;
+  &.card_title {
+    color: var(--card-title-font-color);
+  }
+}
+
+.description {
+  @include FontRegular();
+  @include WorldDescriptionColor();
+  @include WorldDescriptionFontSize();
+  //line-height: 1.85;
+  //letter-spacing: 0.03rem;
 }
 
 @mixin WorldFontSizeColor($type: 'text') {

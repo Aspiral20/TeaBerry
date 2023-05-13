@@ -22,13 +22,20 @@ router.post('/login', UserController.login);                 // cerere post pent
 router.post('/logout', UserController.logout);               // cerere post pentru logout
 router.get('/activate/:link', UserController.activate);      // activare a account-ului pe link care v-a veni pe email
 router.get('/refresh', UserController.refresh);              // rescrie access token in cazul in care va deceda
-router.get('/users', authMiddleware, UserController.getUsers);                // returneaza lista de utilizatori
+//todo add authMiddleware
+router.get('/users', UserController.getUsers);                // returneaza lista de utilizatori
 router.get('/user/:id', UserController.getUser);                              // returneaza utilizatorul anumit
+router.post('/user/search', UserController.searchUsers);
 router.post('/update_user/:id', UserController.updateUser);                   // returneaza utilizatorul anumit
+router.get('/users/statuses', UserController.getAllStatusCountUsers);
 
 router.post('/product/add', ProductController.addProduct);
 router.post('/product/update/:id', ProductController.updateProduct);
 router.post('/product/remove/:id', ProductController.removeProduct);
+router.post('/products/remove', ProductController.removeProducts);
+router.post('/product/search', ProductController.searchProducts);
+router.post('/products/count_statuses', ProductController.getStatusCountProducts);
+router.get('/products/statuses', ProductController.getAllStatusCountProducts);
 router.get('/product/:id', ProductController.getProduct);
 router.get('/products', ProductController.getProducts);
 

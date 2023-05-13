@@ -1,4 +1,4 @@
-import equalTwoArrays from "./equal_two_arrays";
+import { equalArrays } from "./equal_objects_arrays";
 
 const ArrayContainStrictDataFields = (arrayData: Array<any>, fields: Array<any>) => {
 
@@ -23,7 +23,7 @@ const ArrayContainStrictDataFields = (arrayData: Array<any>, fields: Array<any>)
    * */
   console.log({arrayData, fields})
 
-  return arrayData.filter(item => equalTwoArrays(Object.keys(item), fields))
+  return arrayData.filter(item => equalArrays(Object.keys(item), fields))
 }
 
 export default ArrayContainStrictDataFields;

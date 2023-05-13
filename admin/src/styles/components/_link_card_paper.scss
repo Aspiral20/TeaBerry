@@ -1,0 +1,55 @@
+$borderRadius: 0.625rem;
+
+.link_card_paper {
+  margin: 20px;
+  position: relative;
+  min-height: 200px;
+  padding: 1rem 1.5rem;
+  background-color: var(--link-card-paper-bkg-color);
+  border-radius: $borderRadius;
+  box-shadow: var(--link-card-paper-box-shadow);
+  min-width: 250px;
+
+  .hover_effect {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: .75s;
+    background-color: var(--link-card-paper-hover-bkg-color);
+    border-radius: $borderRadius;
+  }
+
+  .paper_header {
+
+  }
+
+  .paper_body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+
+    .paper_svg_icon {
+      @include width-height(64px);
+
+      svg {
+        @include width-height(100%);
+        fill: var(--card-title-font-color);
+      }
+    }
+
+    .paper_across_svg_icon_content {
+
+    }
+  }
+
+  &:hover {
+    .hover_effect {
+      opacity: .075;
+      transition: .75s;
+    }
+  }
+}

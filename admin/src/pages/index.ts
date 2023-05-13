@@ -1,9 +1,12 @@
 import ErrorPage from "./error_page";
 import Main from "./main";
-import Products from "./products/products";
+import Commerce from "./commerce";
+import Catalog from "./catalog";
 
+export * from './subpages'
 export {
   ErrorPage,
   Main,
-  Products
+  Commerce,
+  Catalog,
 }

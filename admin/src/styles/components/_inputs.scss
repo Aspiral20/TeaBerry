@@ -1,0 +1,118 @@
+.auth_input_container {
+  @include margin_top-bottom(12px);
+
+  .icon_input_container {
+    .title_input {
+      //padding-left: 11px;
+      padding-bottom: 3px;
+    }
+
+    .auth_input {
+      background-color: var(--search-input-bkg-color);
+      border: 1px solid var(--theme-mode-buttons-hover-bg);
+      padding: 10px;
+      width: 100%;
+
+      &.disabled {
+        opacity: .5;
+      }
+    }
+
+    .site_textarea {
+      width: 100%;
+      padding: 5px 10px;
+      resize: none;
+      background-color: var(--search-input-bkg-color);
+      border: 1px solid var(--theme-mode-buttons-hover-bg);
+      margin-bottom: 12px;
+
+      &.disabled {
+        opacity: .5;
+      }
+    }
+
+    .input_container {
+      position: relative;
+
+      .auth_input {
+
+        &.auth_list {
+          cursor: pointer;
+        }
+      }
+
+      svg {
+        position: absolute;
+        top: calc(50% - 5px);
+        right: 10px;
+        @include width-height(10px);
+      }
+
+      .input_toggle_list {
+        display: none;
+
+        position: absolute;
+        width: 100%;
+        top: calc(100% - 2px);
+        left: 0;
+        z-index: 1;
+        padding: 10px;
+        background-color: var(--search-input-bkg-color);
+        border: 1px solid var(--theme-mode-buttons-hover-bg);
+        border-top: 0;
+
+        .site_list {
+          .item_list {
+            @include padding_top-bottom(5px);
+            cursor: pointer;
+
+            &:hover {
+              background-color: #2B2B40;
+            }
+          }
+        }
+      }
+
+      &.active {
+        svg {
+          transform: rotate(-90deg);
+        }
+
+        .input_toggle_list {
+          display: block;
+        }
+      }
+    }
+
+    .input_file_container {
+      --size-image: 40px;
+      position: relative;
+
+      .input_file_button {
+        display: inline-block;
+        padding: 5px 10px;
+      }
+
+      .auth_input {
+        &.withImage {
+          height: calc(10px + var(--size-image));
+        }
+
+        &[type='file'] {
+          display: none;
+        }
+      }
+
+      .input_image {
+        position: absolute;
+        top: calc(50% - var(--size-image) / 2);
+        right: 10px;
+        @include width-height(var(--size-image));
+      }
+
+      .input_file_max_size {
+        margin-top: 5px;
+      }
+    }
+  }
+}

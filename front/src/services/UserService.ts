@@ -4,7 +4,6 @@ import { IUser, IUserDto } from "../models/user.type";
 import { ObjectDataType } from "../_types";
 
 export default class UserService {
-  // todo "to admin fetch users"
   static fetchUsers(): Promise<AxiosResponse<Array<IUserDto>>> {
     return $api.get<Array<IUserDto>>('/users')
   }

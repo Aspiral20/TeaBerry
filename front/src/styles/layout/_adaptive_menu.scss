@@ -68,7 +68,7 @@ $active_bkg_color: white;
     }
 
     &.active {
-      background-color: rgba($active_bkg_color, .9);
+      background-color: rgba($active_bkg_color, .95);
       transition: 1s;
       left: 0;
     }
@@ -83,7 +83,7 @@ $active_bkg_color: white;
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   transition: 1s;
 
   &.active {

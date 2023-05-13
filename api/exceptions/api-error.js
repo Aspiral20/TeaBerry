@@ -24,5 +24,4 @@ module.exports = class ApiError extends Error {
   static InternalCodeSyntax(errors = {}) {
     return new ApiError(406, 'Internal code syntax', errors)
   }
-
 }

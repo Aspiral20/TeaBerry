@@ -10,6 +10,7 @@ const mailService = require('./mail-service')
 const tokenService = require('./token-service')
 const UserDto = require('../dtos/user-dto')
 const ApiError = require('../exceptions/api-error')
+const ProductSchema = require("../models/product-model.schema");
 
 class UserService {
   async _userGenerateSaveToken(user, field = "all") {
@@ -106,6 +107,34 @@ class UserService {
     const user = await UserSchema.updateOne({id: id}, {$set: data})
     return user
   }
+
+  async searchUsers(data) {
+    const { field, regex } = data
+    return UserSchema.find({ [field]: { $regex: regex, $options: 'i' } });
+  }
+
+  async getAllStatusCountUsers() {
+    const count = await UserSchema.find().count();
+    const statusCountData = await UserSchema.aggregate([{
+      $group: {
+        _id: "$role",
+        role: { $first: "$role" },
+        count: { $count: {} }
+      }
+    }, {
+      $project: {
+        _id: 0,
+        role: 1,
+        count: 1,
+        percentage: {
+          $round: [ {$multiply: [{ $divide: ["$count", { $literal: count }] }, 100]}, 2 ],
+        },
+      }
+    }]);
+
+    return [...statusCountData, { role: "total", count: count, percentage: 100 }]
+  }
+
 }
 
 module.exports = new UserService()

@@ -70,4 +70,13 @@
       $bkg-opacity,
       .5
   );
+
+  @include WorldTextFontSize;
+  &.disabled:hover {
+    background-color: initial;
+  }
+}
+
+.validate_button {
+  cursor: not-allowed;
 }

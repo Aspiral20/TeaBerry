@@ -1,3 +1,73 @@
 .main {
   width: 100%;
+
+  .main_dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 2fr;
+    grid-gap: 20px;
+    @include margin_top-bottom(30px);
+
+    .count_products_container {
+      @include flex_justify(flex, space-between);
+      flex-direction: column;
+      position: relative;
+
+      .status_count_container {
+        @include margin_top-bottom(20px);
+
+        .status_count {
+          @include margin_top-bottom(5px);
+          @include flex_align();
+
+          .status_text {
+            text-transform: capitalize;
+          }
+
+          .count {
+            @include margin_left-right(6px);
+          }
+
+          .circle_color_status {
+            @include width-height(10px);
+            margin-right: 6px;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .progress_bar_container {
+        width: 100%;
+        background-color: transparent;
+        height: 19px;
+
+        .progress_bar_item {
+          position: relative;
+
+          .progress_bar_fon {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
+    .info_name_progress_bar {
+      position: absolute;
+      text-transform: capitalize;
+      left: 0;
+      top: calc(100% + 5px);
+      opacity: 0;
+      transition: .5s;
+
+      &.active {
+        opacity: 1;
+        z-index: 1;
+        transition: .5s;
+      }
+    }
+  }
 }

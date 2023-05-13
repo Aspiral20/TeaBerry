@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { PageContainer } from "../_components";
 
 interface HelpProps {
 
@@ -6,9 +7,9 @@ interface HelpProps {
 
 const Help: FC<HelpProps> = ({}) => {
   return (
-    <div>
+    <PageContainer className="help">
       Help
-    </div>
+    </PageContainer>
   );
 };
 

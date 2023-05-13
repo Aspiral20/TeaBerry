@@ -9,3 +9,13 @@
 .moon_icon {
   @include width-height(20px);
 }
+
+.theme_icon {
+  fill: var(--theme-icon-fill-color);
+}
+
+.check_icon {
+  &.green_icon {
+    fill: #50cd89;
+  }
+}

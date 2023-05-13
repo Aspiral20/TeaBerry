@@ -1,0 +1,18 @@
+.site_list {
+  --sizeDot: 6px;
+
+  .item_list {
+    position: relative;
+    padding-left: calc(20px + var(--sizeDot));
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: calc(50% - var(--sizeDot) / 2);
+      left: calc(calc(10px - var(--sizeDot) / 2));
+      @include width-height(var(--sizeDot));
+      background-color: var(--site-item-list-font-color);
+      border-radius: 50%;
+    }
+  }
+}

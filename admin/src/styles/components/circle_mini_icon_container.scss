@@ -1,0 +1,15 @@
+.circle_mini_icon_container {
+  @include flex_justify-align();
+  position: absolute;
+  background-color: var(--product-image-edit-bkg-color);
+  border-radius: 50%;
+  box-shadow: var(--product-image-edit-box-shadow);
+
+  &:hover {
+    transition: 1s;
+  }
+
+  svg {
+    @include width-height(50%);
+  }
+}

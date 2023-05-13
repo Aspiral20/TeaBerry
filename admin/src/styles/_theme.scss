@@ -1,5 +1,10 @@
 .theme {
+  --opacity-white-color: 255,255,255;
+  --opacity-black-color: 0,0,0;
   &__light {
+    --card-title-font-color: #3F4254;
+
+    --world-title-font-color: #5E6278;
     --theme-mode-bg: #F5F8FA;
     --theme-mode-content-bg: white;
     --theme-mode-buttons-hover-bg: #F4F6FA;
@@ -28,9 +33,25 @@
     //Tracks
     --MUI-data-grid-track-color: inherit;
     --MUI-data-grid-thumb-color: 146, 146, 159;
+
+    --link-card-paper-bkg-color: #F4F4F4;
+    --link-card-paper-box-shadow: 0 0 20px 0 rgba(76, 87, 125, .30);
+    --link-card-paper-hover-bkg-color: black;
+
+    --site-item-list-font-color: #A1A5B7;
+    --theme-icon-fill-color: #5E6278;
+
+    --product-image-edit-bkg-color: white;
+    --product-image-edit-box-shadow: 0 0 1.5rem 0.5rem rgba(0, 0, 0, 0.15);
+    --product-image-box-shadow: 0 0 1.5rem 0.5rem rgba(0, 0, 0, 0.15);
+
+    --info-nav-menu-active-font-color: #009ef7;
   }
 
   &__dark {
+    --card-title-font-color: #CDCDDE;
+
+    --world-title-font-color: #92929F;
     --theme-mode-bg: #151521;
     --theme-mode-content-bg: #1E1E2D;
     --theme-mode-buttons-hover-bg: #2A2A3C;
@@ -59,5 +80,18 @@
     //Tracks
     --MUI-data-grid-track-color: inherit;
     --MUI-data-grid-thumb-color: 146, 146, 159;
+
+    --link-card-paper-bkg-color: #2B2B40;
+    --link-card-paper-box-shadow: 0 0 20px 0 rgba(76, 87, 125, .30);
+    --link-card-paper-hover-bkg-color: white;
+
+    --site-item-list-font-color: #565674;
+    --theme-icon-fill-color: #92929F;
+
+    --product-image-edit-bkg-color: #1E1E2D;
+    --product-image-edit-box-shadow: 0 0 1.5rem 0.5rem rgba(0, 0, 0, 0.15);
+    --product-image-box-shadow: 0 0 1.5rem 0.5rem rgba(255,255,255, 0.15);
+
+    --info-nav-menu-active-font-color: #009ef7;
   }
 }

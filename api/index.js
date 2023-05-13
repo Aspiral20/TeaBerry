@@ -21,7 +21,7 @@ app.use(cookieParser())                     //
 app.use(cors({
   credentials: true,
   origin: [process.env.CLIENT_URL, process.env.ADMIN_URL]
-}));                            // Permite sa lucrez cu serverul din browser
+}));                                        // Permite sa lucrez cu serverul din browser
 app.use('/api', router)                     // Conectam routerurile
 app.use(errorMiddleware)                    // Middleware pentru monitorizarea erorilor
 

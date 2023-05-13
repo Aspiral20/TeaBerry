@@ -1,0 +1,118 @@
+.product {
+  .product_container {
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-gap: 2rem;
+
+    .left_content {
+      display: grid;
+      grid-gap: 2rem;
+
+      .product_image_container {
+        .product_image_title {
+          @include margin_top-bottom(10px);
+
+          &.center {
+            text-align: center;
+          }
+        }
+
+        .image_container {
+          @include flex_justify-align();
+          max-width: 100%;
+          flex-direction: column;
+          margin: 25px auto;
+
+          .product_image {
+            --edit-size: 28px;
+            --check-size: 28px;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            @include width-height(150px);
+            position: relative;
+            box-shadow: var(--product-image-box-shadow);
+
+            .edit {
+              @include width-height(var(--edit-size));
+              cursor: pointer;
+              right: calc(0px - var(--edit-size) / 2);
+              top: calc(0px - var(--edit-size) / 2);
+            }
+
+            .check {
+              @include width-height(var(--check-size));
+              right: calc(0px - var(--check-size) / 2);
+              bottom: calc(0px - var(--check-size) / 2);
+
+              &.refresh {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+        .image_description {
+          text-align: center;
+        }
+      }
+    }
+
+    .right_content {
+      .info_nav_menu {
+
+      }
+
+      .info_body_menu {
+        .product_element_container {
+          display: grid;
+          grid-gap: 2rem;
+
+          .general_body_container {
+
+          }
+        }
+      }
+    }
+    .submit_container {
+      @include flex_justify-align(flex, flex-end);
+      grid-column: 1/3;
+      .validate_button {
+        margin-left: 20px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+//1199-1024
+@media screen and (max-width: 1199px) {
+}
+
+//1023-768
+@media screen and (max-width: 1023px) {
+}
+
+//767-425
+@media screen and (max-width: 767px) {
+  .product {
+    .product_container {
+      grid-template-columns: auto;
+    }
+  }
+}
+
+//424-375
+@media screen and (max-width: 424px) {
+}
+
+//374-320
+@media screen and (max-width: 374px) {
+}
+
+//319-0
+@media screen and (max-width: 319px) {
+}

@@ -1,4 +1,4 @@
-const { UserService } = require('../services')
+const { UserService, ProductService } = require('../services')
 const dotenv = require('dotenv')
 const dotenvExpand = require('dotenv-expand')
 const { validationResult } = require("express-validator");
@@ -101,6 +101,27 @@ class UserController {
       const user = await UserService.updateUser(userId, data)
 
       return res.json({statusCode: 200, user})
+    } catch (e) {
+      next(e)
+    }
+  }
+
+  async searchUsers(req, res, next) {
+    try {
+      const data = req.body
+      const users = await UserService.searchUsers(data);
+
+      return res.json(users)
+    } catch (e) {
+      next(e)
+    }
+  }
+
+  async getAllStatusCountUsers(req, res, next) {
+    try {
+      const products = await UserService.getAllStatusCountUsers();
+
+      return res.json(products)
     } catch (e) {
       next(e)
     }

@@ -8,7 +8,6 @@ import { ToastContainer } from 'react-toastify';
 import { useDispatch, useSelector } from "react-redux";
 import { ReducersTypes } from "./_types/store";
 
-
 function App() {
   const { pathname } = useLocation()
   const routeClass = getStringPath(pathname)

@@ -1,4 +1,4 @@
-import axios, { AxiosHeaders, AxiosRequestHeaders } from 'axios';
+import axios, { AxiosHeaders } from 'axios';
 import { AuthResponse } from "../models/response/auth_response.type";
 
 export const API_URL = "http://localhost:5000/api";
@@ -12,7 +12,7 @@ $api.interceptors.request.use((config) => {
   config.headers = {...config.headers} as AxiosHeaders
   config.headers = {
     Authorization: `Bearer ${localStorage.getItem('token')}`
-  } as AxiosRequestHeaders
+  }
   return config;
 });
 

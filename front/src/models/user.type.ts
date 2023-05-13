@@ -6,6 +6,7 @@ export type IUser = {
   address: string
   phone: string
   email: string
+  role: string
   isActivated: boolean
 }
 

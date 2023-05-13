@@ -163,10 +163,10 @@
 // Tracks
 
 @mixin scrollbar (
-  $width: 7px,
-  $bkgColorTrack: 255,
   $display: block,
-  $bkgColorThumb: 0,
+  $width: 7px,
+  $bkgColorTrack: var(--opacity-white-color),
+  $bkgColorThumb: var(--opacity-black-color),
   $borderRadius: 30px,
   $opacityThumb: .6
 ) {

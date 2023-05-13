@@ -1,6 +1,28 @@
+
+.menu_utils_svg {
+  fill: $header_utils_item_svg;
+  transition: .5s;
+
+  .sun_icon_g {
+    fill: $header_utils_item_svg;
+  }
+
+  .intern_elements_svg {
+    fill: $header_utils_item_svg;
+  }
+
+  & g {
+    stroke: $header_utils_item_svg;
+  }
+  &_hover:hover {
+    transition: .5s;
+    fill: #009ef7
+  }
+}
+
 .header {
   @include flex_justify-align(flex, space-between, center);
-  padding: 0;
+  @include padding_top-bottom(0);
 
   &__menu {
     @include flex_justify-align();
@@ -30,18 +52,6 @@
   .menu_utils_container {
     .utils_content {
       @include flex_justify-align();
-
-      .menu_utils_svg {
-        fill: $header_utils_item_svg;
-
-        .sun_icon_g {
-          fill: $header_utils_item_svg;
-        }
-
-        & g {
-          stroke: $header_utils_item_svg;
-        }
-      }
 
       .menu_utils_item {
 

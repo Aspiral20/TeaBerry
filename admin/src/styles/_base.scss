@@ -19,8 +19,12 @@ img {
   color: black;
 
   &:hover {
-    color: initial;
+    color: inherit;
   }
+}
+
+input[type=file] {
+  display: none;
 }
 
 #admin {

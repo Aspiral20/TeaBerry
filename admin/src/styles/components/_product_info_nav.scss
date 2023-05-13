@@ -1,0 +1,23 @@
+.info_nav_menu {
+  @include flex_align();
+  margin-bottom: 2.5rem;
+
+  .item_nav {
+    margin-right: 0.75rem;
+    transition: .75s;
+    padding: 12px 0;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom: 1px solid var(--info-nav-menu-active-font-color);
+      transition: .75s;
+    }
+
+    &.active {
+      transition: .75s;
+      color: var(--info-nav-menu-active-font-color);
+      border-bottom: 1px solid var(--info-nav-menu-active-font-color);
+    }
+  }
+}

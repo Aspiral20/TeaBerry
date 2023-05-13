@@ -1,7 +1,6 @@
 
 Video_Link: [SITE_JWT_AUTH](https://www.youtube.com/watch?v=fN25fMQZ2v0)
 
-
 | | Title | Link | Time Start | Time End |
 | :---: | :---: | :---: | :---: | :---: |
 | Frontend |  | [FRONTEND_AUTH](https://www.youtube.com/watch?v=fN25fMQZ2v0) | 1:12:35 | 1:22:46 |
