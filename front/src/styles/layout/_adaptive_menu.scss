@@ -1,4 +1,4 @@
-$active_bkg_color: white;
+$active_bkg_color: rgba(255, 255, 255, 0.9);
 
 .adaptive_menu {
   display: none;
@@ -6,6 +6,7 @@ $active_bkg_color: white;
 
 @media screen and (max-width: 767px) {
   .adaptive_menu {
+    overflow-y: auto;
     display: block;
     position: fixed;
     width: 240px;
@@ -28,17 +29,33 @@ $active_bkg_color: white;
       }
     }
 
-    .menu_content {
+    .menu_section:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .menu_section {
       @include flex_justify();
       flex-direction: column;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgb(90, 124, 55);
 
       .menu_item {
-        @include flex_justify(flex, space-between);
+        @include flex_justify-align(flex, space-between);
         @include padding_top-bottom(6px);
         @include WorldFontSizeColor();
+        margin-bottom: 10px;
+
+        &.notOnPage {
+          display: none;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
 
         .link_text {
-
         }
 
         .link_icon {
@@ -46,9 +63,14 @@ $active_bkg_color: white;
           width: 100%;
 
           .adaptive_menu_icon {
+            height: auto;
             width: 100%;
             fill: rgba(90, 124, 55, .6);
             transition: 1s;
+
+            &.fill_all {
+              @include fill_icon(rgba(90, 124, 55, .6));
+            }
           }
         }
 
@@ -61,10 +83,19 @@ $active_bkg_color: white;
             .adaptive_menu_icon {
               fill: rgb(90, 124, 55);
               transition: 1s;
+
+              &.fill_all {
+                @include fill_icon(rgba(90, 124, 55));
+              }
             }
           }
         }
       }
+    }
+
+    &:first-child {
+      padding-top: 0;
+      border-top: 0;
     }
 
     &.active {
@@ -83,7 +114,7 @@ $active_bkg_color: white;
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   transition: 1s;
 
   &.active {

@@ -7,6 +7,7 @@ export type IUser = {
   phone: string
   email: string
   role: string
+  discount: number
   isActivated: boolean
 }
 

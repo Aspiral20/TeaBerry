@@ -3,7 +3,9 @@
     "home": "Home",
     "assorts": "Assorts",
     "picking": "Picking",
-    "contacts": "Contacts"
+    "contacts": "Contacts",
+    "shop": "Shop",
+    "about": "About us"
   },
   "contacts": {
     "fax": "Fax",
@@ -18,16 +20,21 @@
     "registration": "Sign up",
     "logout": "Logout",
     "submit": "Submit",
+    "submit_email": "Submit email",
     "continue": "Continue",
     "success-logged": "You are successfully logged!",
     "was-not-found": "User was not found!",
     "user-exists": "User already exists!",
-    "save_changes": "Save Changes"
+    "save_changes": "Save Changes",
+    "resent": "Resent",
+    "resend": "Resend",
+    "sent": "Successfully sent"
   },
   "errors": {
     "not-found-message": "This page does not exist. Go to",
     "not-found-link": "main page",
-    "something-went-wrong": "Something went wrong"
+    "something-went-wrong": "Something went wrong",
+    "not-found-product": "No products found"
   },
   "success": {
     "success-changes": "Changes have been made successfully!"
@@ -59,5 +66,100 @@
       "check_email": "Registration complete! Check your email for activation.",
       "message": "Congratulations, your account has been successfully created."
     }
+  },
+  "home": {
+    "title1": "Exclusive tea",
+    "title2": "from different parts of the world",
+    "description": "Here you can find tea from all over the world, the most unimaginable flavors and aromas"
+  },
+  "shop": {
+    "filter": "Filter",
+    "add_to_cart": "Add to cart",
+    "maximum_products": "Maximum product quantity",
+    "product": {
+      "buy": "Buy"
+    },
+    "modal": {
+      "price": "Price",
+      "type": "Type",
+      "quantity": "Quantity",
+      "stock": "Stoc",
+      "status": "Status",
+      "brand": "Brand",
+      "active": "Active",
+      "pending": "Pending",
+      "disapproved": "Disapproved",
+      "expired": "Expired",
+      "open_all": "Open all",
+      "close_all": "Close all",
+      "none": "None",
+      "all": "All",
+      "increase": "Increase",
+      "decrease": "Decrease",
+      "tea": "Tea",
+      "coffee": "Coffee"
+    },
+    "shop_item": {
+      "related": "Related products"
+    }
+  },
+  "discount": {
+    "discount_code": "Discount code",
+    "invalid_discount_code": "Invalid discount code!",
+    "promotion_new_clients": "Promotion for new clients",
+    "enter_your_email": "Please enter your account email address.",
+    "valid_fields": "Field does not match, please try again!",
+    "discount_percent": "We give a <compDiscount>{{discount}}%</compDiscount> discount on your first order!",
+    "copy_discount_code": "Copy the promotional code from the letter and turn on the kettle",
+    "get_discount": "Get a discount",
+    "promo_code": "We've sent a promo code to your email address, please wait 15 seconds, then enter your discount code!"
+  },
+  "about": {
+    "whyChooseUs": "Why choose us?",
+    "delivery": "Delivery",
+    "anywhere_in_the_world": "anywhere in the world",
+    "discount_program": "Discount program",
+    "regular_promotions": "and regular promotions",
+    "exclusive": "Exclusive",
+    "tea_mixes": "tea mixes",
+    "manifold": "Manifold",
+    "tea_varieties": "tea varieties",
+    "find_here": "You will find here",
+    "high_quality_fresh_tea": "High quality fresh tea",
+    "quality_fresh_tea_text": "We brew and taste tea over and over again until we find the perfect taste, so our catalog contains the best varieties from the most famous plantations in the world.",
+    "gift_baskets": "Gift Baskets",
+    "gift_baskets_text": "We will put together in a beautiful package a personalized gift set for your loved ones so that they can appreciate your care and all the taste of our tea.",
+    "exclusive_tea_mixes": "Exclusive tea mixes",
+    "exclusive_tea_mixes_text": "Try our mixes based on culinary trends, mixology and inspiration",
+    "tea_accessories": "Tea accessories",
+    "tea_accessories_text": "Here you will find all the necessary utensils for the proper storage, brewing and serving of tea.",
+    "useful_properties_of_tea": "Useful properties of tea",
+    "rich_beneficial_elements": "Tea is rich in beneficial trace elements",
+    "invigorates_the_spirit": "Tea invigorates the spirit, increases brain activity, improves memory",
+    "normalizes_activity_of_heart": "Tea normalizes the activity of the heart, blood vessels, digestive system",
+    "tea_prevents_cavities": "Tea effectively prevents cavities",
+    "tea_relieves_fatigue": "Tea relieves fatigue and stimulates metabolism",
+    "tea_inhibits_malignant_tumors": "Tea inhibits the growth of malignant tumors, and significantly reduces the risk of cell transformation into cancer",
+    "how_collect_our_tea": "How we collect our tea",
+    "collect_paragraph_1": "We collect tea leaves as many times a year as the number of times the tea vegetates - that is, it gives new shoots with leaves. In <span>Indonesia</span>, <span>Sri Lanka</span>, <span>Kenya</span>, in the south of <span>India</span> and <span>China</span>, where it's always summer - all year round.",
+    "collect_paragraph_2": "The further north the plantations are located, the shorter the tea harvest season - in northeastern India it lasts eight months, in northern China tea leaves are harvested no more than four times a year, from April to September.",
+    "collect_paragraph_3": "We <span>collect tea by hand</span>, cutting off not all the leaves, but only a few of the youngest and juiciest leaves with a part of the stem on which they are attached, and the so-called bud (or tips) - an unblown leaf at the tip of the shoot. Everything so that you drink only <span>the most delicious and fresh tea</span>!"
+  },
+  "assorts": {
+    "beneficial_features": "Beneficial features",
+    "modal": {
+      "white": "White",
+      "black": "Black",
+      "green": "Green",
+      "mixes": "Mixes",
+      "oolong": "Oolong"
+    },
+    "tea": {
+      "white": {
+      }
+    }
+  },
+  "picking": {
+    "assembly_process_of_tea": "Procesul de asamblare a ceaiului nostru"
   }
 }

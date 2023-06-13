@@ -3,11 +3,13 @@
     "home": "Acasă",
     "assorts": "Asortimente",
     "picking": "Culegere",
-    "contacts": "Contacte"
+    "contacts": "Contacte",
+    "shop": "Magazin",
+    "about": "Despre noi"
   },
   "contacts": {
-    "fax": "Факс",
-    "email": "Почта",
+    "fax": "Fax",
+    "email": "Email",
     "address-text": "Oraș Chișinău",
     "phone-text": "",
     "fax-text": "",
@@ -18,16 +20,21 @@
     "registration": "Înregistreazăte",
     "logout": "Deconectare",
     "submit": "Trimite",
+    "submit_email": "Trimite e-mail",
     "continue": "Continuă",
     "success-logged": "Te-ai logat cu succes!",
     "was-not-found": "Utilizatorul nu a fost găsit!",
     "user-exists": "Utilizatorul deja există!",
-    "save_changes": "Salvează Modificările"
+    "save_changes": "Salvează Modificările",
+    "resent": "Retrimis",
+    "resend": "Retrimite",
+    "sent": "Trimis cu succes"
   },
   "errors": {
     "not-found-message": "Această pagină nu există. Accesați",
     "not-found-link": "pagina principală",
-    "something-went-wrong": "Ceva nu a mers bine"
+    "something-went-wrong": "Ceva nu a mers bine",
+    "not-found-product": "Nu s-au găsit produse"
   },
   "success": {
     "success-changes": "Modificările au fost făcute cu succes!"
@@ -59,5 +66,100 @@
       "check_email": "Înregistrare completă! Verificați e-mailul pentru activare.",
       "message": "Felicitări, contul dvs. a fost creat cu succes."
     }
+  },
+  "home": {
+    "title1": "Ceai exclusivist",
+    "title2": "din diferite părți ale lumii",
+    "description": "Aici găsești ceai din toată lumea, cele mai de neimaginat gusturi și arome"
+  },
+  "shop": {
+    "filter": "Filtru",
+    "add_to_cart": "Adaugă în coș",
+    "maximum_products": "Cantitatea maximă a produsului",
+    "product": {
+      "buy": "Cumpără"
+    },
+    "modal": {
+      "price": "Preț",
+      "type": "Tip",
+      "quantity": "Cantitate",
+      "stock": "Stock",
+      "status": "Statut",
+      "brand": "Brand",
+      "active": "Activ",
+      "pending": "În așteptare",
+      "disapproved": "Respins",
+      "expired": "Expirat",
+      "open_all": "Deschide tot",
+      "close_all": "Inchide tot",
+      "none": "Nici unul",
+      "all": "Tot",
+      "increase": "Crescător",
+      "decrease": "Descrescător",
+      "tea": "Ceai",
+      "coffee": "Cafea"
+    },
+    "shop_item": {
+      "related": "Produse asemănătoare"
+    }
+  },
+  "discount": {
+    "discount_code": "Cod de reducere",
+    "invalid_discount_code": "Cod de reducere nevalid!",
+    "promotion_new_clients": "Promoție pentru clienți noi",
+    "enter_your_email": "Vă rugăm să introduceți adresa de e-mail a contului dvs.",
+    "valid_fields": "Câmpul nu se potrivește, vă rugăm să încercați din nou!",
+    "discount_percent": "Oferim o reducere de <compDiscount>{{discount}}%</compDiscount> la prima comanda!",
+    "copy_discount_code": "Copiați codul promoțional din scrisoare și puneți fierbătorul",
+    "get_discount": "Obțineți o reducere",
+    "promo_code": "Am trimis un cod promoțional la adresa dvs. de e-mail, vă rugăm să așteptați 15 secunde, apoi introduceți codul de reducere!"
+  },
+  "about": {
+    "whyChooseUs": "De ce ne aleg pe noi?",
+    "delivery": "Livrare",
+    "anywhere_in_the_world": "oriunde in lume",
+    "discount_program": "Program de reduceri",
+    "regular_promotions": "și promoții regulate",
+    "exclusive": "Exclusive",
+    "tea_mixes": "amestecuri de ceai",
+    "manifold": "Varietate",
+    "tea_varieties": "de soiuri de ceai",
+    "find_here": "La noi veți găsi",
+    "high_quality_fresh_tea": "Ceai proaspăt și de calitate",
+    "quality_fresh_tea_text": "Preparam și degustăm ceai iar și iar până găsim gustul perfect, așa că catalogul nostru conține cele mai bune soiuri din cele mai renumite plantații din lume.",
+    "gift_baskets": "Coșuri cadou",
+    "gift_baskets_text": "Vom aduna într-un pachet frumos un set cadou personalizat pentru cei dragi, astfel încât aceștia să poată aprecia grija dumneavoastră și tot gustul ceaiului nostru.",
+    "exclusive_tea_mixes": "Amestecuri exclusive de ceai",
+    "exclusive_tea_mixes_text": "Încercați mixurile noastre bazate pe tendințe culinare, mixologie și inspirație",
+    "tea_accessories": "Accesorii pentru ceai",
+    "tea_accessories_text": "Aici veți găsi toate ustensilele necesare pentru depozitarea, prepararea și servirea ceaiului corespunzătoare.",
+    "useful_properties_of_tea": "Proprietăți utile ale ceaiului",
+    "rich_beneficial_elements": "Ceaiul este bogat în oligoelemente benefice",
+    "invigorates_the_spirit": "Ceaiul revigorează spiritul, crește activitatea creierului, îmbunătățește memoria",
+    "normalizes_activity_of_heart": "Ceaiul normalizează activitatea inimii, a vaselor de sânge, a sistemului digestiv",
+    "tea_prevents_cavities": "Ceaiul previne eficient apariția cariilor",
+    "tea_relieves_fatigue": "Ceaiul ameliorează oboseala și stimulează metabolismul",
+    "tea_inhibits_malignant_tumors": "Ceaiul inhibă creșterea tumorilor maligne și reduce semnificativ riscul transformării celulelor în cancer",
+    "how_collect_our_tea": "Cum ne colectăm ceaiul",
+    "collect_paragraph_1": "Colectăm frunze de ceai de atâtea ori pe an cât de câte ori vegetază ceaiul - adică dă lăstari noi cu frunze. În <span>Indonezia</span>, <span>Sri Lanka</span>, <span>Kenya</span>, în sudul <span>Indiei</span> și <span>Chinei</span>, unde este întotdeauna vară - tot timpul anului.",
+    "collect_paragraph_2": "Cu cât plantațiile sunt situate mai la nord, cu atât sezonul de recoltare a ceaiului este mai scurt - în nord-estul Indiei durează opt luni, în nordul Chinei, frunzele de ceai se recoltează de cel mult patru ori pe an, din aprilie până în septembrie.",
+    "collect_paragraph_3": "Noi <span>colectăm ceaiul manual</span>, tăind nu toate frunzele, ci doar câteva dintre cele mai tinere și suculente frunze cu o parte din tulpină pe care sunt atașate și așa-numitul mugure (sau vârfuri) - o frunză nesuflă la vârful lăstarului. Totul, astfel încât să bei doar <span>cel mai delicios și proaspăt ceai</span>!"
+  },
+  "assorts": {
+    "beneficial_features": "Caracteristici benefice",
+    "modal": {
+      "white": "Alb",
+      "black": "Negru",
+      "green": "Verde",
+      "mixes": "Mixuri",
+      "oolong": "Oolong"
+    },
+    "tea": {
+      "white": {
+      }
+    }
+  },
+  "picking": {
+    "assembly_process_of_tea": "Procesul de asamblare a ceaiului nostru"
   }
 }

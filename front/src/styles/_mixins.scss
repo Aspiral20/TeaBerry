@@ -97,6 +97,17 @@
   padding: $size;
 }
 
+// Border
+@mixin border_top-bottom($params) {
+  border-top: $params;
+  border-bottom: $params;
+}
+
+@mixin border_left-right($params) {
+  border-left: $params;
+  border-right: $params;
+}
+
 // Parallax
 @mixin parallax($url: '') {
   @if ($url != '') {
@@ -113,8 +124,11 @@
 
 @mixin fill_icon($color) {
   fill: $color;
+  transition: 1s;
+
   & * {
-    fill: $color
+    fill: $color;
+    transition: 1s;
   }
 }
 

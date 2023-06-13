@@ -3,55 +3,116 @@
   flex-direction: column;
   padding: 100px 0;
 
-  .auth_login {
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    @include WorldTitleColor();
-    @include FontThin($Font_Title_Thin);
+  .form_container {
+    padding: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+
+    .auth_login {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      @include WorldTitleColor();
+      @include FontThin($Font_Title_Thin);
+
+      &.filter_effect {
+        color: white;
+        @include WorldTitleFontSize(34px);
+      }
+    }
+
+    .auth_form {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+
+      .inputs_container {
+        margin: 20px 0;
+      }
+
+      .auth_submit {
+      }
+
+      .sign_up {
+        @include flex_justify-align();
+        padding-top: 15px;
+
+        &_text {
+          @include WorldFontSizeColor();
+        }
+
+        &_link {
+          @include WorldFontSizeColor('green_link');
+          text-decoration: underline;
+        }
+      }
+
+      .forgot_password {
+        @include flex_align();
+        padding-bottom: 14px;
+
+        &_text {
+          text-decoration: underline;
+          cursor: pointer;
+          @include WorldFontSizeColor('description');
+        }
+      }
+
+      &.filter_effect {
+        .auth_submit {
+          background-color: white;
+          border-color: white;
+          background-image: none;
+          @include WorldTextColor(black);
+
+          &.is_disabled {
+            &:hover {
+              background-color: white;
+              @include WorldTextColor(black);
+            }
+          }
+
+          &:hover {
+            background-color: transparent;
+            @include WorldTextColor(white);
+          }
+        }
+
+        .forgot_password_text, .sign_up_link {
+          color: wheat;
+        }
+
+        .sign_up_text {
+          color: white;
+        }
+      }
+    }
   }
+}
 
-  .auth_form {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
+@media screen and (max-width: 599px) {
+  .auth_user .form_container {
+    width: 100%;
 
-    .inputs_container {
-      margin: 20px 0;
-    }
-
-    .auth_submit {
-    }
-
-    .sign_up {
-      @include flex_justify-align();
-      padding-top: 15px;
-      &_text {
-        @include WorldFontSizeColor();
-      }
-      &_link {
-        @include WorldFontSizeColor('green_link');
-        text-decoration: underline;
-      }
-    }
-
-    .forgot_password {
-      @include flex_align();
-      padding-bottom: 14px;
-      &_text {
-        text-decoration: underline;
-        @include WorldFontSizeColor('description');
-      }
+    .auth_form {
+      width: 100%;
     }
   }
 }
 
 @media screen and (max-width: 425px) {
   .auth_user {
-    padding: 100px 1rem;
+    padding: 100px 0;
 
-    .auth_form {
-      width: 100%;
+    .form_container {
+      padding: 15px;
     }
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .auth_user .form_container .auth_form .auth_submit {
+    @include min-max_width(100%);
   }
 }

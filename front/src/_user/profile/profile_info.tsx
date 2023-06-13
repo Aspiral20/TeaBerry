@@ -3,6 +3,7 @@ import { ArrayCommonDataType } from "../../_types";
 import { useTranslation } from "react-i18next";
 import { StoreContext } from "../../index";
 import { enumUserData } from "../../_constants";
+import { observer } from "mobx-react-lite";
 
 interface OutletContext {
   userInfo: ArrayCommonDataType
@@ -12,6 +13,7 @@ const ProfileInfo: FC = ({}) => {
   const {t} = useTranslation()
   const { store } = useContext(StoreContext)
   const { userStore } = store
+
 
   return (
     <div className="user_info_container">
@@ -27,4 +29,4 @@ const ProfileInfo: FC = ({}) => {
   );
 };
 
-export default ProfileInfo;
+export default observer(ProfileInfo);

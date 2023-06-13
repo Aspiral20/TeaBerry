@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { DefaultTitle } from "../../_components";
+import { observer } from "mobx-react-lite";
 
 interface ProfileBasketProps {}
 const ProfileBasket: FC<ProfileBasketProps> = ({}) => {
@@ -10,4 +11,4 @@ const ProfileBasket: FC<ProfileBasketProps> = ({}) => {
   );
 };
 
-export default ProfileBasket;
+export default observer(ProfileBasket);

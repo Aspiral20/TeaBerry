@@ -1,5 +1,5 @@
 .contacts {
-  @include margin_top-bottom(15px);
+  @include padding_top-bottom(15px);
 
   &__title {
     text-align: center;

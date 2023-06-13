@@ -1,0 +1,13 @@
+.back_to_previous {
+  display: inline-block;
+
+  .arrow_container {
+    @include width-height(35px);
+
+    svg {
+      fill: rgb(90, 124, 55);
+      @include width-height(100%);
+    }
+  }
+
+}

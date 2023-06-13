@@ -114,7 +114,7 @@
 @mixin fill_icon($color) {
   fill: $color;
   & * {
-    fill: $color
+    fill: $color;
   }
 }
 

@@ -1,0 +1,198 @@
+
+.default_tag {
+  $default_tag_color: rgb(143, 188, 98);
+
+  @include flex_justify-align();
+  padding: 5px 10px;
+  margin-left: 16px;
+  color: rgba($default_tag_color, 1);
+  background-color: transparent;
+  border: 1px solid $default_tag_color;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .5s;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &__image {
+    .image {
+      @include width-height(24px);
+    }
+  }
+
+  &__name {
+
+  }
+
+  &.active {
+    transition: .5s;
+    color: white;
+    background-color: rgba($default_tag_color, 1);
+    border: 1px solid transparent;
+  }
+}
+
+.default_container {
+  @include margin_top-bottom(30px);
+  box-shadow: 0 0 23px 2px rgba(31, 168, 37, 0.13);
+  border: 1px solid rgba(143, 188, 98, 0.7);
+  padding: 25px 30px;
+  min-height: 350px;
+
+  @media screen and (max-width: 767px) {
+    padding: 20px 16px;
+  }
+}
+
+.default_modal_container {
+  .default_modal {
+    $burgerColor: rgb(90, 124, 55);
+    $width: 280px;
+    $burgerWidth: 20px;
+    $burgerHeight: 3px;
+    $burgerSize: 25px;
+
+    position: fixed;
+    left: -$width;
+    top: 0;
+    height: 100%;
+    width: $width;
+    transition: 1s;
+    z-index: 2;
+    background-color: white;
+    padding: 12px;
+
+    &.isOpen {
+      transition: 1s;
+      left: 0;
+    }
+
+    .burger {
+      @include flex_justify-align();
+      //width: $header_burger-size;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+
+      .burger_animate_bar {
+        width: 100%;
+
+        .burger_center {
+          width: $burgerSize;
+          height: $burgerSize;
+          position: relative;
+
+          &::after {
+            content: '';
+            transition: .8s;
+            opacity: 1;
+            position: absolute;
+            width: $burgerWidth;
+            height: $burgerHeight;
+            background-color: $burgerColor;
+            top: 11.5px;
+            left: 2.7px;
+            transform: rotate(0deg);
+            border-radius: 50px;
+          }
+        }
+
+        &.active {
+          .burger_center {
+            &::after {
+              transition: .8s;
+              opacity: 0;
+              left: -13px;
+              transform: rotate(90deg);
+              background-color: $burgerColor;
+            }
+          }
+        }
+      }
+
+      .x-icon-container {
+        right: auto;
+        top: auto;
+
+        .x-icon {
+          &::after {
+            transition: .75s;
+            opacity: 1;
+            top: 4px;
+            left: 2.7px;
+            height: $burgerHeight;
+            width: $burgerWidth;
+            transform: rotate(0deg);
+            background-color: $burgerColor;
+          }
+
+          &::before {
+            transition: .75s;
+            opacity: 1;
+            bottom: 4px;
+            height: $burgerHeight;
+            transform: rotate(0deg);
+            width: $burgerWidth;
+            left: 2.7px;
+            background-color: $burgerColor;
+          }
+        }
+
+        &.current-card-icon-effect {
+          .x-icon {
+            &::after {
+              opacity: 1;
+              top: 11.5px;
+              left: 0;
+              transform: rotate(135deg);
+              width: 100%;
+              background-color: $burgerColor;
+            }
+
+            &::before {
+              opacity: 1;
+              bottom: 10.5px; //9 + 2.5
+              left: 0;
+              transform: rotate(45deg);
+              width: 100%;
+              background-color: $burgerColor;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .fon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    display: none;
+    z-index: 1;
+
+    &.active {
+      display: block;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .default_modal {
+      z-index: 3;
+    }
+  }
+}
+
+.default_map {
+  margin-top: 60px;
+
+  .default_map_iframe {
+    width: 100%;
+    min-height: 500px;
+  }
+}

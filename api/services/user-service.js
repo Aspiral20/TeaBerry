@@ -1,6 +1,7 @@
 const dotenv = require('dotenv')
 const dotenvExpand = require('dotenv-expand')
 dotenvExpand.expand(dotenv.config())
+const MailService = require('../services/mail-service')
 
 //1
 const UserSchema = require('../models/user-model.schema')
@@ -38,7 +39,7 @@ class UserService {
   }
 
   async registration(registrationData) {
-    const {full_name, country, city, address, phone, email, password} = registrationData
+    const { full_name, country, city, address, phone, email, password, role, discount } = registrationData
 
     const candidate = await UserSchema.findOne({ email })                       // cautam daca exista deja utilizatorul cu email-ul dat
     if (candidate) {
@@ -47,7 +48,18 @@ class UserService {
     const hashPassword = await bcrypt.hash(password, 3)                   // hash-am parola
     const activationLink = uuid.v4()                                          // returneaza un string random: v34faf-asfasf-31g1g3-sa-asg
 
-    const user = await UserSchema.create({ full_name, country, city, address, phone, email, password: hashPassword, activationLink })    // introducem in baza de date email-ul si parola hash
+    const user = await UserSchema.create({
+      full_name,
+      country,
+      city,
+      address,
+      phone,
+      email,
+      password: hashPassword,
+      activationLink,
+      role,
+      discount
+    })    // introducem in baza de date email-ul si parola hash
     await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`)
 
     return this._userGenerateSaveToken(user)
@@ -104,7 +116,7 @@ class UserService {
   }
 
   async updateUser(id, data) {
-    const user = await UserSchema.updateOne({id: id}, {$set: data})
+    const user = await UserSchema.updateOne({ id: id }, { $set: data })
     return user
   }
 
@@ -127,7 +139,7 @@ class UserService {
         role: 1,
         count: 1,
         percentage: {
-          $round: [ {$multiply: [{ $divide: ["$count", { $literal: count }] }, 100]}, 2 ],
+          $round: [{ $multiply: [{ $divide: ["$count", { $literal: count }] }, 100] }, 2],
         },
       }
     }]);
@@ -135,6 +147,18 @@ class UserService {
     return [...statusCountData, { role: "total", count: count, percentage: 100 }]
   }
 
+  async updateDiscount(id, body) {
+    const { discount } = body
+
+    const data = await UserSchema.updateOne({ id }, { $set: { discount: discount } })
+    return data
+  }
+
+  async sendDiscountMail(data) {
+    const { email, discount } = data
+
+    return await MailService.sendDiscountMail(email, discount)
+  }
 }
 
 module.exports = new UserService()

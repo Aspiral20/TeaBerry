@@ -65,10 +65,6 @@
           .item_list {
             @include padding_top-bottom(5px);
             cursor: pointer;
-
-            &:hover {
-              background-color: #2B2B40;
-            }
           }
         }
       }

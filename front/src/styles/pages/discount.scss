@@ -1,0 +1,156 @@
+.discount_container {
+  padding-top: 80px;
+  padding-bottom: 120px;
+  position: relative;
+
+  .shares_bg_absolute {
+    position: absolute;
+    bottom: 35px;
+    left: -265px;
+  }
+
+  .shares_container {
+    position: relative;
+    display: grid;
+    grid-template: repeat(2, auto)/repeat(2, auto);
+    border-radius: 33px;
+    background-color: white;
+    box-shadow: 0 0 26.39px 2.61px rgba(180, 179, 171, 0.19);
+    width: 996px;
+    margin: 0 auto;
+    padding: 50px 40px 75px 80px;
+
+    .shares_leaves {
+      position: relative;
+
+      .shares_absolute_img {
+        position: absolute;
+        top: -90px;
+        left: -115px;
+      }
+    }
+
+    .text_header {
+      text-align: right;
+      margin-bottom: 30px;
+    }
+
+    .shares_content {
+      display: flex;
+      justify-content: space-between;
+      grid-column: 1/3;
+      grid-row: 2/3;
+
+      .shares_relative_img {
+        width: 310px;
+        height: 310px;
+      }
+
+      .shares_relative_content {
+        text-align: center;
+        margin-right: 45px;
+
+        .info_discount {
+          @include WorldTextFontSize(18px, 16px);
+          margin-bottom: 40px;
+
+          .green_bold_span {
+            @include WorldTextFontSize(28px, 26px, 22px);
+            @include FontBold();
+            color: rgb(128, 165, 6);
+          }
+        }
+
+        .shares_form_block {
+          max-width: 425px;
+          margin: 0 auto;
+
+          .shares_true_discount {
+            @include flex_justify-align();
+            padding: 20px;
+            flex-direction: column;
+            border: 1px solid rgba(128, 165, 6, .6);
+            border-radius: 20px;
+            height: 180px;
+
+            .true_discount_description {
+              @include FontBold();
+              @include WorldTextFontSize(18px, 16px, 14px);
+              color: rgba(128, 165, 6, .6);
+              text-align: center;
+              max-width: 335px;
+            }
+
+            .resend_mail {
+              @include classic_button($colorLightYellowGreen, $colorDarkYellowGreen, $colorLightYellowGreen, white);
+              margin-top: 10px;
+            }
+          }
+
+          .shares_form {
+            .shares_input_block {
+              position: relative;
+
+              .shares_input {
+                border: 1px solid rgb(143, 188, 98);
+                border-radius: 33.5px;
+                box-shadow: 0 0 23px 2px rgba(31, 168, 37, 0.13);
+                padding: 20px 25px;
+                @include FontMedium();
+                @include WorldTextFontSize(14px, 14px, 14px);
+                color: rgb(46, 50, 42);
+                width: 100%;
+                margin-bottom: 37px;
+
+                &.error {
+                  border-color: red;
+
+                  &::placeholder {
+                    color: red;
+                  }
+                }
+
+                &::placeholder {
+                  text-align: center;
+                  @include FontMedium();
+                  color: rgb(194, 192, 192);
+                }
+
+                &.disabled {
+                  opacity: .5;
+                }
+              }
+
+              .text_error {
+                position: absolute;
+                bottom: 15px;
+                font-family: "Gilroy-Medium", sans-serif;
+                color: red;
+                font-size: 16px;
+                text-align: center;
+                width: 100%;
+              }
+            }
+
+            .shares_button {
+              padding: 22px 0;
+              width: 100%;
+
+              .leaves_image_button {
+                right: -35px;
+              }
+            }
+
+            .go_to_step {
+              display: flex;
+              text-align: start;
+              margin-bottom: 20px;
+              cursor: pointer;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}

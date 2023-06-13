@@ -26,6 +26,16 @@ $editing_opacity: .5;
         opacity: $editing_opacity;
         transition: .6s;
       }
+
+      &.filter_effect {
+        background: transparent;
+        color: white;
+        border-color: white;
+
+        &::placeholder {
+          color: white;
+        }
+      }
     }
 
     .auth_svg_toggle {
@@ -45,6 +55,10 @@ $editing_opacity: .5;
         &.is_value {
           opacity: 1;
         }
+
+        &.filter_effect {
+          @include fill_icon(white);
+        }
       }
     }
 
@@ -62,6 +76,10 @@ $editing_opacity: .5;
         @include max_width-height(100%);
         opacity: .8;
         transition: .6s;
+
+        &.filter_effect {
+          @include fill_icon(white);
+        }
       }
 
       &.editing {

@@ -78,7 +78,9 @@ const Login: FC = () => {
     } : item))
   }, [isHiddenPasswd])
 
-  useEffect(() => {}, [navigate])   //After user is logged, fetch data in profile
+  useEffect(() => {
+
+  }, [navigate])   //After user is logged, fetch data in profile
 
   const formSubmit = (e: any) => {
     e.preventDefault()
@@ -109,68 +111,62 @@ const Login: FC = () => {
     setData(initData)
   }
   // console.log(store.isAuth)
+
+  console.log({ user: store.authStore.user })
   return (
     <>
       {!store.authStore.isLoading ? (
         <div className="user_login auth_user">
-          <div className="auth_login title">{t('actions.login')}</div>
-
-          <form className="auth_form" onSubmit={formSubmit}>
-            <div className="inputs_container">
-              {data.map(({ id, name, description, value, ...rest }) => (
-                <SiteInput
-                  key={id}
-                  onChange={handleChange}
-                  data={{ id, name, description, value, ...rest }}
-                  togglePasswd={togglePasswd}
-                  isHiddenPasswd={isHiddenPasswd}
-                >
-                  <PasswordValidation
-                    password={passIsValid}
-                    show={!!value && name === 'password' && !validReqPasswd}
-                    timeout={200}
-                  />
-                </SiteInput>
-              ))}
-            </div>
-            <div className="forgot_password">
-              <Link className="forgot_password_text text" to="/user/forgot_password">
-                {t('auth.forgot_password')}?
-              </Link>
-            </div>
-            <button
-              className={cn("auth_submit auth_button button", { is_disabled: !validReqPasswd || isDisabled || validEmail })}
-              disabled={!validReqPasswd || isDisabled || validEmail}
-            >
-              {t('actions.submit')}
-            </button>
-            <div className="sign_up">
-              <div className="sign_up_text text">
-                {t('auth.not_a_member')}
+          <div className="form_container">
+            <div className="auth_login filter_effect title">{t('actions.login')}</div>
+            <form className="auth_form filter_effect" onSubmit={formSubmit}>
+              <div className="inputs_container">
+                {data.map(({ id, name, description, value, ...rest }) => (
+                  <SiteInput
+                    key={id}
+                    onChange={handleChange}
+                    data={{ id, name, description, value, ...rest }}
+                    togglePasswd={togglePasswd}
+                    isHiddenPasswd={isHiddenPasswd}
+                    isFilterEffect={true}
+                  >
+                    <PasswordValidation
+                      password={passIsValid}
+                      show={!!value && name === 'password' && !validReqPasswd}
+                      timeout={200}
+                      isFilterEffect={true}
+                    />
+                  </SiteInput>
+                ))}
               </div>
-              ?&nbsp;
-              <Link className="sign_up_link text" to="/auth/registration">
-                {t('actions.registration')}
-              </Link>
-            </div>
-          </form>
-
+              <div className="forgot_password">
+                <Link className="forgot_password_text text" to="/user/forgot_password">
+                  {t('auth.forgot_password')}?
+                </Link>
+              </div>
+              <button
+                className={cn("auth_submit auth_button button", { is_disabled: !validReqPasswd || isDisabled || validEmail })}
+                disabled={!validReqPasswd || isDisabled || validEmail}
+              >
+                {t('actions.submit')}
+              </button>
+              <div className="sign_up">
+                <div className="sign_up_text text">
+                  {t('auth.not_a_member')}
+                  ?&nbsp;
+                </div>
+                <Link className="sign_up_link text" to="/auth/registration">
+                  {t('actions.registration')}
+                </Link>
+              </div>
+            </form>
+          </div>
           {/*{store.isAuth && (*/}
           {/*  <h1>User is authorized,user: ${store.user.email}</h1>*/}
           {/*)}*/}
 
-          {/*{store.isLoading ? <>Loading...</> : <></>}*/}
-
           {/*<div>*/}
           {/*  <h1>{store.user.isActivated ? 'Account approved' : 'Approve your account on email!!!'}</h1>*/}
-          {/*  <div>*/}
-          {/*    <button onClick={getUsers}>Get users</button>*/}
-          {/*  </div>*/}
-          {/*  {users.map(user => (*/}
-          {/*    <div key={user.email}>*/}
-          {/*      {user.email}*/}
-          {/*    </div>*/}
-          {/*  ))}*/}
           {/*</div>*/}
         </div>
       ) : 'Loading...'}

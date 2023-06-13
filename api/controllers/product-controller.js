@@ -50,7 +50,7 @@ class ProductController {
 
   async getProducts(req, res, next) {
     try {
-      const products = await ProductService.getProducts();
+      const products = await ProductService.getProducts({ params: req.params, body: req.body });
 
       return res.json(products)
     } catch (e) {
@@ -90,18 +90,30 @@ class ProductController {
     }
   }
 
+  async filterProducts(req, res, next) {
+    try {
+      const data = req.body
+      const products = await ProductService.filterProducts(data);
+
+      return res.json(products)
+    } catch (e) {
+      next(e)
+    }
+  }
+
   async removeProducts(req, res, next) {
     try {
       const data = req.body;
       if (data !== []) {
         const products = await ProductService.removeProducts(data);
         return res.json(products);
+      } else {
+        return new Error('Data is empty in \(controllers/product-controller\)');
       }
     } catch (e) {
       next(e)
     }
   }
-
 }
 
 module.exports = new ProductController()

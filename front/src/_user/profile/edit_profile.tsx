@@ -30,8 +30,6 @@ const EditProfile: FC<EditProfileProps> = () => {
   const changedDataWithoutFirst = changedData.filter((item, i) => i !== 0)
   const wasEdited = changedDataWithoutFirst.every(changedItem => data.every(dataItem => dataItem.value !== changedItem.value))
 
-  console.log(data)
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
 

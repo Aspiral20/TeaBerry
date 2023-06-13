@@ -1,0 +1,14 @@
+.circle_text_container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+
+  .circle_char {
+    display: inline-block;
+    position: absolute;
+    bottom: auto;
+    left: 50%;
+    @include WorldTextFontSize();
+  }
+}

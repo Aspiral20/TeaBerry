@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Loader from "./loader";
 
 interface FullScreenLoaderProps {
-  loader: string
+  loader?: string
 }
 
 const FullScreenLoader: FC<FullScreenLoaderProps> = ({

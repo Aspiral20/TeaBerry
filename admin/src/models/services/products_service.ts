@@ -1,42 +1,41 @@
 import axios, { AxiosResponse } from 'axios';
 import { CountStatusesProductsType, ProductsType, ProductType, SearchFieldType } from "../../_types/data";
-import { API_URL } from "../../http";
-
+import $api, { API_URL } from "../../http";
 export default class ProductsService {
   static async getProducts(): Promise<AxiosResponse<ProductsType>> {
-    return axios.get<ProductsType>(`${process.env.API_URL || API_URL}/products`)
+    return $api.get<ProductsType>(`/product/all`)
   }
 
   static async getProduct(id: string): Promise<AxiosResponse<ProductType>> {
-    return axios.get<ProductType>(`${process.env.API_URL || API_URL}/product/${id}`)
+    return $api.get<ProductType>(`/product/${id}`)
   }
 
   static async getAllStatusCountProducts(): Promise<AxiosResponse<CountStatusesProductsType>> {
-    return axios.get<CountStatusesProductsType>(`${process.env.API_URL || API_URL}/products/statuses`)
+    return $api.get<CountStatusesProductsType>(`/product/all/statuses`)
   }
 
   static async getStatusCountProducts(data: Array<string>): Promise<AxiosResponse<CountStatusesProductsType>> {
-    return axios.post<CountStatusesProductsType>(`${process.env.API_URL || API_URL}/products/count_statuses`, data)
+    return $api.post<CountStatusesProductsType>(`/product/all/count_statuses`, data)
   }
 
   static async searchProducts(data: SearchFieldType): Promise<AxiosResponse<ProductsType>> {
-    return axios.post<ProductsType>(`${process.env.API_URL || API_URL}/product/search`, data)
+    return $api.post<ProductsType>(`/product/search`, data)
   }
 
   static async addProduct(data: ProductType) {
-    return axios.post(`${process.env.API_URL || API_URL}/product/add`, data)
+    return $api.post(`/product/add`, data)
   }
 
   static async updateProduct(id: string, data: ProductType) {
-    return axios.post(`${process.env.API_URL || API_URL}/product/update/${id}`, data)
+    return $api.post(`/product/update/${id}`, data)
   }
 
   static async removeProduct(id: string) {
-    return axios.post(`${process.env.API_URL || API_URL}/product/remove/${id}`)
+    return $api.post(`/product/remove/${id}`)
   }
 
   static async removeProducts(data: Array<string>) {
     console.log(data)
-    return axios.post(`${process.env.API_URL || API_URL}/products/remove`, data)
+    return $api.post(`/product/all/remove`, data)
   }
 }

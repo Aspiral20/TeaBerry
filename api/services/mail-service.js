@@ -20,10 +20,10 @@ class MailService {
     })
   }
 
-  async sendActivationMail(to, link) {
+  async sendActivationMail(email, link) {
     await this.transporter.sendMail({
       from: process.env.SMTP_USER,
-      to: to,
+      to: email,
       subject: 'Account activation from ' + process.env.API_URL,
       text: 'TeaBerry Registration',
       html: `
@@ -42,6 +42,33 @@ class MailService {
       `
     })
   }
+
+
+  async sendDiscountMail(email, discount) {
+    const gen6CharCode = (Math.random() + 1).toString(36).substring(7)
+
+    await this.transporter.sendMail({
+      from: process.env.SMTP_USER,
+      to: email,
+      subject: 'Account activation from ' + process.env.API_URL,
+      text: 'TeaBerry - Get Discount',
+      html: `
+        <div style="display: flex;justifyContent: center;alignItems: center;width: 100%;height: 100%;text-align: center">
+          <div style="justify-self: center">
+            <h1 style="display: inline-block; color: green">
+              For getting ${discount}% discount, copy the code below and paste it on website!
+            </h1>
+            <div style="font-size: 20px;">
+              Discount code: <span style="font-weight: bold">${gen6CharCode}</span>
+            </div>
+          </div>
+        </div>
+      `
+    })
+
+    return { discountCode: gen6CharCode }
+  }
+
 }
 
 module.exports = new MailService()

@@ -20,7 +20,7 @@ export const PRODUCTS_TYPES: DefaultObjectItemType = {
 export const PRODUCTS_BRANDS: DefaultObjectItemType = {
   tea: {
     OOLONG: "oolong",
-    DARK: 'dark',
+    DARK: 'black',
     WHITE: 'white',
     GREEN: 'green',
     MIXES: 'mixes',

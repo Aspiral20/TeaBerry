@@ -67,7 +67,9 @@ class UserController {
   async refresh(req, res, next) {
     try {
       const { refreshToken } = req.cookies;
+      console.log({ refreshToken })
       const token = await UserService.refresh(refreshToken);
+
       // res.clearCookie('refreshToken')
       return res.json(token)
     } catch (e) {
@@ -119,9 +121,33 @@ class UserController {
 
   async getAllStatusCountUsers(req, res, next) {
     try {
-      const products = await UserService.getAllStatusCountUsers();
+      const data = await UserService.getAllStatusCountUsers();
 
-      return res.json(products)
+      return res.json(data)
+    } catch (e) {
+      next(e)
+    }
+  }
+
+  async updateDiscount(req, res, next) {
+    try {
+      const userId = req.params.id
+      const body = req.body
+      const data = await UserService.updateDiscount(userId, body);
+
+      return res.json(data)
+    } catch (e) {
+      next(e)
+    }
+  }
+
+  async sendDiscountMail(req, res, next) {
+    try {
+      const data = req.body
+      console.log({ data })
+      const discountCode = await UserService.sendDiscountMail(data)
+
+      return res.json(discountCode)
     } catch (e) {
       next(e)
     }

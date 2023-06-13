@@ -17,6 +17,7 @@ img {
   text-decoration: none;
   outline: none;
   color: black;
+
   &:hover {
     color: initial;
   }
@@ -28,6 +29,7 @@ body {
   //scrollbar-width: none !important;
   //scrollbar-color: $blue inherit !important;
 }
+
 //body::-webkit-scrollbar, body::-webkit-scrollbar-button {
 //  width: 6.5px;
 //}
@@ -41,7 +43,48 @@ body {
 //}
 
 #client {
-  background-color: rgba(229, 236, 213, 0.4);
+  min-height: 100vh;
+}
+
+#main_container {
+}
+
+.fon {
+  &.filter {
+    backdrop-filter: blur(3px);
+  }
+
+  &.image_fon {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+#content_container {
+  padding-top: 30px;
+}
+
+.hide_elem {
+  display: none !important;
+}
+
+.show_elem {
+  &__block {
+    display: block !important;
+  }
+
+  &__inline_block {
+    display: inline-block !important;
+  }
+
+  &__flex {
+    display: flex !important;
+  }
+
+  &__grid {
+    display: grid !important;
+  }
 }
 
 @media screen and (max-width: 600px) {

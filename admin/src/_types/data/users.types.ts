@@ -1,4 +1,4 @@
-import { IUser } from "../../../../front/src/models/user.type";
+import { IUser } from "../../../../front/src/_types/services/user.type";
 
 export type UserType = IUser
 

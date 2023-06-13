@@ -37,8 +37,17 @@ class ProductService {
     return ProductSchema.findById(id);
   }
 
-  async getProducts() {
-    return ProductSchema.find();
+  async getProducts(data) {
+    const { condition } = data.body
+    const { sort } = data.params
+
+    if (sort) {
+      return ProductSchema.find().sort({ [sort]: 1 });
+    } else if (condition) {
+      return ProductSchema.find({ ...condition });
+    } else {
+      return ProductSchema.find();
+    }
   }
 
   async getAllStatusCountProducts() {
@@ -55,7 +64,7 @@ class ProductService {
         status: 1,
         count: 1,
         percentage: {
-          $round: [ {$multiply: [{ $divide: ["$count", { $literal: count }] }, 100]}, 2 ],
+          $round: [{ $multiply: [{ $divide: ["$count", { $literal: count }] }, 100] }, 2],
         },
       }
     }]);
@@ -78,8 +87,22 @@ class ProductService {
   }
 
   async searchProducts(data) {
-    const { field, regex } = data
-    return ProductSchema.find({ [field]: { $regex: regex, $options: 'i' } });
+    const { field, sort, regex } = data
+
+    if (sort) {
+      return ProductSchema.find({ [field]: { $regex: regex, $options: 'i' } }).sort({ [sort]: 1 });
+    } else {
+      return ProductSchema.find({ [field]: { $regex: regex, $options: 'i' } });
+    }
+  }
+
+  async filterProducts(data) {
+    const { filter, sort } = data
+
+    if (!Object.values(sort).length) {
+      return ProductSchema.find(filter).sort({ status: 1 });
+    }
+    return ProductSchema.find(filter).sort(sort);
   }
 }
 

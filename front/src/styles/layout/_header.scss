@@ -1,7 +1,15 @@
+.header_fon {
+  &.isFixed {
+    position: fixed;
+    width: 100%;
+  }
+}
+
 .header {
   @include padding_top-bottom(17px);
+
   &__menu {
-    @include flex_justify-align(flex,space-between,center);
+    @include flex_justify-align(flex, space-between, center);
     flex-wrap: wrap;
 
     .logo_item {
@@ -23,6 +31,7 @@
         &:first-child {
           margin-left: 0;
         }
+
         &.active {
           color: $colorDarkYellowGreen;
         }
@@ -32,6 +41,8 @@
 
     .action_container {
       @include flex_align();
+      @include margin_top-bottom(12px);
+      margin-left: 12px;
 
       .language {
         position: relative;
@@ -50,6 +61,7 @@
             background-color: $colorLightYellowGreen;
             color: white;
           }
+
           &.active {
             border-top-left-radius: $radius;
             border-top-right-radius: $radius;
@@ -67,6 +79,7 @@
           border-top: 0;
           border-bottom-left-radius: $radius;
           border-bottom-right-radius: $radius;
+
           .lng_item {
             transition: .3s;
             padding: 2px 0;
@@ -84,16 +97,20 @@
       .user {
         @include flex_justify-align();
         margin-left: 20px;
+
         .user_auth_container {
           @include flex_align();
+          grid-gap: 20px;
+
           .profile {
             .profile_img {
-              @include width-height(60px);
-              max-width: 60px;
+              @include width-height(40px);
+              max-width: 40px;
               border-radius: 50%;
               @include shadow_card();
             }
           }
+
           .auth_action {
             margin-left: 15px;
             @include classic_button($colorLightYellowGreen, $colorDarkYellowGreen, $colorLightYellowGreen, white);
@@ -111,6 +128,49 @@
       }
     }
   }
+
+  &.image_fon {
+    $hoverButtons: rgba(0, 0, 0, 0.1);
+
+    .header__menu {
+      .menu_items .menu_item {
+        color: white;
+      }
+
+      .action_container .language {
+        .current_lang {
+          border-color: white;
+          color: white;
+
+          &:hover {
+            background-color: $hoverButtons;
+          }
+        }
+
+        .change_lang {
+          border-color: white;
+          color: white;
+
+          .lng_item {
+            color: white;
+
+            &:hover {
+              background-color: $hoverButtons;
+            }
+          }
+        }
+      }
+
+      .user .user_auth_container .auth_action {
+        border-color: white;
+        color: white;
+
+        &:hover {
+          background-color: $hoverButtons;
+        }
+      }
+    }
+  }
 }
 
 //1199-1024
@@ -119,6 +179,29 @@
 
 //1023-768
 @media screen and (max-width: 1023px) {
+  .header {
+    &__menu {
+
+    }
+  }
+  .header__menu {
+    .logo_item {
+      width: 100%;
+      text-align: center;
+    }
+
+    .menu_items {
+      width: 100%;
+      @include margin_top-bottom(15px);
+      text-align: center;
+    }
+
+    .action_container {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
 }
 
 //767-425
@@ -127,14 +210,16 @@
     &__menu {
       .logo_item {
         @include flex_justify-align(flex, space-between);
-        //width: 100%;
+        width: auto;
       }
 
       .menu_items {
         display: none;
+        @include margin_top-bottom(0);
       }
 
       .action_container {
+        width: auto;
         //width: 100%;
         //justify-content: center;
         //margin-top: 12px;
@@ -145,6 +230,11 @@
 
 //424-375
 @media screen and (max-width: 424px) {
+  .header {
+    &__menu {
+      justify-content: center;
+    }
+  }
 }
 
 //374-320

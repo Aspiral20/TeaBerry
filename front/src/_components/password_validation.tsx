@@ -10,6 +10,7 @@ interface PasswordValidationProps {
   password: ValidPasswdConditionsType,
   show?: boolean,
   timeout?: number
+  isFilterEffect?: boolean
 }
 
 const initContent = {
@@ -20,7 +21,12 @@ const initContent = {
   minLength: { id: uuid(), trans: "min_length", name: "minLength" },
   maxLength: { id: uuid(), trans: "max_length", name: "maxLength" },
 }
-const PasswordValidation: FC<PasswordValidationProps> = ({ password, show, timeout }) => {
+const PasswordValidation: FC<PasswordValidationProps> = ({
+  password,
+  show,
+  timeout,
+  isFilterEffect
+}) => {
   const { t } = useTranslation()
   const valuesPasswordByKey: { [p: string]: boolean } = password
   const content = Object.values(initContent).map(item => ({ ...item, isValid: valuesPasswordByKey[item.name] }))
@@ -46,7 +52,8 @@ const PasswordValidation: FC<PasswordValidationProps> = ({ password, show, timeo
     <div
       className={cn("password_valid_conditions", {
         show: show && !timeout ? show : showAnimation,
-        timeout: timeout && timeoutAnimation
+        timeout: timeout && timeoutAnimation,
+        filter_effect: isFilterEffect
       })}
       style={{ transition: timeout ? `${timeout / 1000}s` : `none` }}
     >

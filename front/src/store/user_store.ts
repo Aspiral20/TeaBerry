@@ -1,9 +1,9 @@
-import { IUser } from "../models/user.type";
+import { IUser } from "../_types/services/user.type";
 import { makeAutoObservable } from "mobx";
 import RootStore from "./index";
 import UserService from "../services/UserService";
 import { v4 as uuid } from "uuid";
-import { ArrayCommonDataType, ObjectDataType } from "../_types";
+import { ArrayCommonDataType, DefaultObjectItemType } from "../_types";
 import { toast } from "react-toastify";
 
 export default class UserStore {
@@ -52,7 +52,7 @@ export default class UserStore {
 
   async updateUser(
     id: string,
-    data: ObjectDataType,
+    data: DefaultObjectItemType,
     statusMessage: { success: string, error: string }
   ) {
     const { success, error } = statusMessage

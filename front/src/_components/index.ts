@@ -5,6 +5,7 @@ import ContinueButton from './continue_button'
 import ContentLoader from './content_loader'
 import SiteInput from './site_input'
 import BurgerAdaptive from './burger_adaptive'
+import BackToPrevious from './back_to_previous'
 
 export {
   PasswordValidation,
@@ -14,6 +15,7 @@ export {
   ContentLoader,
   SiteInput,
   BurgerAdaptive,
+  BackToPrevious,
 }
 export * from './icons'
 export * from './general'

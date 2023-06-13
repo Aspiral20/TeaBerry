@@ -11,6 +11,7 @@
   url($path + 'GilroyBold.ttf') format('truetype');
   font-weight: 700;
 }
+
 @font-face {
   $path: 'fonts/Gilroy/Gilroy-Medium/';
   font-family: 'Gilroy-Medium';
@@ -20,6 +21,7 @@
   url($path + 'GilroyMedium.ttf') format('truetype');
   font-weight: 500;
 }
+
 @font-face {
   $path: 'fonts/Gilroy/Gilroy-Regular/';
   font-family: 'Gilroy-Regular';
@@ -30,6 +32,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   $path: 'fonts/Gilroy/Gilroy-Light/';
   font-family: 'Gilroy-Light';
@@ -80,7 +83,7 @@ $Font_Thin: $SITE_FONT + '-Thin';
 $Font_Title_Thin: $TITLES_FONT + '-Thin';
 
 // Text font-size
-$_World_Text_FontSize: 16px;
+$_World_Text_FontSize: 15px;
 $_World_Text_FontSize_Tablet: 15px;
 $_World_Text_FontSize_Mobile: 14px;
 
@@ -199,31 +202,36 @@ $_World_Title_Color: rgb(128, 165, 6);
   //line-height: 1.85;
   letter-spacing: 0.03rem;
 }
+
 .title {
   @include FontThin($Font_Title_Thin);
   @include WorldTitleFontSize();
   @include WorldTitleColor();
   letter-spacing: 0.05em;
+
+  &.center {
+    text-align: center;
+  }
 }
 
 
 @mixin WorldFontSizeColor($type: 'text') {
-  @if($type == 'title') {
+  @if ($type == 'title') {
     @include WorldTitleColor();
     @include WorldTitleFontSize();
     @include FontRegular();
   }
-  @if($type == 'text') {
+  @if ($type == 'text') {
     @include WorldTextFontSize();
     @include WorldTextColor();
     @include FontRegular();
   }
-  @if($type == 'description'){
+  @if ($type == 'description') {
     @include WorldTextFontSize();
     @include WorldDescriptionColor();
     @include FontLight();
   }
-  @if($type == 'green_link') {
+  @if ($type == 'green_link') {
     @include WorldTextFontSize();
     color: rgb(130, 155, 100);;
     @include FontRegular();

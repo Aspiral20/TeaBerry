@@ -9,8 +9,11 @@
 }
 
 .content-loader {
-  @include width-height(100%);
   @include flex_justify-align();
+  @include width-height(100%);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .loader_x {

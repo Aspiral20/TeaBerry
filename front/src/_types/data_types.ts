@@ -5,5 +5,3 @@ export type CommonDataType = {
 }
 
 export type ArrayCommonDataType = Array<CommonDataType>
-
-export type ObjectDataType = {[p:string]: any}

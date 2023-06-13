@@ -22,4 +22,55 @@
       }
     }
   }
+
+  &.image_fon {
+    .info_container {
+      @include WorldTextColor(white);
+
+      .info_item .description {
+        border-left-color: white;
+      }
+    }
+  }
+}
+
+// 1439 - 1200
+@media screen and (max-width: 1439px) {
+}
+
+// 1199 - 1024
+@media screen and (max-width: 1199px) {
+}
+
+// 1023 - 768
+@media screen and (max-width: 1023px) {
+}
+
+// 767 - 425
+@media screen and (max-width: 767px) {
+  .footer {
+    .info_container {
+      display: flex;
+      flex-direction: column;
+
+      .info_item {
+        .description {
+          @include margin-padding(0);
+          border: 0;
+        }
+      }
+    }
+  }
+}
+
+// 424 - 375
+@media screen and (max-width: 424px) {
+}
+
+//374 - 319
+@media screen and (max-width: 374px) {
+}
+
+//319 - 0
+@media screen and (max-width: 319px) {
 }

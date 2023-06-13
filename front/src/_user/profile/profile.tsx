@@ -31,10 +31,14 @@ const Profile: FC<ProfileProps> = ({}) => {
   }, [])
 
   useEffect(() => {
-    if(userStore.user && !userStore.isLoading) {
+    if (userStore.user && !userStore.isLoading) {
       userStore.userStoreSetData()
     }
   }, [])
+
+  useEffect(() => {
+    userStore.fetchUser()
+  }, [pathname])
 
   useEffect(() => {
     userStore.userStoreSetData()
@@ -44,12 +48,12 @@ const Profile: FC<ProfileProps> = ({}) => {
     <>
       {authStore.isAuth ? (
         <div className="profile__container">
-          <div className={cn("profile__menu_container", {loaded: !userStore.isLoading})}>
+          <div className={cn("profile__menu_container", { loaded: !userStore.isLoading })}>
             {!userStore.isLoading ? (
               <>
                 <div className="photo_container">
                   <Link to='/profile/info' className="image_link">
-                    <img className="image" src="/logo/profile.jpg" alt="..."/>
+                    <img className="image" src="/logo/account_image.jpg" alt="..."/>
                   </Link>
                   <div className="name text">
                     {userStore.user.full_name}

@@ -1,8 +1,8 @@
-import { IUserDto } from "../models/user.type";
+import { IUserDto } from "../_types/services/user.type";
 import AuthService from "../services/AuthService";
 import { makeAutoObservable } from "mobx";
 import axios from 'axios';
-import { AuthResponse } from "../models/response/auth_response.type";
+import { AuthResponse } from "../_types/services/response/auth_response.type";
 import { API_URL } from "../http";
 import { toast } from "react-toastify";
 import { ReqLoginDataType, ReqRegistrationDataType } from "../_types";
@@ -23,15 +23,12 @@ export default class AuthStore {
   setAuth(bool: boolean) {
     this.isAuth = bool;
   }
-
   setUser(user: IUserDto) {
     this.user = user
   }
-
   setLoading(bool: boolean) {
     this.isLoading = bool
   }
-
   async login(
     data: ReqLoginDataType,
     navigate: (to: string) => void,
@@ -90,8 +87,8 @@ export default class AuthStore {
   async checkAuth() {
     try {
       this.setLoading(true)
-      const res = await axios.get<AuthResponse>(`${process.env.API_URL || API_URL}/refresh`, { withCredentials: true })
-      console.log(res)
+      const res = await AuthService.checkAuth();
+      console.log({ resAuth: res })
 
       localStorage.setItem('token', res.data.accessToken);
       this.setAuth(true);

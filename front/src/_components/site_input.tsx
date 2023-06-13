@@ -22,6 +22,7 @@ interface SiteInputProps {
   isHiddenPasswd?: boolean,
   editOnClick?: (e: any) => void
   showEditIcon?: boolean
+  isFilterEffect?: boolean
 }
 
 const SiteInput: FC<SiteInputProps> = ({
@@ -32,7 +33,8 @@ const SiteInput: FC<SiteInputProps> = ({
   togglePasswd,
   isHiddenPasswd,
   editOnClick,
-  showEditIcon
+  showEditIcon,
+  isFilterEffect,
 }) => {
   const { name, value, description, placeholder, edit, ...rest } = data
   const { t } = useTranslation();
@@ -41,7 +43,11 @@ const SiteInput: FC<SiteInputProps> = ({
     <div className="auth_input_container">
       <div className="icon_input_container">
         <input
-          className={cn("auth_input", {editing: edit !== undefined ? !edit: '', adaptive_padding: edit !== undefined})}
+          className={cn("auth_input", {
+            editing: edit !== undefined ? !edit : '',
+            adaptive_padding: edit !== undefined,
+            filter_effect: isFilterEffect
+          })}
           name={name || undefined}
           onChange={onChange}
           value={value || ''}
@@ -52,23 +58,35 @@ const SiteInput: FC<SiteInputProps> = ({
         />
 
         {edit !== undefined && showEditIcon && (
-          <div className={cn("svg_edit_container", {editing: edit})} id={name} onClick={editOnClick && editOnClick}>
-            <EditIcon className="svg_edit_icon" forAllId={name}/>
+          <div className={cn("svg_edit_container", {
+            editing: edit
+          })} id={name} onClick={editOnClick && editOnClick}>
+            <EditIcon className={cn("svg_edit_icon", {
+              filter_effect: isFilterEffect
+            })} forAllId={name}/>
           </div>
         )}
 
-        {enumInputIcons.map(item => name === item.name ? (
-          <div className="auth_svg_toggle">
-            {item.icon(value, edit !== undefined && edit)}
+        {enumInputIcons.map((item, index) => name === item.name ? (
+          <div key={item.id} className={cn("auth_svg_toggle")}>
+            {item.icon(value, edit, { filter_effect: isFilterEffect })}
           </div>
         ) : <></>)}
 
         {name === 'password' && (
           <div className="auth_svg_toggle" onClick={togglePasswd}>
             {!isHiddenPasswd ? (
-              <PasswordIconFilled className={cn("auth_svg_icon", { is_value: value })}/>
+              <PasswordIconFilled
+                className={cn("auth_svg_icon", {
+                  is_value: value,
+                  filter_effect: isFilterEffect
+                })}/>
             ) : (
-              <PasswordIcon className={cn("auth_svg_icon", { is_value: value })}/>
+              <PasswordIcon
+                className={cn("auth_svg_icon", {
+                  is_value: value,
+                  filter_effect: isFilterEffect
+                })}/>
             )}
           </div>
         )}

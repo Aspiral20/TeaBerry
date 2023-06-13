@@ -14,5 +14,9 @@
       background-color: var(--site-item-list-font-color);
       border-radius: 50%;
     }
+
+    &:hover {
+      background-color: var(--site-item-list-hover-bkg-color);
+    }
   }
 }

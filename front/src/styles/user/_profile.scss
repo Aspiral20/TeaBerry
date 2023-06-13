@@ -36,7 +36,9 @@
 
         .image {
           border-radius: 50%;
-          max-width: 110px;
+          @include min-max_width(110px);
+          @include min-max_height(110px);
+          object-fit: cover;
         }
       }
 

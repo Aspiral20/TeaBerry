@@ -6,6 +6,7 @@
   background: var(--theme-mode-content-bg);
   border-radius: 5px;
   min-width: 160px;
+  z-index: 1;
 
   &.left {
     left: 0;

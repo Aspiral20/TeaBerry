@@ -6,4 +6,6 @@ export type ReqRegistrationDataType = {
   phone: string;
   email: string;
   password: string;
+  role: string;
+  discount: number;
 }

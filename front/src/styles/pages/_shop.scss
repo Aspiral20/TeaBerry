@@ -1,0 +1,422 @@
+.filter_modal {
+  overflow-y: auto;
+
+  .filter_title {
+    text-align: center;
+  }
+
+  .filter_container {
+    margin: 15px 0;
+  }
+
+  .features_filter {
+    @include flex_justify-align(flex, space-between);
+
+    .filter_button {
+      @include classic_button($colorLightYellowGreen, $colorDarkYellowGreen, $colorLightYellowGreen, white);
+    }
+  }
+
+  .toggle_section {
+
+    .section {
+      margin-top: 12px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+
+      .section_title {
+        @include flex_justify-align(flex, space-between);
+        @include WorldTextFontSize(18px);
+        margin-bottom: 8px;
+        font-weight: bold;
+        cursor: pointer;
+
+        .icon {
+          @include flex_justify-align();
+          z-index: -1;
+
+          svg {
+            transition: .75s;
+            @include width-height(17px);
+          }
+        }
+
+        &.active {
+          .icon svg {
+            transition: .75s;
+            transform: rotate(-90deg);
+          }
+        }
+      }
+
+      .section_content {
+        padding-left: 10px;
+        display: none;
+
+        &.active {
+          display: block;
+        }
+
+        .check_item {
+          @include flex_align();
+          padding: 6px 0;
+          width: 100%;
+
+          .check_input {
+            margin-right: 10px;
+          }
+
+          .check_text {
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+}
+
+.product_container {
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 25px;
+  display: grid;
+
+  .product {
+    width: 100%;
+    justify-self: center;
+    box-shadow: 0 0 23px 2px rgba(31, 168, 37, .13);
+    border: 1px solid rgba(143, 188, 98, 0.7);
+    border-radius: 15px;
+    transition: .75s;
+
+    &:hover {
+      transition: .75s;
+      background-color: rgb(247, 255, 237);
+    }
+
+    &.disabled {
+      opacity: .5;
+      cursor: default;
+
+      .content_container .buy_container .buy_button {
+        &:hover {
+          cursor: default;
+          border: 1px solid rgb(128, 165, 6);
+          color: rgb(90, 124, 55);
+          background-color: transparent;
+        }
+      }
+    }
+
+    .image_container {
+      @include min-max_width(100%);
+      height: 200px;
+
+      .image {
+        @include min-max_width-height(100%);
+        object-fit: contain;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+    }
+
+    .content_container {
+      @include flex_justify-align(flex, space-between);
+      padding: 15px;
+
+      .text_container {
+        width: 100%;
+        padding-right: 20px;
+
+        .item_content {
+          margin-top: 2px;
+          @include WorldTextFontSize(14px);
+
+          .field {
+            font-weight: bold;
+            @include WorldTextFontSize(14px);
+          }
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+
+        .name {
+          @include WorldTextFontSize(16px);
+        }
+
+        .description {
+          margin-top: 12px;
+        }
+      }
+
+      .buy_container {
+        min-width: max-content;
+
+        .price {
+          text-align: center;
+
+          &.cut_price {
+            text-decoration: line-through;
+          }
+        }
+
+        .buy_button {
+          @include classic_button($colorLightYellowGreen, $colorDarkYellowGreen, $colorLightYellowGreen, white);
+          margin-top: 12px;
+          border-radius: 30px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 374px) {
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: 1199px) {
+      max-width: 260px;
+    }
+  }
+
+  @media screen and (max-width: 1199px) {
+    & {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 579px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.shop {
+  $border_headers: rgba(0, 0, 0, 0.2);
+
+  .shop_profile_bar {
+    @include flex_justify-align(flex, space-between);
+    @include padding_top-bottom(10px);
+    @include padding_left-right(12px);
+    border-bottom: 1px solid $border_headers;
+
+    .search_container {
+      @include flex_align();
+
+      .auth_input_container {
+        .icon_input_container {
+          .auth_input {
+            border-radius: 30px;
+          }
+        }
+
+        margin-right: 20px;
+      }
+    }
+
+    .profile_features {
+      display: flex;
+
+      .features_icons {
+        margin-left: 20px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+
+      .search_container {
+        order: 2;
+      }
+
+      .profile_features {
+        order: 1;
+      }
+    }
+    @media screen and (max-width: 424px) {
+
+      .search_container, .profile_features {
+        width: 100%;
+      }
+
+      .profile_features {
+        justify-content: center;
+      }
+
+      .search_container {
+        flex-direction: column;
+
+        .auth_input_container {
+          @include flex_justify();
+          margin-right: 0;
+        }
+
+        .content_block_button {
+          //margin-top: 20px;
+          //margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  .shop_tags {
+    @include flex_align();
+    @include padding_left-right(12px);
+    @include padding_top-bottom(10px);
+    border-bottom: 1px solid $border_headers;
+    overflow-x: auto;
+
+    .default_tag {
+
+      &__image {
+        .image {
+
+        }
+      }
+
+      &__name {
+
+      }
+    }
+  }
+
+  .shop_content {
+    padding: 20px 0;
+  }
+
+  .filter_icon_button {
+    @include width-height(100px);
+    position: fixed;
+    left: 50px;
+    bottom: 50px;
+    transition: .5s;
+    background-color: white;
+    z-index: 1;
+  }
+
+  @media screen and (max-width: 767px) {
+    .filter_icon_button {
+      display: none;
+    }
+  }
+}
+
+.product_page {
+  .card_product {
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-gap: 50px;
+    overflow: hidden;
+
+    .product_image {
+      max-width: 300px;
+
+      .image {
+        object-fit: contain;
+        @include width-height(100%)
+      }
+
+      @media screen and (max-width: 767px) {
+        justify-self: center;
+      }
+      @media screen and (max-width: 424px) {
+        max-width: 100%;
+      }
+    }
+
+    .product_content {
+      .product_context {
+        margin-bottom: 22px;
+
+        .product_title {
+          @include FontRegular();
+          @include WorldTitleFontSize(28px, 24px, 24px);
+          margin-bottom: 20px;
+          font-weight: bold;
+        }
+
+        .product_price {
+          @include WorldTextFontSize(17px);
+          font-weight: bold;
+          margin-bottom: 6px;
+
+          &.cut_price {
+            text-decoration: line-through;
+          }
+        }
+
+        .product_description {
+          color: rgba(46, 50, 42, .9);
+        }
+      }
+
+      .features_container {
+        .product_features {
+          display: grid;
+          grid-template-columns: repeat(2, auto);
+          margin-bottom: 22px;
+          grid-gap: 5px;
+
+          .feature {
+            .field {
+              font-weight: bold;
+            }
+          }
+
+          @media screen and (max-width: 767px) {
+            grid-template-columns: auto;
+          }
+        }
+
+        .payment_features {
+          display: grid;
+          grid-gap: 20px;
+          grid-template-columns: repeat(2, max-content);
+
+          .qty_input {
+            @include classic_button($colorLightYellowGreen, $colorDarkYellowGreen, transparent, $_World_Text_Color);
+            cursor: auto;
+            max-width: 150px;
+
+            @media screen and (max-width: 424px) {
+              max-width: 100%;
+            }
+          }
+
+          .button_buy {
+            @include classic_button($colorLightYellowGreen, $colorDarkYellowGreen, $colorLightYellowGreen, white);
+            border-radius: 30px;
+          }
+
+          @media screen and (max-width: 424px) {
+            grid-template-columns: auto;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 1023px) {
+      grid-template-columns: 40% auto;
+    }
+
+    @media screen and (max-width: 767px) {
+      grid-template-columns: auto;
+    }
+  }
+
+  .filter_title {
+    @include WorldTitleFontSize();
+    @include FontRegular();
+    margin-bottom: 20px;
+  }
+}
+

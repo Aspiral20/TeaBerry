@@ -72,6 +72,8 @@ const initReqData: ReqRegistrationDataType = {
   phone: '',
   email: '',
   password: '',
+  role: 'client',
+  discount: 0
 }
 
 const Registration: FC = () => {
@@ -113,7 +115,7 @@ const Registration: FC = () => {
 
   const formSubmit = (e: any) => {
     e.preventDefault()
-    let reqData: ReqRegistrationDataType & { [p: string]: string } = initReqData;
+    let reqData: ReqRegistrationDataType & { [p: string]: string | number } = initReqData;
     const reqDataKeys = Object.keys(reqData)
 
     data.forEach((item, i) => {
@@ -137,33 +139,37 @@ const Registration: FC = () => {
     <>
       {!store.authStore.isLoading ? (
         <div className="user_registration auth_user">
-          <h2 className="auth_login title">{t('actions.registration')}</h2>
-          <form className="auth_form" onSubmit={formSubmit}>
-            <div className="inputs_container">
-              {data.map(({ id, name, value, ...rest }) => (
-                <SiteInput
-                  key={id}
-                  onChange={handleChange}
-                  data={{ id, name, value, ...rest }}
-                  togglePasswd={togglePasswd}
-                  isHiddenPasswd={isHiddenPasswd}
-                >
-                  <PasswordValidation
-                    password={passIsValid}
-                    show={!!value && name === 'password' && !validReqPasswd}
-                    timeout={200}
-                  />
-                </SiteInput>
-              ))}
-            </div>
-            <button
-              className={cn("auth_submit auth_button button", { is_disabled: !validReqPasswd || isDisabled || validEmail })}
-              disabled={!validReqPasswd || isDisabled || validEmail}
-            >
-              {t('actions.submit')}
-            </button>
-          </form>
-          <ToastContainer/>
+          <div className="form_container">
+            <h2 className="auth_login filter_effect title">{t('actions.registration')}</h2>
+            <form className="auth_form filter_effect" onSubmit={formSubmit}>
+              <div className="inputs_container">
+                {data.map(({ id, name, value, ...rest }) => (
+                  <SiteInput
+                    key={id}
+                    onChange={handleChange}
+                    data={{ id, name, value, ...rest }}
+                    togglePasswd={togglePasswd}
+                    isHiddenPasswd={isHiddenPasswd}
+                    isFilterEffect={true}
+                  >
+                    <PasswordValidation
+                      password={passIsValid}
+                      show={!!value && name === 'password' && !validReqPasswd}
+                      timeout={200}
+                      isFilterEffect={true}
+                    />
+                  </SiteInput>
+                ))}
+              </div>
+              <button
+                className={cn("auth_submit auth_button button", { is_disabled: !validReqPasswd || isDisabled || validEmail })}
+                disabled={!validReqPasswd || isDisabled || validEmail}
+              >
+                {t('actions.submit')}
+              </button>
+            </form>
+            {/*<ToastContainer/>*/}
+          </div>
         </div>
       ) : 'Loading...'}
     </>

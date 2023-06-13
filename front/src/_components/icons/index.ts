@@ -22,6 +22,16 @@ import XCssIcon from "./x.css.icon";
 import HomeIcon from "./home.icon";
 import CoffeeIcon from "./coffee.icon";
 import PickTeaIcon from "./pick_tea.icon";
+import DiscountIcon from "./discount.icon";
+import HeartIcon from "./heart.icon";
+import AboutIcon from "./about.icon";
+import CartIcon from "./cart.icon";
+import SearchIcon from "./search.icon";
+import BalanceIcon from "./balance.icon";
+import FilterIcon from "./filter.icon";
+import ArrowIcon from "./arrow.icon";
+import LeftArrow from "./left_arrow";
+import TeaMenuIcon from "./tea_menu.icon";
 
 export {
   PasswordIcon,
@@ -48,4 +58,14 @@ export {
   HomeIcon,
   CoffeeIcon,
   PickTeaIcon,
+  DiscountIcon,
+  HeartIcon,
+  AboutIcon,
+  CartIcon,
+  SearchIcon,
+  BalanceIcon,
+  FilterIcon,
+  ArrowIcon,
+  LeftArrow,
+  TeaMenuIcon,
 }

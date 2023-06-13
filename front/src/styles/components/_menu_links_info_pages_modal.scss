@@ -1,0 +1,67 @@
+.tea_menu {
+  display: flex;
+  flex-direction: column;
+
+  .link_head_item {
+    .link_head_title {
+      @include flex_justify-align(flex, space-between);
+      @include WorldTextFontSize(16px);
+      font-family: "Gilroy-Bold", sans-serif;
+      color: rgb(90, 124, 55);
+      margin-bottom: 8px;
+      font-weight: bold;
+      cursor: pointer;
+
+      .description {
+
+      }
+
+      .icon {
+        @include flex_justify-align();
+        z-index: -1;
+
+        svg {
+          transition: .75s;
+          @include width-height(17px);
+        }
+      }
+
+      &.active {
+        .icon svg {
+          transition: .75s;
+          transform: rotate(-90deg);
+        }
+      }
+    }
+
+    .children_links {
+      $circle_size: 6px;
+      $list_left_space: 20px;
+      display: flex;
+      flex-direction: column;
+
+      .link_item {
+        position: relative;
+        @include padding_top-bottom(4px);
+        padding-left: calc($list_left_space + $circle_size);
+
+        .active {
+          color: rgb(128, 165, 6);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: $list_left_space / 2;
+          top: $list_left_space / 2;
+          @include width-height($circle_size);
+          border-radius: 50%;
+          background-color: rgb(128, 165, 6);
+        }
+      }
+    }
+  }
+
+  .solo_link {
+  }
+}

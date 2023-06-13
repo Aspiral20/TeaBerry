@@ -23,7 +23,8 @@ const paperData = [
   },
   {
     id: uuid(),
-    to: '/commerce/catalog/statistics',
+    // to: '/commerce/catalog/statistics',
+    to: '/',
     headerTitle: 'Statistics',
     headerDescription: 'Activity',
     SVGIcon: <StatisticsIcon/>,

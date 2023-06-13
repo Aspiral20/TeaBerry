@@ -3,9 +3,9 @@ import { initReactI18next } from 'react-i18next';
 import { ro, ru, en } from './translation'
 
 /*
-* Install all modules:
-* npm i i18next i18next-http-backend i18next-browser-languagedetector react-i18next --save
-*/
+ * Install all modules:
+ * npm i i18next i18next-http-backend i18next-browser-languagedetector react-i18next --save
+ */
 
 const resources = {
   ro: {
