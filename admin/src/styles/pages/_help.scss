@@ -1,0 +1,12 @@
+.help {
+  .search {
+    .help_search {
+      border: 1px solid var(--theme-mode-buttons-hover-bg);
+      padding: 10px;
+      width: 100%;
+      background-color: var(--link-card-paper-bkg-color);
+      box-shadow: var(--link-card-paper-box-shadow);
+      border-radius: 12px;
+    }
+  }
+}

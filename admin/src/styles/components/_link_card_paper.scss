@@ -1,7 +1,7 @@
 $borderRadius: 0.625rem;
 
 .link_card_paper {
-  margin: 20px;
+  //margin: 20px;
   position: relative;
   min-height: 200px;
   padding: 1rem 1.5rem;
@@ -20,6 +20,7 @@ $borderRadius: 0.625rem;
     transition: .75s;
     background-color: var(--link-card-paper-hover-bkg-color);
     border-radius: $borderRadius;
+    z-index: 1;
   }
 
   .paper_header {

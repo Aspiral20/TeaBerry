@@ -2,6 +2,7 @@
   display: grid;
   @include margin_top-bottom(20px);
   grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
   width: 100%;
 }
 
