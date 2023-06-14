@@ -41,6 +41,7 @@ export type SiteInputObjectType = {
 export type SiteInputsObjectType = Array<SiteInputObjectType>
 
 export type CountStatusesProductsType = Array<{
+  status: string
   count: number
   percentage: number
   isHovered?: boolean

@@ -28,7 +28,8 @@
     "save_changes": "Сохранить Изменения",
     "resent": "Повторно отправлен",
     "resend": "Отправить повторно",
-    "sent": "Успешно отправлено"
+    "sent": "Успешно отправлено",
+    "search": "Поиск"
   },
   "errors": {
     "not-found-message": "Данная страница не существует. Перейти на",
@@ -156,7 +157,7 @@
     },
     "tea": {
       "white": {
-        "title_1": "Как выглядит белый чай и каков он на вкус",
+        "title_1": "Как выглядит белый чай и каков он на вкус?",
         "content_1_1": "Для белого чая, состоящего только из почек (типсов), характерна продолговатая форма, напоминающая иголки. Типсы имеют светло-серый, чуть зеленоватый цвет, они мягкие на ощупь, и на них отчетливо видны ворсинки. Белый чай, содержащий листья, выглядит немного иначе – он может быть более зеленым на вид, а «иголочки» составляют только часть его массы.",
         "content_1_2": "В заваренном виде белый чай дает нежно-желтый, прозрачно-медовый (его также называют персиковым) настой. Он ощущается как изысканный напиток с тонкой вкусоароматикой, которая варьируется в зависимости от сорта и выдержки чая. Во вкусе преобладают травяные и цветочные ноты с фруктовыми и медовыми оттенками.",
         "title_2": "Виды белого чая",
@@ -189,16 +190,16 @@
       },
       "black": {
         "title_1": "Самые известные сорта чёрного чая",
-        "content_1": "<font>Ассам</font> – самый распространенный чай в Индии и один из самых известных черных чаев в мире. Ассам – это индийская провинция, в которой два столетия назад были обнаружены дикие чайные деревья.",
-        "content_2": "Это крупнолистовой чай, самые элитные его сорта собираются летом – в период, когда чайные листья становятся наиболее крупными. Отлично сочетается с молоком, мятой или лимоном. Заваривается водой около 95 градусов в течение нескольких минут.",
-        "content_3": "<font>Дарджилинг</font> – элитный индийский чай, выращиваемый в провинции Дарджилинг. Собирается его в сотни и даже тысячи раз меньше, чем ассама, поэтому он на порядок дороже. Элитным считается первый, весенний сбор чая.",
-        "content_4": "Отличается сорт повышенным содержанием кофеина и антиоксидантов. Его часто называют «чайным шампанским» за удивительные вкусовые свойства. Сорт высоко ценится в Англии.",
-        "content_5": "<font>Эрл Грей</font> – смесь трех видов чая: китайского, индийского и цейлонского., ароматизированных бергамотом. Считается английским чаем, так как назван по легенде в честь английского графа Грея, который спас сына индийского раджи.",
-        "content_6": "Благодаря бергамоту усиливаются тонизирующие свойства чая. Англичане традиционно подают его с лимоном и медом. Заваривается чай около трех минут, рекомендуется делать не более двух заварок.",
-        "content_7": "Лапсан Сушонг – относится к китайским красным чаям, которые мы традиционно называем черными. Выращивается сорт в китайской провинции Фуцзянь, на склонах горы ЧженШань.",
-        "content_8": "Лапсан Сушонг называют копченым чаем – это был любимый напиток Уинстона Черчилля, который улавливал в нем аромат кубинских сигар. Также во вкусе можно уловить нотки имбиря, ореха, карамели и корицы. Этот сорт чая до сих пор регулярно поставляют в Великобританский парламент.",
-        "content_9": "Кенийский чай – на высокогорных склонах Кении выращивается более 50 разновидностей чая, их количество увеличивается с каждым годом. Этот чай отличается от других черных чаев, так как кусты произрастают в особых климатических условиях – на вулканической почве.",
-        "content_10": "Листья кенийского чая более крупные и сочные, они богаты антиоксидантами – гораздо больше, чем его прародитель Ассам. Чай выращивается без использования химических удобрений и считается одним из самых экологически чистых.",
+        "content_1_1": "<font>Ассам</font> – самый распространенный чай в Индии и один из самых известных черных чаев в мире. Ассам – это индийская провинция, в которой два столетия назад были обнаружены дикие чайные деревья.",
+        "content_1_2": "Это крупнолистовой чай, самые элитные его сорта собираются летом – в период, когда чайные листья становятся наиболее крупными. Отлично сочетается с молоком, мятой или лимоном. Заваривается водой около 95 градусов в течение нескольких минут.",
+        "content_1_3": "<font>Дарджилинг</font> – элитный индийский чай, выращиваемый в провинции Дарджилинг. Собирается его в сотни и даже тысячи раз меньше, чем ассама, поэтому он на порядок дороже. Элитным считается первый, весенний сбор чая.",
+        "content_1_4": "Отличается сорт повышенным содержанием кофеина и антиоксидантов. Его часто называют «чайным шампанским» за удивительные вкусовые свойства. Сорт высоко ценится в Англии.",
+        "content_1_5": "<font>Эрл Грей</font> – смесь трех видов чая: китайского, индийского и цейлонского., ароматизированных бергамотом. Считается английским чаем, так как назван по легенде в честь английского графа Грея, который спас сына индийского раджи.",
+        "content_1_6": "Благодаря бергамоту усиливаются тонизирующие свойства чая. Англичане традиционно подают его с лимоном и медом. Заваривается чай около трех минут, рекомендуется делать не более двух заварок.",
+        "content_1_7": "<font>Лапсан Сушонг<font> – относится к китайским красным чаям, которые мы традиционно называем черными. Выращивается сорт в китайской провинции Фуцзянь, на склонах горы ЧженШань.",
+        "content_1_8": "Лапсан Сушонг называют копченым чаем – это был любимый напиток Уинстона Черчилля, который улавливал в нем аромат кубинских сигар. Также во вкусе можно уловить нотки имбиря, ореха, карамели и корицы. Этот сорт чая до сих пор регулярно поставляют в Великобританский парламент.",
+        "content_1_9": "<font>Кенийский чай<font> – на высокогорных склонах Кении выращивается более 50 разновидностей чая, их количество увеличивается с каждым годом. Этот чай отличается от других черных чаев, так как кусты произрастают в особых климатических условиях – на вулканической почве.",
+        "content_1_10": "Листья кенийского чая более крупные и сочные, они богаты антиоксидантами – гораздо больше, чем его прародитель Ассам. Чай выращивается без использования химических удобрений и считается одним из самых экологически чистых.",
         "title_2": "Польза черного чая",
         "content_2_1": "Польза черного чая для организма огромна. В первую очередь – это общеукрепляющие свойства: повышение иммунитета, очищение организма от токсинов, бодрящий и успокаивающий эффект.",
         "list_item_2_1": "Благодаря содержанию фтора и танина, черный чай укрепляет зубы и десны",
@@ -228,6 +229,48 @@
     }
   },
   "picking": {
-    "assembly_process_of_tea": "Procesul de asamblare a ceaiului nostru"
+    "assembly_process_of_tea": "Procesul de asamblare a ceaiului nostru",
+    "tea": {
+      "white": {
+        "title_1": "Din ce este făcut ceaiul alb?",
+        "content_1_1": "Baza ceaiului alb este frunzele cele mai delicate și tinere ale bucșei de ceai (Camellia sinensis), precum și mugurii care nu s-au deschis încă (sfaturi). În ceaiul alb, principalul lucru este că se folosesc lăstari și muguri tineri, iar tehnologia de fabricație a produsului este, de asemenea, foarte importantă, implicând interferențe minime cu procesele naturale.",
+        "title_2": "Unde se recoltează ceaiul alb",
+        "content_2_1": "Cea mai mare parte a ceaiului alb este într-adevăr cultivată într-o regiune - în munții din provincia chineză Fujian, la o altitudine de 1000 de metri și mai sus. Aici natura a creat cele mai bune condiții pentru creșterea tufișului de ceai, care este capabil să producă mulți muguri și lăstari tineri. Cu toate acestea, există multe soiuri de ceai alb, materiile prime pentru care sunt cultivate în alte provincii din China.",
+        "title_3": "Cum se face ceaiul alb",
+        "content_3_1": "Principala diferență între ceaiul alb și toate celelalte este prelucrarea cea mai blândă a materiilor prime. Acest ceai nu este fermentat, ci numai uscat în condiții apropiate de cele naturale.",
+        "content_3_2": "Întregul ciclu de gătit este reprezentat de următoarea schemă: asamblarea materiilor prime - uscare - uscare (aer sau mecanică) - sortare - ceai finit.",
+        "content_3_3": "Colecția de materii prime începe în martie, când primele frunze și muguri apar pe tufele de ceai, acoperite cu vilii delicate albe. Aceste vilii sunt protecția naturală a frunzei viitoare de frigul primăverii timpurii. Este foarte important ca vremea să fie bună în timpul recoltării ceaiului alb, deoarece ploaia, înghețul sau vânturile puternice pot strica întreaga cultură. Colectarea se face manual.",
+        "content_3_4": "Uscarea frunzelor este un proces natural care necesită multă atenție și pricepere. Frunzele și mugurii proaspăt culeși sunt lăsați în stare latentă timp de aproximativ 3 zile pentru a se usca complet.",
+        "content_3_5": "Uscarea are loc de obicei în aer liber. Materiile prime pe paleți speciali sunt lăsate alternativ la soare și la umbră și apoi, dacă este necesar, uscate sub aer moderat fierbinte într-un cuptor. Uneori este necesar să se usuce ceaiul în cuptor de la început până la sfârșit, dar aceasta este o măsură necesară, pe care încearcă să o evite cât mai mult posibil. În general, uscarea este un pas și mai dificil decât uscarea, deoarece cele mai mici abateri de temperatură pot strica produsul.",
+        "content_3_6": "Sortarea vă permite să selectați cele mai bune părți (muguri, numite și sfaturi) pentru ceaiul premium (Bai Hao Yin Zhen), puțin mai puțin valoroase (sfaturi și primele frunze) merg la ceai într-o categorie inferioară, dar totuși elită (Bai Mu Dan). Materiile prime, care conțin un minim de muguri și mai multe frunze, devin baza ceaiurilor albe simple (Shou Mei și Gong Mei).",
+        "content_3_7": "Materia primă finită este cel mai adesea lăsată sub formă de plăcuță de ceai, dar în unele cazuri este presată în clătite similare cu clătitele pu-erh.",
+        "title_4": "Informații interesante despre ceaiul alb",
+        "content_4_1": "Se crede că ceaiul alb conține mai mulți antioxidanți decât ceaiul verde obișnuit, deoarece în rinichi și lăstari tineri aceste substanțe sunt în formă concentrată. Chiar este. Cu toate acestea, este important să ne amintim că frunzele și mugurii tineri, aproape netratați, nu sunt capabili să-și dea componentele valoroase perfuziei - tocmai pentru că membranele lor nu au fost deteriorate de fermentație. Aceasta înseamnă că ceaiul alb din punct de vedere al utilității sale este aproximativ comparabil cu ceaiul verde, care poate fi extras mult mai eficient.",
+        "content_4_2": "Ceaiul alb nu este recomandat să fie consumat imediat după fabricare. Potrivit maeștrilor chinezi de ceai, produsul finit ar trebui să \"se întindă\" pe raft timp de cel puțin o lună pentru a deveni cât mai gustos și mai sănătos posibil.",
+        "content_4_3": "Ceaiul care a fost uscat în condiții naturale (sub soare) este evaluat mai mult și are un gust mai rafinat decât cel care, din cauza condițiilor meteorologice nefavorabile, a trebuit să fie uscat într-un cuptor special.",
+        "content_4_4": "Dacă cumpărați ceai alb în Europa sau America, trebuie să știți că acolo este adesea vândut sub numele de Silver Tip Pekoe (în stilul clasificării tradiționale a frunzelor de ceai), precum și sub denumirile simple China White și Fujian White.",
+        "content_4_5": "În ultimii doi ani, moda ceaiului alb a depășit cu mult granițele Chinei. În același timp, prețurile aproape s-au dublat."
+      },
+      "green": {
+        "title_1": "Cum să alegi, să prepari și să bei ceai",
+        "content_1_1": "Este mai bine să alegeți ceaiuri de la producători bine-cunoscuți, deoarece pot exista impurități într-un produs de calitate scăzută - de la praf și ierburi la substanțe nocive. Acest lucru este valabil mai ales pentru ceaiurile aromate, în cazul cărora trebuie să verificați cu atenție compoziția și să vă asigurați că toate componentele sunt naturale.",
+        "content_1_2": "Cel mai sănătos ceai este ceaiul din frunze. Este mai ieftin decât ambalat, iar calitatea este mult superioară acestuia. Puteți determina un ceai bun prin umbră - culoarea frunzei trebuie să fie uniformă, în timp ce poate varia de la argint la verde închis.",
+        "content_1_3": "De asemenea, puteți cumpăra pungi de ceai, sub formă de frunze de ceai măcinate sau aditivi alimentari (în capsule sau lichide).",
+        "content_1_4": "Apa fierbinte este dăunătoare catechinelor, astfel încât temperatura minimă de preparare a ceaiului este de 61-70 grade, maximul fiind de 90. Cel mai bine este să folosiți apă moale de izvor sau apă fiartă înghețată. Prepararea prea lungă reduce  proprietățile benefice ale băuturii și strică gustul. Înainte de preparare, trebuie să turnați apă fiartă peste ceai și să scurgeți apa pentru a curăța frunzele de ceai, pentru a dezvălui mirosul și gustul și pentru a activa substanțele nutritive.",
+        "content_1_5": "Mulți oameni sfătuiesc să bea ceai verde cu lămâie și fără lapte - în această combinație, vitamina C ajută organismul să absoarbă catechinele. Dar nutriționiștii cred că aceasta este o recomandare controversată, deoarece vitamina C este distrusă la o temperatură de 40 de grade.",
+        "content_1_6": "Porții mici de ceai de calitate pot fi preparate de până la trei ori mai mult decât băutura, atâta timp cât băutura își păstrează gustul. Dacă adăugați apă clocotită de mai multe ori la un ceainic mare, ceaiul își va pierde proprietățile benefice. Este mai bine să depozitați frunzele de ceai într-un borcan sigilat din ceramică sau sticlă.",
+        "content_1_7": "Ceaiul verde nu trebuie băut prea fierbinte sau pe stomacul gol, altfel va începe să irită mucoasa gastrică. Și nu ar trebui să beți medicamente cu ei, deoarece băutura va încetini absorbția medicamentului.",
+        "content_1_8": "Efecte secundare și riscuri ale ceaiului verde",
+        "list_item_1_1": "Hipersensibilitatea la cofeină sau la doze mari de ceai poate provoca insomnie, anxietate crescută, greață și stomac deranjat.",
+        "list_item_1_2": "Utilizarea anticoagulantelor - diluanți sanguini (de exemplu, warfarină) - poate fi o contraindicație pentru consumul de ceai verde. Băutura conține vitamina K, care reduce efectul medicamentului.",
+        "list_item_1_3": "Utilizarea altor stimulente - cum ar fi cafeaua, băuturile energizante sau alcoolul - crește tensiunea arterială și crește povara asupra inimii și rinichilor.",
+        "list_item_1_4": "Combinația cu medicamente, alte plante medicinale sau suplimente alimentare poate provoca efecte secundare.",
+        "list_item_1_5": "Cu o lipsă de fier, este mai bine să beți ceai nu mai devreme de 30 de minute după masă, astfel încât oligoelementele din alimente să aibă timp să fie absorbite.",
+        "list_item_1_6": "Ceaiul verde poate fi dăunător femeilor însărcinate și care alăptează, persoanelor cu hipertensiune arterială, tulburări de anxietate, probleme renale, stomacale și hepatice.",
+        "title_2": "Cine ar trebui să fie atent cu această băutură?",
+        "content_2_1": "Ca orice produs care are propriile merite, ceaiul verde poate avea, de asemenea, un efect negativ asupra organismului. Aș recomanda abținerea de la consumul de ceai verde pentru persoanele care sunt hipersensibile la cofeină, precum și pentru cei care sunt predispuși la insomnie. De asemenea, nu se recomandă consumul de ceai  verde pentru pacienții cu ulcer peptic, modificări erozive ale tractului gastro- intestinal, gastrită, boli ale sistemului excretor, în special în timpul exacerbării,  stări de deficit de fier (taninurile interferează cu absorbția normală a fierului din alimente), precum și gută și glaucom.",
+        "content_2_2": "Este necesar să se limiteze utilizarea ceaiului  verde (nu mai mult de una sau două cești pe zi) la femeile însărcinate și care alăptează. În ceea ce privește copiii, deoarece ceaiul verde conține cafeină, merită limitat consumul de ceai la una, maximum două cești pe zi. Și copiii cu deficit de atenție și tendință la schimbări de dispoziție ar trebui, în general, să excludă ceaiul verde din dietă."
+      }
+    }
   }
 }

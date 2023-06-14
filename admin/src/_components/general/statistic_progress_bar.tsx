@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { CardContent, TitlePage } from "./index";
+import { AnimatedNumber, CardContent, TitlePage } from "./index";
 import cn from "classnames";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { CountStatusesProductsType } from "../../_types/data";
@@ -42,7 +42,7 @@ const StatisticProgressBar: FC<StatisticProgressBarProps> = ({
                 {item[dataField]}:
               </div>
               <div className="count text base_color opacity-75">
-                {item.count}
+                <AnimatedNumber params={{ num: item.count }}/>
               </div>
             </div>
           ))}

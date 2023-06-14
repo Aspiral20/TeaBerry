@@ -20,7 +20,7 @@ const ContentGenerator: FC<ContentGeneratorProps> = ({
         <Fragment key={id}>
           {name === 'title' && value && (
             <div className="title">
-              {value}
+              {t(value)}
             </div>
           )}
           {name === 'content' && value && (
@@ -34,7 +34,7 @@ const ContentGenerator: FC<ContentGeneratorProps> = ({
           {name === 'list' && list && (
             <ul className="head-list content">
               {list.map(item => (
-                <li className="item-list">{item}</li>
+                <li className="item-list">{t(item)}</li>
               ))}
             </ul>
           )}

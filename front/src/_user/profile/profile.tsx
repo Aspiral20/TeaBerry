@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { observer } from "mobx-react-lite";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import cn from "classnames";
-import { EditUserIcon, ShopBasketIcon, UserIcon } from "../../_components";
+import { EditUserIcon, UserIcon } from "../../_components";
 import { v4 as uuid } from 'uuid';
 import { Error_page } from "../../_pages";
 import ContentLoader from "../../_components/content_loader";
@@ -13,7 +13,7 @@ import ContentLoader from "../../_components/content_loader";
 
 const menuProfile = [
   { id: uuid(), icon: <UserIcon/>, name: 'profile', field: "Profile", link_to: '/profile/info' },
-  { id: uuid(), icon: <ShopBasketIcon/>, name: 'basket', field: "Basket", link_to: '/profile/basket' },
+  // { id: uuid(), icon: <ShopBasketIcon/>, name: 'basket', field: "Basket", link_to: '/profile/basket' },
   { id: uuid(), icon: <EditUserIcon/>, name: 'edit_profile', field: "Edit Profile", link_to: '/profile/edit_profile' },
 ]
 

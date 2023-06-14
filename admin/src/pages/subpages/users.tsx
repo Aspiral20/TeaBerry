@@ -16,7 +16,7 @@ const userFields: Array<GridColDef> = [
     headerName: 'IMAGE',
     width: 100,
     renderCell: (params) => (
-      <img className="image_product" src={params.value} alt="..."/>
+      <img className="image_product" src={params.value || '/logo/account_image.jpg'} alt="..."/>
     ),
   },
   {

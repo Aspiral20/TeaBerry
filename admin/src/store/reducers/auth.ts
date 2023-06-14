@@ -1,7 +1,6 @@
 import { AuthActionType, AuthStateType } from "../../_types/store";
 import { IUserDto } from "../../_types/auth";
 import { AuthService } from "../../models/services";
-import { toast } from "react-toastify";
 import store from "../index";
 
 const initState: AuthStateType = {
@@ -12,7 +11,7 @@ const initState: AuthStateType = {
 
 const AuthReducer = async (state = initState, action: AuthActionType) => {
   const { type, statusMessage, registrationData, loginData, navigate } = action
-  const { success, error } = statusMessage
+  // const { success, error } = statusMessage
 
   switch (type) {
     case `auth/registration`:
@@ -20,9 +19,9 @@ const AuthReducer = async (state = initState, action: AuthActionType) => {
         const res = await AuthService.registration(registrationData)
         console.log(res)
 
-        toast(success)
+        // toast(success || "Success!")
       } catch (e) {
-        toast(error)
+        // toast.error(error || "Something went wrong!")
         console.log(e)
       }
       return state
@@ -34,12 +33,12 @@ const AuthReducer = async (state = initState, action: AuthActionType) => {
 
         localStorage.setItem('token', res.data.accessToken);
 
-        toast(success)
+        // toast(success || "Success!")
         navigate('/profile')
 
         return { ...state, isAuth: true, user: res.data.user }
       } catch (e: any) {
-        toast.error(error)
+        // toast.error(error || "Something went wrong!")
         console.log(e)
       }
       return state

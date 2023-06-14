@@ -15,6 +15,7 @@ import TitlePage from './title_page'
 import PageContainer from './page_container'
 import CircleMiniIconContainer from './circle_mini_icon_container'
 import StatisticProgressBar from './statistic_progress_bar'
+import AnimatedNumber from './animated_number'
 
 export {
   Container,
@@ -34,4 +35,5 @@ export {
   PageContainer,
   CircleMiniIconContainer,
   StatisticProgressBar,
+  AnimatedNumber,
 }

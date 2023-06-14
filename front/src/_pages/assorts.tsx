@@ -1,6 +1,6 @@
-import React, { FC, Fragment, useState } from 'react';
-import { Link, useParams } from "react-router-dom";
-import { ContentGenerator, DefaultModal, DefaultTitle, MenuLinksInfoPagesModal, TeaMenuIcon } from "../_components";
+import React, { FC, useState } from 'react';
+import { useParams } from "react-router-dom";
+import { ContentGenerator, DefaultTitle, MenuLinksInfoPagesModal, TeaMenuIcon } from "../_components";
 import { useTranslation } from "react-i18next";
 import ErrorPage from "./error_page";
 import { ContentGeneratorDataInType } from "../_types";
@@ -12,27 +12,229 @@ interface AssortsProps {
 const contentGeneratorData = {
   tea: {
     white: [
-      { id: uuid(), name: 'title', value: 'Как выглядит белый чай и каков он на вкус' },
+      { id: uuid(), name: 'title', value: 'assorts.tea.white.title_1' },
       {
         id: uuid(),
         name: 'content',
-        value: 'Для белого чая, состоящего только из почек (типсов), характерна продолговатая форма, напоминающая иголки. Типсы имеют светло-серый, чуть зеленоватый цвет, они мягкие на ощупь, и на них отчетливо видны ворсинки. Белый чай, содержащий листья, выглядит немного иначе – он может быть более зеленым на вид, а «иголочки» составляют только часть его массы.'
+        value: 'assorts.tea.white.content_1_1'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.white.content_1_2'
+      },
+      { id: uuid(), name: 'title', value: 'assorts.tea.white.title_2' },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.white.content_2_1'
       },
       {
         id: uuid(),
         name: 'list',
         list: [
-          'Бай Хао Инь Чжень («серебряные иглы») – премиальный сорт, содержащий почки без вкраплений листьев в смеси. Среди белых чаев это самый дорогой и самый ценный сорт, так как для производства используются только типсы.',
-          'Бай Му Дань («белый пион») – высококачественный белый чай, содержит почки и незначительное количество листьев. В этот чай идут только верхние, начинающие распускаться два листа с каждой ветки.'
+          'assorts.tea.white.list_item_2_1',
+          'assorts.tea.white.list_item_2_2',
+          'assorts.tea.white.list_item_2_3',
+          'assorts.tea.white.list_item_2_4',
         ]
       },
       {
         id: uuid(),
         name: 'image',
-        imgUrl: ""
+        imgUrl: "/images/site/pages/assorts/tea/white_tea_properties1.jpg"
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.white.content_2_2'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.white.content_2_3'
+      },
+      { id: uuid(), name: 'title', value: 'assorts.tea.white.title_3' },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.white.content_3_1'
+      },
+      { id: uuid(), name: 'title', value: 'assorts.tea.white.title_4' },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.white.content_4_1'
+      },
+      {
+        id: uuid(),
+        name: 'list',
+        list: [
+          'assorts.tea.white.list_item_4_1',
+          'assorts.tea.white.list_item_4_2',
+          'assorts.tea.white.list_item_4_3',
+          'assorts.tea.white.list_item_4_4',
+          'assorts.tea.white.list_item_4_5',
+          'assorts.tea.white.list_item_4_6',
+          'assorts.tea.white.list_item_4_7',
+          'assorts.tea.white.list_item_4_8',
+          'assorts.tea.white.list_item_4_9',
+          'assorts.tea.white.list_item_4_10',
+          'assorts.tea.white.list_item_4_11',
+          'assorts.tea.white.list_item_4_12',
+          'assorts.tea.white.list_item_4_13',
+          'assorts.tea.white.list_item_4_14',
+        ]
+      },
+      {
+        id: uuid(),
+        name: 'image',
+        imgUrl: "/images/site/pages/assorts/tea/black_tea_properties1.png"
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.white.content_4_2'
       },
     ],
-    black: []
+    black: [
+      { id: uuid(), name: 'title', value: 'assorts.tea.black.title_1' },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_1_1'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_1_2'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_1_3'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_1_4'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_1_5'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_1_6'
+      },
+      {
+        id: uuid(),
+        name: 'image',
+        imgUrl: "/images/site/pages/assorts/tea/black_tea_properties3.png"
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_1_7'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_1_8'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_1_9'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_1_10'
+      },
+      { id: uuid(), name: 'title', value: 'assorts.tea.black.title_2' },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_2_1'
+      },
+      {
+        id: uuid(),
+        name: 'list',
+        list: [
+          'assorts.tea.black.list_item_2_1',
+          'assorts.tea.black.list_item_2_2',
+          'assorts.tea.black.list_item_2_3',
+          'assorts.tea.black.list_item_2_4',
+          'assorts.tea.black.list_item_2_5',
+          'assorts.tea.black.list_item_2_6',
+          'assorts.tea.black.list_item_2_7',
+        ]
+      },
+      {
+        id: uuid(),
+        name: 'image',
+        imgUrl: "/images/site/pages/assorts/tea/black_tea_properties2.png"
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_2_2'
+      },
+      { id: uuid(), name: 'title', value: 'assorts.tea.black.title_3' },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_3_1'
+      },
+      {
+        id: uuid(),
+        name: 'list',
+        list: [
+          'assorts.tea.black.list_item_3_1',
+          'assorts.tea.black.list_item_3_2',
+          'assorts.tea.black.list_item_3_3',
+        ]
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_3_2'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_3_3'
+      },
+      {
+        id: uuid(),
+        name: 'list',
+        list: [
+          'assorts.tea.black.list_item_3_4',
+          'assorts.tea.black.list_item_3_5',
+          'assorts.tea.black.list_item_3_6',
+          'assorts.tea.black.list_item_3_7',
+        ]
+      },
+      { id: uuid(), name: 'title', value: 'assorts.tea.black.title_4' },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_4_1'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_4_2'
+      },
+      {
+        id: uuid(),
+        name: 'content',
+        value: 'assorts.tea.black.content_4_3'
+      },
+    ]
   }
 } as ContentGeneratorDataInType
 
@@ -41,9 +243,9 @@ const initTeaMenuData = [
     id: uuid(), name: "tea", translateKey: 'shop.modal.tea', isOpen: true, children: [
       { id: uuid(), name: "white", translateKey: 'assorts.modal.white', link: "/assorts/tea/white" },
       { id: uuid(), name: "black", translateKey: 'assorts.modal.black', link: "/assorts/tea/black" },
-      { id: uuid(), name: "green", translateKey: 'assorts.modal.green', link: "/assorts/tea/green" },
-      { id: uuid(), name: "mixes", translateKey: 'assorts.modal.mixes', link: "/assorts/tea/mixes" },
-      { id: uuid(), name: "oolong", translateKey: 'assorts.modal.oolong', link: "/assorts/tea/oolong" },
+      // { id: uuid(), name: "green", translateKey: 'assorts.modal.green', link: "/assorts/tea/green" },
+      // { id: uuid(), name: "mixes", translateKey: 'assorts.modal.mixes', link: "/assorts/tea/mixes" },
+      // { id: uuid(), name: "oolong", translateKey: 'assorts.modal.oolong', link: "/assorts/tea/oolong" },
     ]
   },
 ]

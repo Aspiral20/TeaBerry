@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FC, useContext, useEffect, useState } from 'react';
-import { DefaultTag, SvgButton, ContentBlockButton } from "../../_components/general";
-import { CartIcon, DiscountIcon, HeartIcon, BalanceIcon } from "../../_components/icons";
+import { ContentBlockButton, DefaultTag, SvgButton } from "../../_components/general";
+import { DiscountIcon } from "../../_components/icons";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { FilterIcon, SiteInput } from "../../_components";
 import { v4 as uuid } from 'uuid';
@@ -10,7 +10,7 @@ import { StoreContext } from "../../index";
 import ProductService from "../../services/ProductService";
 import { ProductsType, ProductType } from "../../_types/services/product.type";
 import { useTranslation } from "react-i18next";
-import { renameFieldObjectArray, ConditionalWrapper } from "../../_utils";
+import { ConditionalWrapper, renameFieldObjectArray } from "../../_utils";
 import cn from "classnames";
 import ContentLoader from "../../_components/content_loader";
 
@@ -24,12 +24,13 @@ const ShopProfileBar: FC<ShopProfileBarProps> = ({
   fetchProducts
 }) => {
   const { store } = useContext(StoreContext);
+  const { t } = useTranslation();
   const { authStore, userStore } = store
   const [searchInput, setSearchInput] = useState({
     name: "search",
     value: "",
     type: "text",
-    placeholder: "Search",
+    placeholder: t('actions.search'),
   });
 
   const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -72,17 +73,17 @@ const ShopProfileBar: FC<ShopProfileBarProps> = ({
       </div>
 
       <div className="profile_features">
-        <ContentBlockButton
-          className="balance_container"
-          icon={<BalanceIcon/>}
-          data={[
-            { id: uuid(), name: 'balance', description: '0 MDL' },
-          ]}
-          direction="right"
-          onClick={() => alert('Buy a product!')}
-        />
-        <SvgButton className="features_icons" svgIcon={<HeartIcon/>} onClick={() => alert('Liked list clicked!')}/>
-        <SvgButton className="features_icons" svgIcon={<CartIcon/>} onClick={() => alert('Cart list clicked!')}/>
+        {/*<ContentBlockButton*/}
+        {/*  className="balance_container"*/}
+        {/*  icon={<BalanceIcon/>}*/}
+        {/*  data={[*/}
+        {/*    { id: uuid(), name: 'balance', description: '0 MDL' },*/}
+        {/*  ]}*/}
+        {/*  direction="right"*/}
+        {/*  onClick={() => alert('Buy a product!')}*/}
+        {/*/>*/}
+        {/*<SvgButton className="features_icons" svgIcon={<HeartIcon/>} onClick={() => alert('Liked list clicked!')}/>*/}
+        {/*<SvgButton className="features_icons" svgIcon={<CartIcon/>} onClick={() => alert('Cart list clicked!')}/>*/}
       </div>
     </div>
   )
